@@ -27,7 +27,7 @@ public class SelectAllFormController {
 
         try {
 
-            colCustomerId.setCellValueFactory(new PropertyValueFactory<>("CustId"));
+            colCustomerId.setCellValueFactory(new PropertyValueFactory<>("CustID"));
             colCustomerTitle.setCellValueFactory(new PropertyValueFactory<>("CustTitle"));
             colCustomerName.setCellValueFactory(new PropertyValueFactory<>("CustName"));
             colCustomerAddress.setCellValueFactory(new PropertyValueFactory<>("CustAddress"));

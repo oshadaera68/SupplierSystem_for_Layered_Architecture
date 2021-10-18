@@ -1,94 +1,80 @@
 package views.Tm;
 
 public class CustomerTm {
-    private String CustId;
-    private String CustTitle;
-    private String CustName;
-    private String CustAddress;
-    private String City;
-    private String Province;
+    private String id;
+    private String title;
+    private String name;
+    private String address;
+    private String city;
+    private String province;
+    private String postalCode;
 
     public CustomerTm() {
     }
 
-    public CustomerTm(String custId, String custTitle, String custName, String custAddress, String city, String province, String postalCode) {
-        this.CustId = custId;
-        this.CustTitle = custTitle;
-        this.CustName = custName;
-        this.CustAddress = custAddress;
-        this.City = city;
-        this.Province = province;
-        this.PostalCode = postalCode;
+    public CustomerTm(String id, String title, String name, String address, String city, String province, String postalCode) {
+        this.id = id;
+        this.title = title;
+        this.name = name;
+        this.address = address;
+        this.city = city;
+        this.province = province;
+        this.postalCode = postalCode;
     }
 
-    private String PostalCode;
-
-    public String getCustId() {
-        return CustId;
+    public String getId() {
+        return id;
     }
 
-    public void setCustId(String custId) {
-        CustId = custId;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getCustTitle() {
-        return CustTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setCustTitle(String custTitle) {
-        CustTitle = custTitle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getCustName() {
-        return CustName;
+    public String getName() {
+        return name;
     }
 
-    public void setCustName(String custName) {
-        CustName = custName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCustAddress() {
-        return CustAddress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setCustAddress(String custAddress) {
-        CustAddress = custAddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
 
     public String getProvince() {
-        return Province;
+        return province;
     }
 
     public void setProvince(String province) {
-        Province = province;
+        this.province = province;
     }
 
     public String getPostalCode() {
-        return PostalCode;
+        return postalCode;
     }
 
     public void setPostalCode(String postalCode) {
-        PostalCode = postalCode;
-    }
-
-    @Override
-    public String toString() {
-        return "CustomerTm{" +
-                "CustId='" + CustId + '\'' +
-                ", CustTitle='" + CustTitle + '\'' +
-                ", CustName='" + CustName + '\'' +
-                ", CustAddress='" + CustAddress + '\'' +
-                ", City='" + City + '\'' +
-                ", Province='" + Province + '\'' +
-                ", PostalCode='" + PostalCode + '\'' +
-                '}';
+        this.postalCode = postalCode;
     }
 }

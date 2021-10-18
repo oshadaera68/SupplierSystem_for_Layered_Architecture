@@ -3,12 +3,13 @@ package model;
 import views.Tm.CustomerTm;
 
 public class Customer {
-   private String id;
-   private String title;
-   private String name;
-   private String address;
-   private String city;
-   private String province;
+    private String id;
+    private String title;
+    private String name;
+    private String address;
+    private String city;
+    private String province;
+    private String postalCode;
 
     public Customer() {
     }
@@ -22,8 +23,6 @@ public class Customer {
         this.province = province;
         this.postalCode = postalCode;
     }
-
-    private String postalCode;
 
     public String getId() {
         return id;
