@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXTextField;
 import db.DbConnection;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.input.KeyEvent;
 import model.Item;
 
 import java.sql.PreparedStatement;
@@ -18,6 +19,15 @@ public class SearchItemController {
     public JFXTextField txtUnitPrice;
     public JFXTextField txtQty;
     public JFXButton btnSearch;
+
+    public void initialize(){
+        btnSearch.setDisable(true);
+        storeValidate();
+    }
+
+    private void storeValidate() {
+
+    }
 
     public void searchItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String customerId = txtItemCode.getText();
@@ -48,5 +58,10 @@ public class SearchItemController {
         txtPackSize.setText(i.getPackSize());
         txtUnitPrice.setText(String.valueOf(i.getUnitPrice()));
         txtQty.setText(String.valueOf(i.getQtyOnHand()));
+    }
+
+
+    public void txtFieldKeyRelease(KeyEvent keyEvent) {
+
     }
 }

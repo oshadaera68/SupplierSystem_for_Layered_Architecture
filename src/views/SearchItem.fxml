@@ -14,11 +14,11 @@
             <Font name="Behind The Scenery" size="31.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtItemCode" labelFloat="true" layoutX="217.0" layoutY="121.0" prefHeight="31.0" prefWidth="188.0" promptText="Item Code" />
-      <JFXTextField fx:id="txtDesc" labelFloat="true" layoutX="217.0" layoutY="190.0" prefHeight="31.0" prefWidth="188.0" promptText="Description" />
-      <JFXTextField fx:id="txtPackSize" labelFloat="true" layoutX="217.0" layoutY="262.0" prefHeight="31.0" prefWidth="188.0" promptText="Pack Size" />
-      <JFXTextField fx:id="txtUnitPrice" labelFloat="true" layoutX="217.0" layoutY="340.0" prefHeight="31.0" prefWidth="188.0" promptText="Unit Price" />
-      <JFXTextField fx:id="txtQty" labelFloat="true" layoutX="217.0" layoutY="418.0" prefHeight="31.0" prefWidth="188.0" promptText="Qty On Hand" />
+      <JFXTextField fx:id="txtItemCode" labelFloat="true" layoutX="217.0" layoutY="121.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Item Code" />
+      <JFXTextField fx:id="txtDesc" labelFloat="true" layoutX="217.0" layoutY="190.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Description" />
+      <JFXTextField fx:id="txtPackSize" labelFloat="true" layoutX="217.0" layoutY="262.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Pack Size" />
+      <JFXTextField fx:id="txtUnitPrice" labelFloat="true" layoutX="217.0" layoutY="340.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Unit Price" />
+      <JFXTextField fx:id="txtQty" labelFloat="true" layoutX="217.0" layoutY="418.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Qty On Hand" />
       <JFXButton fx:id="btnSearch" layoutX="333.0" layoutY="494.0" onAction="#searchItemOnAction" prefHeight="31.0" prefWidth="93.0" style="-fx-background-color: #3498db;" text="Search" textFill="WHITE" />
    </children>
 </AnchorPane>

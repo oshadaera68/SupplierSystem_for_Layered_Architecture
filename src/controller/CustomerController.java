@@ -11,7 +11,7 @@ public class CustomerController {
 
     public List<String> getCustomerIds() throws SQLException, ClassNotFoundException {
             ResultSet rst = DbConnection.getInstance().getConnection().
-                    prepareStatement("SELECT * FROM Item").executeQuery();
+                    prepareStatement("SELECT * FROM Customer").executeQuery();
             List<String> ids= new ArrayList<>();
             while (rst.next()){
                 ids.add(
