@@ -1,22 +1,36 @@
 # SupplierSystem_for_Layered_Architecture
-This system was worked in MVC architecture. we converting to the layered architecture in this system.
+This system was worked in MVC architecture in last coursework. we converting to the layered architecture in this system.
 
-Copyright @ Oshada Eranga(MINDARTLK creations ahangama)
+# CopyRight By
+Copyright @ Oshada Eranga(MINDARTLK creations ahangama)(oshadaera68)
 
-Using Technologies
-1.UI - JavaFx
-2.Database - Mysql Community server 8.0.25
-3.IDE - Intelij Idea 2021.2.2
+# Using Technologies
+UI - JavaFx / 
+Database - Mysql Community server 8.0.25 /
+IDE - Intelij Idea 2021.2.2 / 
+Reports - TIBCO jasperSoft Studio 6.17.0
 
-using libs
-1.jfonix 8.0.7.jar
-2.mysql-connector-java-8.0.25.jar
-3.jasperreport liberies
+# using libs
+jfonix 8.0.7.jar / 
+mysql-connector-java-8.0.25.jar / 
+jasperreport liberies
 
-My workstation
-Asus vivobook x510u
-Ram - 8GB
-HDD - 1TB
-OS - Windows 10 Pro
-Graphic cards - Nvidia/Intel
+# My workstation
+Asus vivobook x510u / 
+Ram - 8GB / 
+HDD - 1TB / 
+OS - Windows 10 Pro / 
+Graphic cards - Nvidia@Intel / 
 Processor - Intel core i7 8th Gen
+
+# About Us
+Oshada eranga
+Facebook - Oshada Eranga /
+Instagram - mind_art_lk /
+Twitter - @mindartLK10 /
+TikTok - @mindart.4 /
+snapchat - osha.eranga21 /
+GitHub - oshadaera68 /
+LinkedIn - oshada eranga /
+gmail - oshadaeranga919@gmail.com
+ 
