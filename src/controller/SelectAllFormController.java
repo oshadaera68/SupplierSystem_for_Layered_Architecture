@@ -1,5 +1,6 @@
 package controller;
 
+import DAO.CustomerDaoImpl;
 import db.DbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,31 +43,10 @@ public class SelectAllFormController {
     }
 
     private void loadAllCustomers() throws ClassNotFoundException, SQLException {
-
-        PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement("SELECT * FROM Customer");
-        ResultSet rst = stm.executeQuery();
-        ArrayList<Customer> customers = new ArrayList<>();
-        while (rst.next()) {
-            customers.add(new Customer(
-                    rst.getString(1),
-                    rst.getString(2),
-                    rst.getString(3),
-                    rst.getString(4),
-                    rst.getString(5),
-                    rst.getString(6),
-                    rst.getString(7)
-            ));
+        CustomerDaoImpl customerDao = new CustomerDaoImpl();
+        ArrayList<Customer> allCustomers = customerDao.getAllCustomers();
+        for (Customer allCustomer : allCustomers) {
+            new CustomerTm(allCustomer.getId(), allCustomer.getTitle(), allCustomer.getName(), allCustomer.getAddress(), allCustomer.getCity(), allCustomer.getProvince(), allCustomer.getPostalCode());
         }
-        setCustomersToTable(customers);
     }
-
-    private void setCustomersToTable(ArrayList<Customer>customers){
-        ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
-        customers.forEach(e->{
-            obList.add(
-                    new CustomerTm(e.getId(),e.getTitle(),e.getName(),e.getAddress(),e.getCity(),e.getProvince(),e.getPostalCode()));
-        });
-        tblCustomer.setItems(obList);
-    }
-
 }

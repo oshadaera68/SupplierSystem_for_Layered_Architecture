@@ -55,7 +55,7 @@ public class SaveFormController {
 
     public void saveOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
-        Customer c1 = new Customer(
+       /* Customer c1 = new Customer(
                 txtId.getText(), txtTitle.getText(), txtName.getText(), txtAddress.getText(),
                 txtCity.getText(), txtProvince.getText(), txtPostalCode.getText()
         );
@@ -64,7 +64,7 @@ public class SaveFormController {
             new Alert(Alert.AlertType.CONFIRMATION, "Saved Data..", ButtonType.OK).showAndWait();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try again...", ButtonType.OK).showAndWait();
-        }
+        }*/
 
         txtId.clear();
         txtTitle.clear();
@@ -76,8 +76,8 @@ public class SaveFormController {
 
     }
 
-    boolean saveCustomer(Customer c) throws SQLException, ClassNotFoundException {
-        Connection con = DbConnection.getInstance().getConnection();
+    /*boolean saveCustomer(Customer c) throws SQLException, ClassNotFoundException {
+        *//*Connection con = DbConnection.getInstance().getConnection();
         String query = "INSERT INTO Customer VALUES(?,?,?,?,?,?,?)";
         PreparedStatement stm = con.prepareStatement(query);
         stm.setObject(1, c.getId());
@@ -88,8 +88,8 @@ public class SaveFormController {
         stm.setObject(6, c.getProvince());
         stm.setObject(7, c.getPostalCode());
 
-        return stm.executeUpdate() > 0;
-    }
+        return stm.executeUpdate() > 0;*//*
+    }*/
 
     public void txtFieldKeyRelease(KeyEvent keyEvent) {
         Object response = ValidationUtil.validate(map, btnSaveCus);

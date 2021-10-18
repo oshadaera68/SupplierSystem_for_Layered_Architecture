@@ -1,16 +1,12 @@
 package controller;
 
-import db.DbConnection;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import DAO.ItemDaoImpl;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Item;
 import views.Tm.ItemTm;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -39,28 +35,11 @@ public class ItemSelectAllFormController {
     }
 
     private void loadAllItems() throws ClassNotFoundException, SQLException {
-        PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement("SELECT * FROM Item");
-        ResultSet rst = stm.executeQuery();
-        ArrayList<Item> Items = new ArrayList<>();
-        while (rst.next()) {
-            Items.add(new Item(
-                    rst.getString(1),
-                    rst.getString(2),
-                    rst.getString(3),
-                    rst.getDouble(4),
-                    rst.getInt(5)
-            ));
+        ItemDaoImpl itemDao = new ItemDaoImpl();
+        ArrayList<Item> allItems = itemDao.getAllItems();
+        for (Item allItem : allItems) {
+            new ItemTm(allItem.getItemCode(), allItem.getDescription(), allItem.getPackSize(), allItem.getUnitPrice(), allItem.getQtyOnHand());
         }
-        setCustomersToTable(Items);
-    }
-
-    private void setCustomersToTable(ArrayList<Item> customers) {
-        ObservableList<ItemTm> obList = FXCollections.observableArrayList();
-        customers.forEach(e -> {
-            obList.add(
-                    new ItemTm(e.getItemCode(), e.getDescription(), e.getPackSize(), e.getUnitPrice(), e.getQtyOnHand()));
-        });
-        tblItem.setItems(obList);
     }
 
 }

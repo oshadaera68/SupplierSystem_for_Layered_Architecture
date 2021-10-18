@@ -1,5 +1,7 @@
 package model;
 
+import views.Tm.CustomerTm;
+
 public class Customer {
    private String id;
    private String title;
