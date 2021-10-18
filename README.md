@@ -22,3 +22,15 @@ HDD - 1TB /
 OS - Windows 10 Pro / 
 Graphic cards - Nvidia/Intel / 
 Processor - Intel core i7 8th Gen
+
+# About Us
+Oshada eranga
+Facebook - Oshada Eranga /
+Instagram - mind_art_lk /
+Twitter - @mindartLK10 /
+TikTok - @mindart.4 /
+snapchat - osha.eranga21 /
+GitHub - oshadaera68 /
+LinkedIn - oshada eranga /
+gmail - oshadaeranga919@gmail.com
+ 
