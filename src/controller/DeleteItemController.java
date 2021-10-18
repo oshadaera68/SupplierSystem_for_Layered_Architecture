@@ -11,22 +11,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class SearchItemController {
+public class DeleteItemController {
     public JFXTextField txtItemCode;
     public JFXTextField txtDesc;
     public JFXTextField txtPackSize;
     public JFXTextField txtUnitPrice;
     public JFXTextField txtQty;
-    public JFXButton btnSearch;
+    public JFXButton btnDelete;
 
-    public void searchItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String customerId = txtItemCode.getText();
-
-        PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement("SELECT * FROM Item WHERE ItemCode=?");
+    public void searchItem(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        PreparedStatement stm =
+                DbConnection.getInstance().getConnection().prepareStatement("SELECT * FROM Item WHERE ItemCode=?");
         stm.setObject(1, txtItemCode.getText());
-
         ResultSet rst = stm.executeQuery();
-
         if (rst.next()) {
             Item i1 = new Item(
                     rst.getString(1),
@@ -36,10 +33,10 @@ public class SearchItemController {
                     rst.getInt(5)
             );
             setData(i1);
-
         } else {
-            new Alert(Alert.AlertType.WARNING, "Empty Result Set").show();
+            new Alert(Alert.AlertType.WARNING, "Empty Set").show();
         }
+
     }
 
     void setData(Item i) {
@@ -48,5 +45,18 @@ public class SearchItemController {
         txtPackSize.setText(i.getPackSize());
         txtUnitPrice.setText(String.valueOf(i.getUnitPrice()));
         txtQty.setText(String.valueOf(i.getQtyOnHand()));
+    }
+
+    boolean delete(String code) throws SQLException, ClassNotFoundException {
+        return DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM Item WHERE ItemCode='" + code + "'").executeUpdate() > 0;
+    }
+
+    public void deleteItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        if (delete(txtItemCode.getText())) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Deleted").show();
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Try Again").show();
+        }
+
     }
 }
