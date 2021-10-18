@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="559.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchItemController">
+   <children>
+      <Label layoutX="243.0" layoutY="32.0" text="Search Item" textFill="#1c32d7">
+         <font>
+            <Font name="Behind The Scenery" size="31.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtItemCode" labelFloat="true" layoutX="217.0" layoutY="121.0" prefHeight="31.0" prefWidth="188.0" promptText="Item Code" />
+      <JFXTextField fx:id="txtDesc" labelFloat="true" layoutX="217.0" layoutY="190.0" prefHeight="31.0" prefWidth="188.0" promptText="Description" />
+      <JFXTextField fx:id="txtPackSize" labelFloat="true" layoutX="217.0" layoutY="262.0" prefHeight="31.0" prefWidth="188.0" promptText="Pack Size" />
+      <JFXTextField fx:id="txtUnitPrice" labelFloat="true" layoutX="217.0" layoutY="340.0" prefHeight="31.0" prefWidth="188.0" promptText="Unit Price" />
+      <JFXTextField fx:id="txtQty" labelFloat="true" layoutX="217.0" layoutY="418.0" prefHeight="31.0" prefWidth="188.0" promptText="Qty On Hand" />
+      <JFXButton fx:id="btnSearch" layoutX="333.0" layoutY="494.0" onAction="#searchItemOnAction" prefHeight="31.0" prefWidth="93.0" style="-fx-background-color: #3498db;" text="Search" textFill="WHITE" />
+   </children>
+</AnchorPane>

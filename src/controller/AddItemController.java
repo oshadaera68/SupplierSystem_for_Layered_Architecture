@@ -43,6 +43,5 @@ public class AddItemController {
         stm.setObject(5,i.getQtyOnHand());
 
         return stm.executeUpdate()>0;
-
     }
 }
