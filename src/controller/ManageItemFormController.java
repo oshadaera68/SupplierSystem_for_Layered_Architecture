@@ -15,11 +15,11 @@ public class ManageItemFormController {
         stage.show();
     }
 
-    public void updateItemFormOnAction(ActionEvent actionEvent) {
-        /*Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../views/AddItem.fxml"))));
-        stage.setTitle("Update  Form");
-        stage.show();*/
+    public void updateItemFormOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../views/UpdateItemForm.fxml"))));
+        stage.setTitle("Update Item Form");
+        stage.show();
     }
 
     public void deleteItemFormOnAction(ActionEvent actionEvent) throws IOException {
@@ -36,10 +36,10 @@ public class ManageItemFormController {
         stage.show();
     }
 
-    public void selectAllFormOnAction(ActionEvent actionEvent) {
-       /* Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../views/AddItem.fxml"))));
-        stage.setTitle("Save Form");
-        stage.show();*/
+    public void selectAllFormOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../views/ItemSelectAllForm.fxml"))));
+        stage.setTitle("Select All item Form");
+        stage.show();
     }
 }

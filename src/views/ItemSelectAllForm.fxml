@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="616.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemSelectAllFormController">
+   <children>
+      <Label layoutX="319.0" layoutY="14.0" text="Item Select All Form" textFill="#1c3efc">
+         <font>
+            <Font name="Behind The Scenery" size="33.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblItem" layoutX="27.0" layoutY="102.0" prefHeight="479.0" prefWidth="828.0">
+        <columns>
+          <TableColumn fx:id="colItemCode" prefWidth="147.0" text="Item Code" />
+          <TableColumn fx:id="colDesc" prefWidth="180.0" text="Description" />
+            <TableColumn fx:id="colPackSize" prefWidth="171.0" text="Pack Size" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="166.0" text="Unit Price" />
+            <TableColumn fx:id="colQty" prefWidth="163.0" text="Qty On Hand" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
