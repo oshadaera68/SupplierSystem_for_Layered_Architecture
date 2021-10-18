@@ -1,8 +1,8 @@
 package controller;
 
+import DAO.CustomerDaoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import db.DbConnection;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -12,8 +12,6 @@ import javafx.scene.input.KeyEvent;
 import model.Customer;
 import util.ValidationUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
@@ -55,16 +53,20 @@ public class SaveFormController {
 
     public void saveOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
-       /* Customer c1 = new Customer(
+        Customer c1 = new Customer(
                 txtId.getText(), txtTitle.getText(), txtName.getText(), txtAddress.getText(),
                 txtCity.getText(), txtProvince.getText(), txtPostalCode.getText()
         );
 
-        if (saveCustomer(c1)) {
+        CustomerDaoImpl customerDao = new CustomerDaoImpl();
+        Customer customer = new Customer(c1.getId(), c1.getTitle(), c1.getName(), c1.getAddress(), c1.getCity(), c1.getProvince(), c1.getPostalCode());
+        boolean addCustomer = customerDao.addCustomer(customer);
+
+        if (addCustomer) {
             new Alert(Alert.AlertType.CONFIRMATION, "Saved Data..", ButtonType.OK).showAndWait();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try again...", ButtonType.OK).showAndWait();
-        }*/
+        }
 
         txtId.clear();
         txtTitle.clear();
@@ -75,21 +77,6 @@ public class SaveFormController {
         txtPostalCode.clear();
 
     }
-
-    /*boolean saveCustomer(Customer c) throws SQLException, ClassNotFoundException {
-        *//*Connection con = DbConnection.getInstance().getConnection();
-        String query = "INSERT INTO Customer VALUES(?,?,?,?,?,?,?)";
-        PreparedStatement stm = con.prepareStatement(query);
-        stm.setObject(1, c.getId());
-        stm.setObject(2, c.getTitle());
-        stm.setObject(3, c.getName());
-        stm.setObject(4, c.getAddress());
-        stm.setObject(5, c.getCity());
-        stm.setObject(6, c.getProvince());
-        stm.setObject(7, c.getPostalCode());
-
-        return stm.executeUpdate() > 0;*//*
-    }*/
 
     public void txtFieldKeyRelease(KeyEvent keyEvent) {
         Object response = ValidationUtil.validate(map, btnSaveCus);

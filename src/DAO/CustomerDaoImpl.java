@@ -33,5 +33,19 @@ public class CustomerDaoImpl {
         }
         return allCustomers;
     }
+
+    public boolean addCustomer(Customer cus) throws SQLException, ClassNotFoundException {
+        Connection con = DbConnection.getInstance().getConnection();
+        String query = "INSERT INTO Customer VALUES(?,?,?,?,?,?,?)";
+        PreparedStatement stm = con.prepareStatement(query);
+        stm.setObject(1, cus.getId());
+        stm.setObject(2, cus.getTitle());
+        stm.setObject(3, cus.getName());
+        stm.setObject(4, cus.getAddress());
+        stm.setObject(5, cus.getCity());
+        stm.setObject(6, cus.getProvince());
+        stm.setObject(7, cus.getPostalCode());
+        return stm.executeUpdate() > 0;
+    }
 }
 

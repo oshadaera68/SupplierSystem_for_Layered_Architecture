@@ -1,5 +1,6 @@
 package controller;
 
+import DAO.ItemDaoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import db.DbConnection;
@@ -51,7 +52,11 @@ public class AddItemController {
                 txtPackSize.getText(), Double.parseDouble(txtUnitPrice.getText()), Integer.parseInt(txtQty.getText())
         );
 
-        if (saveItem(i1)) {
+        ItemDaoImpl itemDao = new ItemDaoImpl();
+        Item item = new Item(i1.getItemCode(), i1.getDescription(), i1.getPackSize(), i1.getUnitPrice(), i1.getQtyOnHand());
+        boolean addItem = itemDao.addItem(item);
+
+        if (addItem) {
             new Alert(Alert.AlertType.CONFIRMATION, "Saved..").show();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again..").show();
@@ -64,20 +69,6 @@ public class AddItemController {
         txtQty.clear();
 
     }
-
-    boolean saveItem(Item i) throws SQLException, ClassNotFoundException {
-        Connection con = DbConnection.getInstance().getConnection();
-        String query = "INSERT INTO Item VALUES(?,?,?,?,?)";
-        PreparedStatement stm = con.prepareStatement(query);
-        stm.setObject(1, i.getItemCode());
-        stm.setObject(2, i.getDescription());
-        stm.setObject(3, i.getPackSize());
-        stm.setObject(4, i.getUnitPrice());
-        stm.setObject(5, i.getQtyOnHand());
-
-        return stm.executeUpdate() > 0;
-    }
-
 
     public void txtFieldKeyReleased(KeyEvent keyEvent) {
         Object response = ValidationUtil.validate(map, btnAdd);
