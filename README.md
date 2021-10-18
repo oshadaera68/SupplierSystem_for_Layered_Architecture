@@ -2,22 +2,23 @@
 This system was worked in MVC architecture in last coursework. we converting to the layered architecture in this system.
 
 # CopyRight By
-Copyright @ Oshada Eranga(MINDARTLK creations ahangama)
+Copyright @ Oshada Eranga(MINDARTLK creations ahangama)(oshadaera68)
 
 # Using Technologies
-1.UI - JavaFx
-2.Database - Mysql Community server 8.0.25
-3.IDE - Intelij Idea 2021.2.2
+UI - JavaFx / 
+Database - Mysql Community server 8.0.25 /
+IDE - Intelij Idea 2021.2.2 / 
+Reports - TIBCO jasperSoft Studio 6.17.0
 
 # using libs
-1.jfonix 8.0.7.jar
-2.mysql-connector-java-8.0.25.jar
-3.jasperreport liberies
+jfonix 8.0.7.jar / 
+mysql-connector-java-8.0.25.jar / 
+jasperreport liberies
 
 # My workstation
-Asus vivobook x510u
-Ram - 8GB
-HDD - 1TB
-OS - Windows 10 Pro
-Graphic cards - Nvidia/Intel
+Asus vivobook x510u / 
+Ram - 8GB / 
+HDD - 1TB / 
+OS - Windows 10 Pro / 
+Graphic cards - Nvidia/Intel / 
 Processor - Intel core i7 8th Gen
