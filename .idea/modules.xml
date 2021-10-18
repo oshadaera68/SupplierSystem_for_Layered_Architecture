@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SupplierSystem.iml" filepath="$PROJECT_DIR$/SupplierSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SupplierSystem(Layered Architecture).iml" filepath="$PROJECT_DIR$/SupplierSystem(Layered Architecture).iml" />
     </modules>
   </component>
 </project>

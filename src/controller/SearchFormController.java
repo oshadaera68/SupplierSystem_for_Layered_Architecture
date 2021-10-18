@@ -1,13 +1,22 @@
 package controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import db.DbConnection;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import model.Customer;
+import util.ValidationUtil;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.regex.Pattern;
 
 public class SearchFormController {
 
@@ -18,6 +27,19 @@ public class SearchFormController {
     public JFXTextField txtCity;
     public JFXTextField txtProvince;
     public JFXTextField txtPostalCode;
+    public JFXButton btnSearchCustomer;
+
+    LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
+    Pattern idRegEx = Pattern.compile("^(C0-)[0-9]{3,4}$");
+
+    public void initialize() {
+        btnSearchCustomer.setDisable(true);
+        storeValidate();
+    }
+
+    private void storeValidate() {
+        map.put(txtId, idRegEx);
+    }
 
     public void searchCustomerOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
@@ -39,6 +61,7 @@ public class SearchFormController {
         } else {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();
         }
+
     }
 
     void setData(Customer c) {
@@ -49,5 +72,18 @@ public class SearchFormController {
         txtCity.setText(c.getCity());
         txtProvince.setText(c.getProvince());
         txtPostalCode.setText(c.getPostalCode());
+    }
+
+    public void txtFieldKeyRelease(KeyEvent keyEvent) {
+        Object response = ValidationUtil.validate(map, btnSearchCustomer);
+
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            if (response instanceof TextField) {
+                TextField errorText = (TextField) response;
+                errorText.requestFocus();
+            } else if (response instanceof Boolean) {
+                // new Alert(Alert.AlertType.INFORMATION, "Added").showAndWait();
+            }
+        }
     }
 }
