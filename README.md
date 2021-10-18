@@ -1,5 +1,5 @@
 # SupplierSystem_for_Layered_Architecture
-This system was worked in MVC architecture. we converting to the layered architecture in this system.
+This system was worked in MVC architecture in last coursework. we converting to the layered architecture in this system.
 
 Copyright @ Oshada Eranga(MINDARTLK creations ahangama)
 
