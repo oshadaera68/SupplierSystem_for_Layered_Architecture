@@ -49,6 +49,4 @@ public class CustomerViewFormController {
         stage.setTitle("Place Order Form");
         stage.show();
     }
-
-    
 }
