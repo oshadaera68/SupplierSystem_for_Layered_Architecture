@@ -1,7 +1,7 @@
 # SupplierSystem_for_Layered_Architecture
 This system was worked in MVC architecture. we converting to the layered architecture in this system.
 
-Copyright @ Oshada Eranga
+Copyright @ Oshada Eranga(MINDARTLK creations ahangama)
 
 Using Technologies
 1.UI - JavaFx
