@@ -5,12 +5,17 @@ import com.jfoenix.controls.JFXTextField;
 import db.DbConnection;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import model.Item;
+import util.ValidationUtil;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.regex.Pattern;
 
 public class SearchItemController {
     public JFXTextField txtItemCode;
@@ -20,13 +25,16 @@ public class SearchItemController {
     public JFXTextField txtQty;
     public JFXButton btnSearch;
 
+    LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
+    Pattern itemIdRegEx = Pattern.compile("^(I0-)[0-9]{3,4}$");
+
     public void initialize(){
         btnSearch.setDisable(true);
         storeValidate();
     }
 
     private void storeValidate() {
-
+        map.put(txtItemCode,itemIdRegEx);
     }
 
     public void searchItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
@@ -60,8 +68,16 @@ public class SearchItemController {
         txtQty.setText(String.valueOf(i.getQtyOnHand()));
     }
 
-
     public void txtFieldKeyRelease(KeyEvent keyEvent) {
+        Object response = ValidationUtil.validate(map, btnSearch);
 
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            if (response instanceof TextField) {
+                TextField errorText = (TextField) response;
+                errorText.requestFocus();
+            } else if (response instanceof Boolean) {
+               // new Alert(Alert.AlertType.INFORMATION, "Added").showAndWait();
+            }
+        }
     }
 }

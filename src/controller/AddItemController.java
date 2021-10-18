@@ -87,7 +87,7 @@ public class AddItemController {
                 TextField errorText = (TextField) response;
                 errorText.requestFocus();
             } else if (response instanceof Boolean) {
-                new Alert(Alert.AlertType.INFORMATION, "Added").showAndWait();
+               // new Alert(Alert.AlertType.INFORMATION, "Added").showAndWait();
             }
         }
     }
