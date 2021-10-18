@@ -20,7 +20,7 @@ Asus vivobook x510u /
 Ram - 8GB / 
 HDD - 1TB / 
 OS - Windows 10 Pro / 
-Graphic cards - Nvidia/Intel / 
+Graphic cards - Nvidia@Intel / 
 Processor - Intel core i7 8th Gen
 
 # About Us
