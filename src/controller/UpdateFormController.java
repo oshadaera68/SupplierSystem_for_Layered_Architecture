@@ -1,5 +1,6 @@
 package controller;
 
+import DAO.CustomerDaoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import db.DbConnection;
@@ -68,7 +69,11 @@ public class UpdateFormController {
                 txtPostalCode.getText()
         );
 
-        if (update(c1)) {
+        CustomerDaoImpl customerDao = new CustomerDaoImpl();
+        Customer customer = new Customer(c1.getId(), c1.getTitle(), c1.getName(), c1.getAddress(), c1.getCity(), c1.getProvince(), c1.getPostalCode());
+        boolean updateCustomer = customerDao.updateCustomer(customer);
+
+        if (updateCustomer) {
             new Alert(Alert.AlertType.CONFIRMATION, "Updated..").show();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again").show();
@@ -82,18 +87,6 @@ public class UpdateFormController {
         txtProvince.clear();
         txtPostalCode.clear();
 
-    }
-
-    boolean update(Customer c) throws SQLException, ClassNotFoundException {
-        PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE Customer SET CustTitle=?, CustName=?, CustAddress=?, City=?, Province=?, PostalCode=? WHERE CustID=? ");
-        stm.setObject(1, c.getTitle());
-        stm.setObject(2, c.getName());
-        stm.setObject(3, c.getAddress());
-        stm.setObject(4, c.getCity());
-        stm.setObject(5, c.getProvince());
-        stm.setObject(6, c.getPostalCode());
-        stm.setObject(7, c.getId());
-        return stm.executeUpdate() > 0;
     }
 
     void setData(Customer c) {

@@ -38,8 +38,7 @@ public class DeleteItemController {
     }
 
     public void searchItem(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        PreparedStatement stm =
-                DbConnection.getInstance().getConnection().prepareStatement("SELECT * FROM Item WHERE ItemCode=?");
+        PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement("SELECT * FROM Item WHERE ItemCode=?");
         stm.setObject(1, txtItemCode.getText());
         ResultSet rst = stm.executeQuery();
         if (rst.next()) {

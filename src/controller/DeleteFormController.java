@@ -1,5 +1,6 @@
 package controller;
 
+import DAO.CustomerDaoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import db.DbConnection;
@@ -74,7 +75,10 @@ public class DeleteFormController {
     }
 
     boolean delete(String id) throws SQLException, ClassNotFoundException {
-        return DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM Customer WHERE CustID='" + id + "'").executeUpdate() > 0;
+        /*return DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM Customer WHERE CustID='" + id + "'").executeUpdate() > 0;*/
+        CustomerDaoImpl customerDao = new CustomerDaoImpl();
+        boolean deleteCustomer = customerDao.deleteCustomer(id);
+        return deleteCustomer;
     }
 
     public void deleteCustomerOnAction(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {

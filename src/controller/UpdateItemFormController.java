@@ -1,5 +1,7 @@
 package controller;
 
+import DAO.CustomerDaoImpl;
+import DAO.ItemDaoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import db.DbConnection;
@@ -8,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import model.Customer;
 import model.Item;
 import util.ValidationUtil;
 
@@ -38,13 +41,17 @@ public class UpdateItemFormController {
     }
 
     public void searchItem(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement("SELECT * FROM Item WHERE ItemCode=?");
-        stm.setObject(1, txtItemCode.getText());
-        ResultSet rst = stm.executeQuery();
-        if (rst.next()) {
+/*
+
+
+        ItemDaoImpl itemDao = new ItemDaoImpl();
+        Item item = new Item();
+        boolean existsCustomer = itemDao.existsCustomer(item.getItemCode());
+
+        if (existsCustomer) {
             Item i1 = new Item(
-                    rst.getString(1),
-                    rst.getString(2),
+                    existsCustomer.getString(1),
+                    b.getString(2),
                     rst.getString(3),
                     rst.getDouble(4),
                     rst.getInt(5)
@@ -52,7 +59,7 @@ public class UpdateItemFormController {
             setData(i1);
         } else {
             new Alert(Alert.AlertType.WARNING, "Empty Set").show();
-        }
+        }*/
 
     }
 
@@ -64,7 +71,11 @@ public class UpdateItemFormController {
                 Integer.parseInt(txtQty.getText())
         );
 
-        if (update(i1)) {
+        ItemDaoImpl itemDao = new ItemDaoImpl();
+        Item item = new Item(i1.getItemCode(),i1.getDescription(),i1.getPackSize(),i1.getUnitPrice(),i1.getQtyOnHand());
+        boolean updateItem = itemDao.updateItem(item);
+
+        if (updateItem) {
             new Alert(Alert.AlertType.CONFIRMATION, "Updated..").show();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again").show();
@@ -75,17 +86,6 @@ public class UpdateItemFormController {
         txtPackSize.clear();
         txtUnitPrice.clear();
         txtQty.clear();
-
-    }
-
-    boolean update(Item i) throws SQLException, ClassNotFoundException {
-        PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE Item SET Description=?, PackSize=?, UnitPrice=?,QtyOnHand=? WHERE ItemCode=?");
-        stm.setObject(1, i.getDescription());
-        stm.setObject(2, i.getPackSize());
-        stm.setObject(3, i.getUnitPrice());
-        stm.setObject(4, i.getQtyOnHand());
-        stm.setObject(5, i.getItemCode());
-        return stm.executeUpdate() > 0;
 
     }
 

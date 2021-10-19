@@ -17,15 +17,22 @@ public class PlaceOrderFormController {
     public Label lblDate;
     public Label lblTime;
     public JFXComboBox cmbCustomerIds;
+    public JFXComboBox cmbItemIds;
 
     public void initialize() {
         loadDateAndTime();
 
         try {
             loadCustomerIds();
+            loadItemIds();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    private void loadItemIds() throws SQLException, ClassNotFoundException {
+        List<String> itemId = new ItemController().getAllItemIds();
+        cmbItemIds.getItems().addAll(itemId);
     }
 
     private void loadCustomerIds() throws SQLException, ClassNotFoundException {
