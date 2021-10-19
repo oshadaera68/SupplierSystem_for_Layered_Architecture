@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Item {
     private String itemCode;
     private String description;
@@ -56,5 +58,18 @@ public class Item {
 
     public void setQtyOnHand(int qtyOnHand) {
         this.qtyOnHand = qtyOnHand;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Double.compare(item.unitPrice, unitPrice) == 0 && qtyOnHand == item.qtyOnHand && Objects.equals(itemCode, item.itemCode) && Objects.equals(description, item.description) && Objects.equals(packSize, item.packSize);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(itemCode);
     }
 }

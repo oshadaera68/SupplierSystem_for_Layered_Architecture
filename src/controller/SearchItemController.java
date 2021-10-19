@@ -2,17 +2,15 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import db.DbConnection;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import model.Item;
 import util.ValidationUtil;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
@@ -38,25 +36,15 @@ public class SearchItemController {
     }
 
     public void searchItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String customerId = txtItemCode.getText();
+        String itemId = txtItemCode.getText();
 
-        PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement("SELECT * FROM Item WHERE ItemCode=?");
-        stm.setObject(1, txtItemCode.getText());
 
-        ResultSet rst = stm.executeQuery();
+        Item item = new ItemController().getItem(itemId);
 
-        if (rst.next()) {
-            Item i1 = new Item(
-                    rst.getString(1),
-                    rst.getString(2),
-                    rst.getString(3),
-                    rst.getDouble(4),
-                    rst.getInt(5)
-            );
-            setData(i1);
-
+        if (item == null) {
+            new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();
         } else {
-            new Alert(Alert.AlertType.WARNING, "Empty Result Set").show();
+            setData(item);
         }
     }
 

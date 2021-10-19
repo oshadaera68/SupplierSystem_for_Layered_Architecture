@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="745.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeleteFormController">
+<AnchorPane prefHeight="745.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerDeleteFormController">
    <children>
       <JFXTextField fx:id="txtId" labelFloat="true" layoutX="146.0" layoutY="106.0" onAction="#searchCustomer" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Customer Id" />
       <JFXTextField fx:id="txtTitle" labelFloat="true" layoutX="146.0" layoutY="180.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Customer Titile" />

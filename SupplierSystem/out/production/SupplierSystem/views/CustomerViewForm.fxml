@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="380.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerViewFormController">
+    <children>
+        <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="574.0" text="Customer View">
+            <font>
+                <Font name="System Bold" size="23.0" />
+            </font>
+        </Label>
+        <Separator layoutX="201.0" layoutY="47.0" prefWidth="200.0" />
+      <JFXButton layoutX="207.0" layoutY="69.0" onAction="#customerSaveOnAction" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #3498db;" text="Customer Save Form" textFill="WHITE" />
+      <JFXButton layoutX="207.0" layoutY="115.0" onAction="#updateCustomerOnAction" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #9b59b6;" text="Customer Update Form" textFill="WHITE" />
+      <JFXButton layoutX="207.0" layoutY="159.0" onAction="#deleteCustomerOnAction" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #1abc9c;" text="Customer Delete Form" textFill="WHITE" />
+      <JFXButton layoutX="208.0" layoutY="205.0" onAction="#customerSearchOnAction" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #e67e22;" text="Customer Search Form" textFill="WHITE" />
+      <JFXButton layoutX="208.0" layoutY="251.0" onAction="#customerSelectAllOnAction" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #8c7ae6;" text="Customer Select All Form" textFill="WHITE" />
+      <JFXButton layoutX="208.0" layoutY="299.0" onAction="#placeOrderOnAction" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #8c7ae6;" text="Place Order Form" textFill="WHITE" />
+    </children>
+</AnchorPane>

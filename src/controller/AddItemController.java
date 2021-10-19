@@ -1,19 +1,17 @@
 package controller;
 
-import DAO.ItemDaoImpl;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import db.DbConnection;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import model.Item;
 import util.ValidationUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
@@ -52,14 +50,10 @@ public class AddItemController {
                 txtPackSize.getText(), Double.parseDouble(txtUnitPrice.getText()), Integer.parseInt(txtQty.getText())
         );
 
-        ItemDaoImpl itemDao = new ItemDaoImpl();
-        Item item = new Item(i1.getItemCode(), i1.getDescription(), i1.getPackSize(), i1.getUnitPrice(), i1.getQtyOnHand());
-        boolean addItem = itemDao.addItem(item);
-
-        if (addItem) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Saved..").show();
+        if (new ItemController().addItem(i1)) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Saved Data..", ButtonType.OK).showAndWait();
         } else {
-            new Alert(Alert.AlertType.WARNING, "Try Again..").show();
+            new Alert(Alert.AlertType.WARNING, "Try again...", ButtonType.OK).showAndWait();
         }
 
         txtItemCode.clear();

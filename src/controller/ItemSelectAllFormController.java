@@ -1,6 +1,8 @@
 package controller;
 
-import DAO.ItemDaoImpl;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -19,27 +21,29 @@ public class ItemSelectAllFormController {
     public TableColumn colQty;
 
     public void initialize() {
+
+        colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
+        colDesc.setCellValueFactory(new PropertyValueFactory<>("Description"));
+        colPackSize.setCellValueFactory(new PropertyValueFactory<>("packSize"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
+
         try {
 
-            colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
-            colDesc.setCellValueFactory(new PropertyValueFactory<>("Description"));
-            colPackSize.setCellValueFactory(new PropertyValueFactory<>("packSize"));
-            colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-            colQty.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
+            setItemsToTable(new ItemController().getAllItems());
 
-            loadAllItems();
-
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+
     }
 
-    private void loadAllItems() throws ClassNotFoundException, SQLException {
-        ItemDaoImpl itemDao = new ItemDaoImpl();
-        ArrayList<Item> allItems = itemDao.getAllItems();
-        for (Item allItem : allItems) {
-            new ItemTm(allItem.getItemCode(), allItem.getDescription(), allItem.getPackSize(), allItem.getUnitPrice(), allItem.getQtyOnHand());
-        }
+    private void setItemsToTable(ArrayList<Item> items) {
+        ObservableList<ItemTm> obList = FXCollections.observableArrayList();
+        items.forEach(e -> {
+            obList.add(
+                    new ItemTm(e.getItemCode(), e.getDescription(), e.getPackSize(), e.getUnitPrice(), e.getQtyOnHand()));
+        });
+        tblItem.setItems(obList);
     }
-
 }

@@ -2,7 +2,6 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import db.DbConnection;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -12,8 +11,6 @@ import javafx.scene.input.KeyEvent;
 import model.Customer;
 import util.ValidationUtil;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
@@ -43,23 +40,13 @@ public class SearchFormController {
 
     public void searchCustomerOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
-        PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement("SELECT * FROM Customer WHERE CustID=?");
-        stm.setObject(1, txtId.getText());
-        ResultSet rst = stm.executeQuery();
+        String cusId = txtId.getText();
+        Customer customer = new CustomerController().getCustomer(cusId);
 
-        if (rst.next()) {
-            Customer c1 = new Customer(
-                    rst.getString(1),
-                    rst.getString(2),
-                    rst.getString(3),
-                    rst.getString(4),
-                    rst.getString(5),
-                    rst.getString(6),
-                    rst.getString(7)
-            );
-            setData(c1);
-        } else {
+        if (customer == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();
+        } else {
+            setData(customer);
         }
 
     }
