@@ -5,7 +5,7 @@ SHOW DATABASES;
 #------------------------------------------
 DROP TABLE IF EXISTS Customer;
 CREATE TABLE IF NOT EXISTS Customer(
-    CustID VARCHAR(6),
+    CustID VARCHAR(20),
     CustTitle VARCHAR(5),
     CustName VARCHAR(30),
     CustAddress VARCHAR(30),
@@ -19,7 +19,7 @@ DESC Customer;
 #----------------------------------------------
 DROP TABLE IF EXISTS Item;
 CREATE TABLE IF NOT EXISTS Item(
-    ItemCode VARCHAR(6),
+    ItemCode VARCHAR(20),
     Description VARCHAR(50),
     PackSize VARCHAR(20),
     UnitPrice DECIMAL(6,2),
@@ -31,9 +31,9 @@ DESC Item;
 #----------------------------------------------
 DROP TABLE IF EXISTS Orders;
 CREATE TABLE IF NOT EXISTS Orders(
-    OrderID VARCHAR(6),
+    OrderID VARCHAR(20),
     OrderDate DATE,
-    CustID VARCHAR(6),
+    CustID VARCHAR(20),
     CONSTRAINT PRIMARY KEY (OrderID),
     CONSTRAINT FOREIGN KEY (CustID) REFERENCES Customer (CustID) ON DELETE CASCADE ON UPDATE CASCADE
     );
@@ -42,8 +42,8 @@ DESC Orders;
 #-----------------------------------------------
 DROP TABLE IF EXISTS OrderDetail;
 CREATE TABLE IF NOT EXISTS OrderDetail(
-    OrderID VARCHAR(6),
-    ItemCode VARCHAR(6),
+    OrderID VARCHAR(20),
+    ItemCode VARCHAR(20),
     OrderQty INT(11),
     Discount DECIMAL(6,2),
     CONSTRAINT PRIMARY KEY (OrderID,ItemCode),

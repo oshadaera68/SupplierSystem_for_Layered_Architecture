@@ -2,6 +2,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dao.ItemDaoImpl;
 import db.DbConnection;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -64,12 +65,13 @@ public class DeleteItemController {
         txtQty.setText(String.valueOf(i.getQtyOnHand()));
     }
 
-    boolean delete(String code) throws SQLException, ClassNotFoundException {
-        return DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM Item WHERE ItemCode='" + code + "'").executeUpdate() > 0;
-    }
-
     public void deleteItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        if (delete(txtItemCode.getText())) {
+
+        ItemDaoImpl itemDao = new ItemDaoImpl();
+        Item item = new Item();
+        boolean delete = itemDao.deleteItem(item.getItemCode());
+
+        if (delete) {
             new Alert(Alert.AlertType.CONFIRMATION, "Deleted").show();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again").show();

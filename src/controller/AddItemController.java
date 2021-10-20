@@ -3,6 +3,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dao.ItemDaoImpl;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -25,7 +26,7 @@ public class AddItemController {
     public JFXButton btnAdd;
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
-    Pattern itemIdRegEx = Pattern.compile("^(I0-)[0-9]{3,4}$");
+    Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
     Pattern descriptionRegEx = Pattern.compile("^[A-z ]{3,40}$");
     Pattern packSizeRegEx = Pattern.compile("^[A-z]{1,20}$");
     Pattern unitPriceRegEx = Pattern.compile("^[1-9][0-9]([.][0-9]{2})?$");
@@ -50,7 +51,11 @@ public class AddItemController {
                 txtPackSize.getText(), Double.parseDouble(txtUnitPrice.getText()), Integer.parseInt(txtQty.getText())
         );
 
-        if (new ItemController().addItem(i1)) {
+        ItemDaoImpl itemDao = new ItemDaoImpl();
+        Item item = new Item(i1.getItemCode(), i1.getDescription(), i1.getPackSize(), i1.getUnitPrice(), i1.getQtyOnHand());
+        boolean addItem = itemDao.addItem(item);
+
+        if (addItem) {
             new Alert(Alert.AlertType.CONFIRMATION, "Saved Data..", ButtonType.OK).showAndWait();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try again...", ButtonType.OK).showAndWait();

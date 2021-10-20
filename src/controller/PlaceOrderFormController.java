@@ -2,6 +2,7 @@ package controller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import dao.OrderDaoImpl;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -50,6 +51,7 @@ public class PlaceOrderFormController {
     public TableColumn colQty;
     public TableColumn colTotal;
     public Label lblTotal;
+    public Label lblOrderId;
     ObservableList<CartTm> obList = FXCollections.observableArrayList();
 
 
@@ -63,7 +65,10 @@ public class PlaceOrderFormController {
         colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
 
+//        initUi();
         loadDateAndTime();
+        setOrderId();
+
 
         try {
             loadCustomerIds();
@@ -88,7 +93,15 @@ public class PlaceOrderFormController {
             }
         });
 
+    }
 
+    private void setOrderId() {
+        try {
+            lblOrderId.setText(new OrderController().getOrderId());
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     private void setItemData(String itemId) throws SQLException, ClassNotFoundException {
@@ -218,13 +231,19 @@ public class PlaceOrderFormController {
             ));
         }
 
-        Order order = new Order("O-001",lblDate.getText(),lblTime.getText(),total,cmbCustomerIds.getValue(),details);
+        Order order = new Order(lblOrderId.getText(),lblDate.getText(),lblTime.getText(),total,cmbCustomerIds.getValue(),details);
 
-        if (new OrderController().placeOrder(order)) {
+        OrderDaoImpl orderDao = new OrderDaoImpl();
+        boolean placeOrder = orderDao.placeOrder(order);
+
+        if (placeOrder) {
             new Alert(Alert.AlertType.CONFIRMATION,"Success Order").show();
+            tblCart.getItems().clear();
         }else{
             new Alert(Alert.AlertType.WARNING,"Try again").show();
         }
+
     }
+
 
 }

@@ -1,0 +1,9 @@
+
+n	java:S116"TRename this field "OrderDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õö®³ÿÿÿÿÿ
+i	java:S116"TRename this field "OrderTime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆÈúÌ
+„
+java:S1319"gThe type of "details" should be an interface such as "List" rather than the implementation "ArrayList".(…íüş8‘ÀìÆÉ/
+’
+java:S1319A"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ò‘ëĞşÿÿÿÿ8ÀìÆÉ/
+‰
+java:S1319E"gThe type of "details" should be an interface such as "List" rather than the implementation "ArrayList".(¶‡çúÿÿÿÿ8¹†íÆÉ/

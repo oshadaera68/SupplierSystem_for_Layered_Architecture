@@ -1,26 +1,25 @@
 package controller;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
+import dao.OrderDaoImpl;
 import db.DbConnection;
+import model.ItemDetails;
 import model.Order;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class OrderController {
-    public boolean placeOrder(Order o){
-        try {
-            PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement("INSERT INTO Orders VALUES(?,?,?,?,?)");
-            stm.setObject(1,o.getOrderId());
-            stm.setObject(2,o.getOrderDate());
-            stm.setObject(3,o.getCusId());
-            stm.setObject(4,o.getOrderTime());
-            stm.setObject(5,o.getCost());
-
-            return stm.executeUpdate()>0;
-
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
+    OrderDaoImpl orderDao = new OrderDaoImpl();
+    public String getOrderId() throws SQLException, ClassNotFoundException {
+        return orderDao.OrderId();
     }
+
+    public boolean saveOrderDetails(String id, ArrayList<ItemDetails> details) throws SQLException, ClassNotFoundException {
+        return orderDao.saveOrderDetails(id, details);
+    }
+
 }

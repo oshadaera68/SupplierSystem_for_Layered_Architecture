@@ -2,6 +2,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dao.CustomerDaoImpl;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -62,7 +63,12 @@ public class CustomerDeleteFormController {
 
 
     public void deleteCustomerOnAction(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
-        if (new CustomerController().deleteCustomer(txtId.getText())) {
+        CustomerDaoImpl customerDao = new CustomerDaoImpl();
+        Customer customer = new Customer();
+        boolean deleteCustomer = customerDao.deleteCustomer(customer.getId());
+
+
+        if (deleteCustomer) {
             new Alert(Alert.AlertType.CONFIRMATION, "Deleted", ButtonType.OK).show();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again", ButtonType.OK).show();

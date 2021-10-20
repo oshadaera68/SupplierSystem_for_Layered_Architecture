@@ -2,6 +2,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dao.ItemDaoImpl;
 import db.DbConnection;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -42,8 +43,8 @@ public class UpdateItemFormController {
         PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement("SELECT * FROM Customer WHERE id=?");
         stm.setObject(1, txtItemCode.getText());
         ResultSet rst = stm.executeQuery();
-        if (rst.next()){
-            Item c1= new Item(
+        if (rst.next()) {
+            Item c1 = new Item(
                     rst.getString(1),
                     rst.getString(2),
                     rst.getString(3),
@@ -51,7 +52,7 @@ public class UpdateItemFormController {
                     rst.getInt(5)
             );
             setData(c1);
-        }else{
+        } else {
             new Alert(Alert.AlertType.WARNING, "Empty Set").show();
         }
 
@@ -65,7 +66,11 @@ public class UpdateItemFormController {
                 Integer.parseInt(txtQty.getText())
         );
 
-        if (update(i1)) {
+        ItemDaoImpl itemDao = new ItemDaoImpl();
+        Item item = new Item(i1.getItemCode(), i1.getDescription(), i1.getPackSize(), i1.getUnitPrice(), i1.getQtyOnHand());
+        boolean updateItem = itemDao.updateItem(item);
+
+        if (updateItem) {
             new Alert(Alert.AlertType.CONFIRMATION, "Updated..").show();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again").show();
@@ -77,15 +82,6 @@ public class UpdateItemFormController {
         txtUnitPrice.clear();
         txtQty.clear();
 
-    }
-    boolean update(Item c) throws SQLException, ClassNotFoundException {
-        PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE Customer SET CustTitle=?, CustName=?, CustAddress=?, City=?, Province=?, PostalCode=? WHERE CustID=? ");
-        stm.setObject(1,c.getDescription());
-        stm.setObject(2,c.getPackSize());
-        stm.setObject(3,c.getUnitPrice());
-        stm.setObject(4,c.getQtyOnHand());
-        stm.setObject(5,c.getItemCode());
-        return stm.executeUpdate()>0;
     }
 
     void setData(Item i) {

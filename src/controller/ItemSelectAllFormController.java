@@ -1,6 +1,7 @@
 package controller;
 
 
+import dao.ItemDaoImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
@@ -9,6 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.Item;
 import views.Tm.ItemTm;
 
+import java.sql.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -30,7 +32,11 @@ public class ItemSelectAllFormController {
 
         try {
 
-            setItemsToTable(new ItemController().getAllItems());
+            ItemDaoImpl itemDao = new ItemDaoImpl();
+            ArrayList<Item> allItems = itemDao.getAllItems();
+            for (Item allItem : allItems) {
+                tblItem.getItems().add(new ItemTm(allItem.getItemCode(), allItem.getDescription(), allItem.getPackSize(), allItem.getUnitPrice(), allItem.getQtyOnHand()));
+            }
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -38,12 +44,4 @@ public class ItemSelectAllFormController {
 
     }
 
-    private void setItemsToTable(ArrayList<Item> items) {
-        ObservableList<ItemTm> obList = FXCollections.observableArrayList();
-        items.forEach(e -> {
-            obList.add(
-                    new ItemTm(e.getItemCode(), e.getDescription(), e.getPackSize(), e.getUnitPrice(), e.getQtyOnHand()));
-        });
-        tblItem.setItems(obList);
-    }
 }

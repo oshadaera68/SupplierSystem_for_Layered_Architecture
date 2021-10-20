@@ -1,7 +1,6 @@
 package controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import dao.CustomerDaoImpl;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -32,19 +31,15 @@ public class SelectAllCustomerFormController {
         colPostalCode.setCellValueFactory(new PropertyValueFactory<>("PostalCode"));
 
         try {
-            setCustomersToTable(new CustomerController().getAllCustomers());
+
+            CustomerDaoImpl customerDao = new CustomerDaoImpl();
+            ArrayList<Customer> allCustomers = customerDao.getAllCustomers();
+            for (Customer allCustomer : allCustomers) {
+                tblCustomer.getItems().add(new CustomerTm(allCustomer.getId(), allCustomer.getTitle(), allCustomer.getName(), allCustomer.getAddress(), allCustomer.getCity(), allCustomer.getProvince(), allCustomer.getPostalCode()));
+            }
+
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-    }
-
-    private void setCustomersToTable(ArrayList<Customer> customers) {
-        ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
-        customers.forEach(e -> {
-            obList.add(
-                    new CustomerTm(e.getId(), e.getTitle(), e.getName(), e.getAddress(), e.getCity(), e.getProvince(), e.getPostalCode()));
-        });
-        tblCustomer.setItems(obList);
     }
 }

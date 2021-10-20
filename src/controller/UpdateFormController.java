@@ -3,6 +3,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dao.CustomerDaoImpl;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -58,7 +59,12 @@ public class UpdateFormController {
                 txtPostalCode.getText()
         );
 
-        if (new CustomerController().updateCustomer(c1)) {
+        CustomerDaoImpl customerDao = new CustomerDaoImpl();
+        Customer customer = new Customer(c1.getTitle(), c1.getName(), c1.getAddress(), c1.getCity(), c1.getProvince(), c1.getPostalCode(), c1.getId());
+        boolean updateCustomer = customerDao.updateCustomer(customer);
+
+
+        if (updateCustomer) {
             new Alert(Alert.AlertType.CONFIRMATION, "Updated..").show();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again").show();
