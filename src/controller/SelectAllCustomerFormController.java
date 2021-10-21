@@ -1,5 +1,6 @@
 package controller;
 
+import dao.CustomerDao;
 import dao.CustomerDaoImpl;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -19,6 +20,7 @@ public class SelectAllCustomerFormController {
     public TableColumn colCity;
     public TableColumn colProvince;
     public TableColumn colPostalCode;
+    private final CustomerDao customerDao = new CustomerDaoImpl();
 
     public void initialize() {
 
@@ -32,7 +34,7 @@ public class SelectAllCustomerFormController {
 
         try {
 
-            CustomerDaoImpl customerDao = new CustomerDaoImpl();
+
             ArrayList<Customer> allCustomers = customerDao.getAllCustomers();
             for (Customer allCustomer : allCustomers) {
                 tblCustomer.getItems().add(new CustomerTm(allCustomer.getId(), allCustomer.getTitle(), allCustomer.getName(), allCustomer.getAddress(), allCustomer.getCity(), allCustomer.getProvince(), allCustomer.getPostalCode()));

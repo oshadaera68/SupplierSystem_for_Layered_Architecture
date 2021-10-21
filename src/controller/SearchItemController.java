@@ -38,7 +38,6 @@ public class SearchItemController {
     public void searchItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String itemId = txtItemCode.getText();
 
-
         Item item = new ItemController().getItem(itemId);
 
         if (item == null) {

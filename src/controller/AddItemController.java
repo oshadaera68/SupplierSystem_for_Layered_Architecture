@@ -3,6 +3,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dao.ItemDao;
 import dao.ItemDaoImpl;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -51,7 +52,7 @@ public class AddItemController {
                 txtPackSize.getText(), Double.parseDouble(txtUnitPrice.getText()), Integer.parseInt(txtQty.getText())
         );
 
-        ItemDaoImpl itemDao = new ItemDaoImpl();
+        ItemDao itemDao = new ItemDaoImpl();
         Item item = new Item(i1.getItemCode(), i1.getDescription(), i1.getPackSize(), i1.getUnitPrice(), i1.getQtyOnHand());
         boolean addItem = itemDao.addItem(item);
 

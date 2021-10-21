@@ -2,8 +2,8 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dao.CustomerDao;
 import dao.CustomerDaoImpl;
-import db.DbConnection;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -13,8 +13,6 @@ import javafx.scene.input.KeyEvent;
 import model.Customer;
 import util.ValidationUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
@@ -37,6 +35,7 @@ public class SaveFormController {
     Pattern cityRegEx = Pattern.compile("^[A-z]{4,20}$");
     Pattern provinceRegEx = Pattern.compile("^[A-z ]{4,20}$");
     Pattern postalCodeRegEx = Pattern.compile("^[0-9]{4,9}$");
+    private final CustomerDao customerDao = new CustomerDaoImpl();
 
     public void initialize() {
         btnSaveCus.setDisable(true);
@@ -59,7 +58,8 @@ public class SaveFormController {
                 txtId.getText(), txtTitle.getText(), txtName.getText(), txtAddress.getText(),
                 txtCity.getText(), txtProvince.getText(), txtPostalCode.getText()
         );
-        CustomerDaoImpl customerDao = new CustomerDaoImpl();
+
+
         Customer customer = new Customer(c1.getId(), c1.getTitle(), c1.getName(), c1.getAddress(), c1.getCity(), c1.getProvince(), c1.getPostalCode());
         boolean addCustomer = customerDao.addCustomer(customer);
 

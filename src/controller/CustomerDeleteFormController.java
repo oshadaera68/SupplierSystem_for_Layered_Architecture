@@ -2,6 +2,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dao.CustomerDao;
 import dao.CustomerDaoImpl;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -25,6 +26,7 @@ public class CustomerDeleteFormController {
     public JFXTextField txtProvince;
     public JFXTextField txtPostalCode;
     public JFXButton btnCusDelete;
+    private CustomerDao customerDao = new CustomerDaoImpl();
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern idRegEx = Pattern.compile("^(C0-)[0-9]{3,4}$");
@@ -61,12 +63,10 @@ public class CustomerDeleteFormController {
 
     }
 
-
     public void deleteCustomerOnAction(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
-        CustomerDaoImpl customerDao = new CustomerDaoImpl();
+
         Customer customer = new Customer();
         boolean deleteCustomer = customerDao.deleteCustomer(customer.getId());
-
 
         if (deleteCustomer) {
             new Alert(Alert.AlertType.CONFIRMATION, "Deleted", ButtonType.OK).show();

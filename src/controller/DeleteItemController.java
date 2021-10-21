@@ -2,6 +2,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dao.ItemDao;
 import dao.ItemDaoImpl;
 import db.DbConnection;
 import javafx.event.ActionEvent;
@@ -25,6 +26,7 @@ public class DeleteItemController {
     public JFXTextField txtUnitPrice;
     public JFXTextField txtQty;
     public JFXButton btnDelete;
+    ItemDao itemDao = new ItemDaoImpl();
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern itemIdRegEx = Pattern.compile("^(I0-)[0-9]{3,4}$");
@@ -67,7 +69,6 @@ public class DeleteItemController {
 
     public void deleteItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
-        ItemDaoImpl itemDao = new ItemDaoImpl();
         Item item = new Item();
         boolean delete = itemDao.deleteItem(item.getItemCode());
 

@@ -2,6 +2,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dao.ItemDao;
 import dao.ItemDaoImpl;
 import db.DbConnection;
 import javafx.event.ActionEvent;
@@ -27,7 +28,8 @@ public class UpdateItemFormController {
     public JFXButton btnUpdate;
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
-    Pattern itemIdRegEx = Pattern.compile("^(I0-)[0-9]{3,4}$");
+    Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
+    private final ItemDao itemDao = new ItemDaoImpl();
 
     public void initialize() {
         btnUpdate.setDisable(true);
@@ -66,7 +68,6 @@ public class UpdateItemFormController {
                 Integer.parseInt(txtQty.getText())
         );
 
-        ItemDaoImpl itemDao = new ItemDaoImpl();
         Item item = new Item(i1.getItemCode(), i1.getDescription(), i1.getPackSize(), i1.getUnitPrice(), i1.getQtyOnHand());
         boolean updateItem = itemDao.updateItem(item);
 

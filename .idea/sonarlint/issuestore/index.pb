@@ -4,16 +4,8 @@ H
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 L
 src/views/SelectAllForm.fxml,a\9\a9a5e7112cd03fd595951f47abacdfad8ac2ee04
-[
-+src/controller/AdminViewFormController.java,4\2\4263f0b4bc97e02fc317633706425a19590ae620
-[
-+src/controller/DashBoardFormController.java,8\9\8945d48ecf37d4723e2732845cd024a3341bc2ca
-^
-.src/controller/CustomerViewFormController.java,4\b\4b296830b14789d78c31616bbdb700407b805073
 P
  src/views/ItemSelectAllForm.fxml,c\9\c998a8ca08ca0bca7dfca8d8e16004020e84ab1f
 H
@@ -24,8 +16,6 @@ I
 src/views/SearchItem.fxml,3\f\3ff0895b6100cd9d400fb0808f9b71c9157d6a9d
 L
 src/util/ValidationUtil.java,9\7\97bf2fca213e1d5f49ae2ac0720ee54269a28ab5
-\
-,src/controller/ManageItemFormController.java,0\5\056fe492d0ec0f8fbcc847ed056b96c63739544d
 W
 'src/controller/LogInFormController.java,e\b\ebfd56ac237ef298775e56f974e80d4c54763d9b
 I
@@ -48,9 +38,47 @@ H
 src/views/Tm/CartTm.java,5\9\59ecac447f8022b7f87c15f0770e2f822e83f79c
 J
 src/model/ItemDetails.java,3\f\3f058523f8dcc4f0a7843ead8afb6442d0dca451
-O
-src/controller/ItemService.java,f\6\f6953ab72b4b460cbbfdf180b9517e0c1be36ab0
 D
 src/model/Order.java,d\5\d5c9715ba2aaeb7cf89d6b5292bfb85c292d1d12
 M
 src/views/PlaceOrderForm.fxml,a\1\a1cc304707ca594c20f7b836856330a2eeaff9a0
+C
+src/model/Item.java,c\3\c337463b63ab3bf1c7c6563520e3f18884a3f0dd
+^
+.src/controller/CustomerViewFormController.java,4\b\4b296830b14789d78c31616bbdb700407b805073
+[
++src/controller/DashBoardFormController.java,8\9\8945d48ecf37d4723e2732845cd024a3341bc2ca
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+_
+/src/controller/SystemReportsFormController.java,1\e\1e190a483e54cfdd4cb3e9a21aea26348cb6fafa
+R
+"src/controller/ItemController.java,0\8\086c1b5baea0abca5ef04d03edacb12335e49190
+X
+(src/controller/SearchFormController.java,7\1\714937b010e19239aa9e23a6274ccf11268e0821
+V
+&src/controller/CustomerController.java,f\7\f798b712acf0055fba8a3e77dafd6a4e15d3ba72
+D
+src/dao/ItemDao.java,f\7\f7dd20f37f6a5582b0c4355f7ec51597d3fe6e8d
+[
++src/controller/AdminViewFormController.java,4\2\4263f0b4bc97e02fc317633706425a19590ae620
+X
+(src/controller/DeleteItemController.java,7\b\7b627c58dc33a051b630bf6872a6b7deff0abc1f
+\
+,src/controller/ManageItemFormController.java,0\5\056fe492d0ec0f8fbcc847ed056b96c63739544d
+X
+(src/controller/UpdateFormController.java,6\9\699ff8f2b350b420e814f4845c4cfb23adca7f01
+X
+(src/controller/SearchItemController.java,2\8\285c34888c1158c757a83b364cf9ea7eb96b1430
+E
+src/dao/OrderDao.java,3\5\35ed7537ecbede19098c7eb746c1bca42ee1d46d
+_
+/src/controller/ItemSelectAllFormController.java,5\f\5f9d3aa81ce21fa4f27f7d97b6d3d9fb45ae1d68
+c
+3src/controller/SelectAllCustomerFormController.java,a\c\ac3db28988d56e0bdad3de84f9d1721d4df4258d
+I
+src/coursework Script.sql,4\4\44067d4af4e6720aad1615008857028a6e53998b
+U
+%src/controller/AddItemController.java,c\9\c941749f9fc22dc56a4d0dccc54275b46aa3bd69
+\
+,src/controller/UpdateItemFormController.java,5\4\54eae4b87a7adeb69156a9ebfa9991f9b9a98259

@@ -1,16 +1,14 @@
 package controller;
 
 
+import dao.ItemDao;
 import dao.ItemDaoImpl;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Item;
 import views.Tm.ItemTm;
 
-import java.sql.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -21,6 +19,7 @@ public class ItemSelectAllFormController {
     public TableColumn colPackSize;
     public TableColumn colUnitPrice;
     public TableColumn colQty;
+    private final ItemDao itemDao = new ItemDaoImpl();
 
     public void initialize() {
 
@@ -32,7 +31,6 @@ public class ItemSelectAllFormController {
 
         try {
 
-            ItemDaoImpl itemDao = new ItemDaoImpl();
             ArrayList<Item> allItems = itemDao.getAllItems();
             for (Item allItem : allItems) {
                 tblItem.getItems().add(new ItemTm(allItem.getItemCode(), allItem.getDescription(), allItem.getPackSize(), allItem.getUnitPrice(), allItem.getQtyOnHand()));
@@ -41,7 +39,6 @@ public class ItemSelectAllFormController {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
 }

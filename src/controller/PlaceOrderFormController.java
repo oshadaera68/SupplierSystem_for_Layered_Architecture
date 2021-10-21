@@ -2,6 +2,7 @@ package controller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import dao.OrderDao;
 import dao.OrderDaoImpl;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -54,6 +55,7 @@ public class PlaceOrderFormController {
     public Label lblOrderId;
     ObservableList<CartTm> obList = FXCollections.observableArrayList();
 
+    private final OrderDao orderDao = new OrderDaoImpl();
 
     public void initialize() {
 
@@ -121,7 +123,7 @@ public class PlaceOrderFormController {
         if (c1 == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set").show();
         } else {
-            txtCusTitle.setText(c1.getName());
+            txtCusTitle.setText(c1.getTitle());
             txtCusName.setText(c1.getName());
             txtCusAddress.setText(c1.getAddress());
             txtCity.setText(c1.getCity());
@@ -231,19 +233,17 @@ public class PlaceOrderFormController {
             ));
         }
 
-        Order order = new Order(lblOrderId.getText(),lblDate.getText(),lblTime.getText(),total,cmbCustomerIds.getValue(),details);
+        Order order = new Order(lblOrderId.getText(), lblDate.getText(), lblTime.getText(), total, cmbCustomerIds.getValue(), details);
 
-        OrderDaoImpl orderDao = new OrderDaoImpl();
         boolean placeOrder = orderDao.placeOrder(order);
 
         if (placeOrder) {
-            new Alert(Alert.AlertType.CONFIRMATION,"Success Order").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "Success Order").show();
             tblCart.getItems().clear();
-        }else{
-            new Alert(Alert.AlertType.WARNING,"Try again").show();
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Try again").show();
         }
 
     }
-
 
 }

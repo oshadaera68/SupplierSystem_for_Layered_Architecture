@@ -3,6 +3,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dao.CustomerDao;
 import dao.CustomerDaoImpl;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -26,9 +27,9 @@ public class UpdateFormController {
     public JFXTextField txtProvince;
     public JFXTextField txtPostalCode;
     public JFXButton btnUpdate;
-
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern idRegEx = Pattern.compile("^(C0-)[0-9]{3,4}$");
+    private final CustomerDao customerDao = new CustomerDaoImpl();
 
     public void initialize() {
         btnUpdate.setDisable(true);
@@ -59,10 +60,9 @@ public class UpdateFormController {
                 txtPostalCode.getText()
         );
 
-        CustomerDaoImpl customerDao = new CustomerDaoImpl();
+
         Customer customer = new Customer(c1.getTitle(), c1.getName(), c1.getAddress(), c1.getCity(), c1.getProvince(), c1.getPostalCode(), c1.getId());
         boolean updateCustomer = customerDao.updateCustomer(customer);
-
 
         if (updateCustomer) {
             new Alert(Alert.AlertType.CONFIRMATION, "Updated..").show();
