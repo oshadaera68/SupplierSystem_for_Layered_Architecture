@@ -13,7 +13,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <ImageView fx:id="imgAdd" fitHeight="104.0" fitWidth="91.0" layoutX="120.0" layoutY="110.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgAdd" fitHeight="104.0" fitWidth="91.0" layoutX="162.0" layoutY="110.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/icons8-add-user-male-96.png" />
          </image>
@@ -23,27 +23,27 @@
             <Image url="@../asserts/back_96px.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgCustomerSearch" fitHeight="103.0" fitWidth="91.0" layoutX="281.0" layoutY="238.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgCustomerSearch" fitHeight="103.0" fitWidth="91.0" layoutX="393.0" layoutY="237.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/icons8-search-client-48.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgUpdate" fitHeight="91.0" fitWidth="107.0" layoutX="276.0" layoutY="110.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgUpdate" fitHeight="91.0" fitWidth="107.0" layoutX="322.0" layoutY="110.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/icons8-update-user-48.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgSelectAll" fitHeight="83.0" fitWidth="91.0" layoutX="124.0" layoutY="242.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgSelectAll" fitHeight="83.0" fitWidth="91.0" layoutX="231.0" layoutY="242.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/icons8-view-all-48.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgDelete" fitHeight="98.0" fitWidth="91.0" layoutX="429.0" layoutY="110.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgDelete" fitHeight="98.0" fitWidth="91.0" layoutX="475.0" layoutY="110.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/icons8-denied-96.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblMenu" alignment="CENTER" layoutX="26.0" layoutY="362.0" prefHeight="31.0" prefWidth="683.0" text="Welcome To Point Of Sale System-Cashier Section" textFill="#3522b5">
+      <Label fx:id="lblMenu" alignment="CENTER" layoutX="26.0" layoutY="357.0" prefHeight="31.0" prefWidth="683.0" text="Welcome To Point Of Sale System-Cashier Section" textFill="#3522b5">
          <font>
             <Font size="19.0" />
          </font>

@@ -1,13 +1,23 @@
 package controller;
 
 import dao.CrudDao;
-import dao.CustomerDaoImpl;
+import dao.Custom.Impl.CustomerDaoImpl;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import model.Customer;
 import views.Tm.CustomerTm;
 
+import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -21,6 +31,8 @@ public class SelectAllCustomerFormController {
     public TableColumn colProvince;
     public TableColumn colPostalCode;
     private final CrudDao<Customer,String> customerDao = new CustomerDaoImpl();
+    public AnchorPane rootContext;
+    public ImageView imgBack;
 
     public void initialize() {
 
@@ -43,5 +55,16 @@ public class SelectAllCustomerFormController {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public void navigateToBack(MouseEvent mouseEvent) throws IOException {
+        URL resource = this.getClass().getResource("/views/CustomerViewForm.fxml");
+        Parent root = FXMLLoader.load(resource);
+        Scene scene = new Scene(root);
+        Stage primaryStage = (Stage) (this.rootContext.getScene().getWindow());
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Customer View | Supermarket System v0.1.0");
+        primaryStage.centerOnScreen();
+        Platform.runLater(() -> primaryStage.sizeToScene());
     }
 }

@@ -1,20 +1,0 @@
-
-O
-java:S1172+"2Remove this unused method parameter "actionEvent".(ü…ç–8úáÍìÉ/
-O
-java:S1172?"2Remove this unused method parameter "actionEvent".(Ä°Ï8úáÍìÉ/
-X	java:S125h"<This block of commented-out lines of code should be removed.(Œ¹ßÍ8„âÍìÉ/
-r
-java:S1104"WMake txtItemCode a static final constant or non-public and provide accessors if needed.(øÜÜ¡üÿÿÿÿ
-n
-java:S1104"SMake txtDesc a static final constant or non-public and provide accessors if needed.(ÀĞÓ¿ûÿÿÿÿ
-r
-java:S1104"WMake txtPackSize a static final constant or non-public and provide accessors if needed.(ÃŞˆüÿÿÿÿ
-s
-java:S1104"XMake txtUnitPrice a static final constant or non-public and provide accessors if needed.(©›×Ğùÿÿÿÿ
-m
-java:S1104"RMake txtQty a static final constant or non-public and provide accessors if needed.(„¬‘³øÿÿÿÿ
-k
-java:S1104"UMake btnUpdate a static final constant or non-public and provide accessors if needed.(§Å‰÷
-l
-java:S2095-"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¹©½Ë8âÍìÉ/

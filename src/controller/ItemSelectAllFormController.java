@@ -2,13 +2,23 @@ package controller;
 
 
 import dao.CrudDao;
-import dao.ItemDaoImpl;
+import dao.Custom.Impl.ItemDaoImpl;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import model.Item;
 import views.Tm.ItemTm;
 
+import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -20,6 +30,8 @@ public class ItemSelectAllFormController {
     public TableColumn colUnitPrice;
     public TableColumn colQty;
     private final CrudDao<Item,String> itemDao = new ItemDaoImpl();
+    public ImageView imgBack;
+    public AnchorPane rootContext;
 
     public void initialize() {
 
@@ -41,4 +53,14 @@ public class ItemSelectAllFormController {
         }
     }
 
+    public void navigateToBack(MouseEvent mouseEvent) throws IOException {
+        URL resource = this.getClass().getResource("/views/ManageItemForm.fxml");
+        Parent root = FXMLLoader.load(resource);
+        Scene scene = new Scene(root);
+        Stage primaryStage = (Stage) (this.rootContext.getScene().getWindow());
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Item View | Supermarket System v0.1.0");
+        primaryStage.centerOnScreen();
+        Platform.runLater(() -> primaryStage.sizeToScene());
+    }
 }

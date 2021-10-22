@@ -4,10 +4,12 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="637.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SelectAllCustomerFormController">
+<AnchorPane fx:id="rootContext" prefHeight="637.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SelectAllCustomerFormController">
    <children>
       <TableView fx:id="tblCustomer" layoutX="11.0" layoutY="119.0" prefHeight="498.0" prefWidth="1009.0">
         <columns>
@@ -26,5 +28,10 @@
          </font>
       </Label>
       <Separator layoutX="312.0" layoutY="83.0" prefHeight="1.0" prefWidth="420.0" />
+      <ImageView fx:id="imgBack" fitHeight="51.0" fitWidth="56.0" layoutX="45.0" layoutY="30.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/back_96px.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

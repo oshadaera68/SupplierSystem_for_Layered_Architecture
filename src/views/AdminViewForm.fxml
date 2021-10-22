@@ -33,6 +33,10 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <ImageView fx:id="imgHome" fitHeight="71.0" fitWidth="91.0" layoutX="25.0" layoutY="20.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgHome" fitHeight="71.0" fitWidth="91.0" layoutX="25.0" layoutY="20.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/home-icon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

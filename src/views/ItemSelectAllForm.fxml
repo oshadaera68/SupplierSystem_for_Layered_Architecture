@@ -3,11 +3,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="616.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemSelectAllFormController">
+<AnchorPane fx:id="rootContext" prefHeight="616.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemSelectAllFormController">
    <children>
       <Label layoutX="319.0" layoutY="14.0" text="Item Select All Form" textFill="#1c3efc">
          <font>
@@ -23,5 +24,10 @@
             <TableColumn fx:id="colQty" prefWidth="163.0" text="Qty On Hand" />
         </columns>
       </TableView>
+      <ImageView fx:id="imgBack" fitHeight="77.0" fitWidth="63.0" layoutX="53.0" layoutY="18.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/back_96px.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

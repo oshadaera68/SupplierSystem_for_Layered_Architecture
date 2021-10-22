@@ -123,7 +123,7 @@ public class CashierFormController {
         }
     }
 
-    public void navigateOnBack(MouseEvent mouseEvent) throws IOException {
+    public void navigateToBack(MouseEvent mouseEvent) throws IOException {
         URL resource = this.getClass().getResource("/views/DashBoardForm.fxml");
         Parent root = FXMLLoader.load(resource);
         Scene scene = new Scene(root);
@@ -133,4 +133,5 @@ public class CashierFormController {
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
+
 }

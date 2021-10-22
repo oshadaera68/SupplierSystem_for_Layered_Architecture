@@ -4,34 +4,47 @@ package controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.CrudDao;
-import dao.ItemDaoImpl;
+import dao.Custom.Impl.ItemDaoImpl;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import model.Item;
 import util.ValidationUtil;
 
+import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
 public class AddItemController {
+    private final CrudDao<Item, String> itemDao = new ItemDaoImpl();
     public JFXTextField txtItemCode;
     public JFXTextField txtDesc;
     public JFXTextField txtPackSize;
     public JFXTextField txtUnitPrice;
     public JFXTextField txtQty;
     public JFXButton btnAdd;
+    public ImageView imgBack;
+    public AnchorPane rootContext;
+
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
     Pattern descriptionRegEx = Pattern.compile("^[A-z ]{3,40}$");
     Pattern packSizeRegEx = Pattern.compile("^[A-z]{1,20}$");
     Pattern unitPriceRegEx = Pattern.compile("^[1-9][0-9]([.][0-9]{2})?$");
     Pattern qtyRegEx = Pattern.compile("^[0-9]{1,}$");
-    private final CrudDao<Item,String> itemDao = new ItemDaoImpl();
 
     public void initialize() {
         btnAdd.setDisable(true);
@@ -79,5 +92,16 @@ public class AddItemController {
             } else if (response instanceof Boolean) {
             }
         }
+    }
+
+    public void navigateToBack(MouseEvent mouseEvent) throws IOException {
+        URL resource = this.getClass().getResource("/views/ManageItemForm.fxml");
+        Parent root = FXMLLoader.load(resource);
+        Scene scene = new Scene(root);
+        Stage primaryStage = (Stage) (this.rootContext.getScene().getWindow());
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Item View | Supermarket System v0.1.0");
+        primaryStage.centerOnScreen();
+        Platform.runLater(() -> primaryStage.sizeToScene());
     }
 }

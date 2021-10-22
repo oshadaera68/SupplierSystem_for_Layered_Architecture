@@ -144,12 +144,12 @@ public class ManageItemFormController {
     }
 
     public void navigateOnBack(MouseEvent mouseEvent) throws IOException {
-        URL resource = this.getClass().getResource("/views/DashBoardForm.fxml");
+        URL resource = this.getClass().getResource("/views/AdminViewForm.fxml");
         Parent root = FXMLLoader.load(resource);
         Scene scene = new Scene(root);
         Stage primaryStage = (Stage) (this.rootContext.getScene().getWindow());
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Supermarket System v0.1.0 | MINDARTLK Creations");
+        primaryStage.setTitle("Admin Form | Supermarket System v0.1.0");
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
     }

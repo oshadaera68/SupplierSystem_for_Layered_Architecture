@@ -2,16 +2,24 @@ package controller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import dao.OrderDao;
-import dao.OrderDaoImpl;
+import dao.Custom.OrderDao;
+import dao.Custom.Impl.OrderDaoImpl;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.Customer;
 import model.Item;
@@ -19,6 +27,8 @@ import model.ItemDetails;
 import model.Order;
 import views.Tm.CartTm;
 
+import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
@@ -27,6 +37,7 @@ import java.util.Date;
 import java.util.List;
 
 public class PlaceOrderFormController {
+    private final OrderDao orderDao = new OrderDaoImpl();
     public Label lblDate;
     public Label lblTime;
     public JFXComboBox<String> cmbCustomerIds;
@@ -42,7 +53,6 @@ public class PlaceOrderFormController {
     public JFXTextField txtUnitPrice;
     public JFXTextField txtQtyOnHand;
     public JFXTextField txtQty;
-
     public TableView<CartTm> tblCart;
     public TableColumn colItemCode;
     public TableColumn colDesc;
@@ -53,9 +63,9 @@ public class PlaceOrderFormController {
     public TableColumn colTotal;
     public Label lblTotal;
     public Label lblOrderId;
+    public ImageView imgBack;
+    public AnchorPane rootContext;
     ObservableList<CartTm> obList = FXCollections.observableArrayList();
-
-    private final OrderDao orderDao = new OrderDaoImpl();
 
     public void initialize() {
 
@@ -245,4 +255,14 @@ public class PlaceOrderFormController {
 
     }
 
+    public void navigateToBack(MouseEvent mouseEvent) throws IOException {
+        URL resource = this.getClass().getResource("/views/CashierForm.fxml");
+        Parent root = FXMLLoader.load(resource);
+        Scene scene = new Scene(root);
+        Stage primaryStage = (Stage) (this.rootContext.getScene().getWindow());
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Cashier Form | MINDARTLK Creations");
+        primaryStage.centerOnScreen();
+        Platform.runLater(() -> primaryStage.sizeToScene());
+    }
 }

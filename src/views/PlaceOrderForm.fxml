@@ -7,10 +7,12 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="754.0" prefWidth="1321.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlaceOrderFormController">
+<AnchorPane fx:id="rootContext" prefHeight="754.0" prefWidth="1321.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlaceOrderFormController">
    <children>
       <Label alignment="CENTER" layoutX="143.0" layoutY="24.0" prefHeight="21.0" prefWidth="1035.0" text="Place Order Form" textFill="#1d69e0">
          <font>
@@ -87,5 +89,10 @@
       </Label>
       <JFXButton layoutX="1167.0" layoutY="681.0" onAction="#placeOrderOnAction" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #5352ed;" text="Place Order" textFill="WHITE" />
       <JFXButton layoutX="1012.0" layoutY="681.0" onAction="#billOnAction" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: #27ae60;" text="Bill" textFill="WHITE" />
+      <ImageView fx:id="imgBack" fitHeight="53.0" fitWidth="51.0" layoutX="41.0" layoutY="14.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/back_96px.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

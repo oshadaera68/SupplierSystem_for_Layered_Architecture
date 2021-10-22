@@ -3,16 +3,26 @@ package controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.CrudDao;
-import dao.ItemDaoImpl;
+import dao.Custom.Impl.ItemDaoImpl;
 import db.DbConnection;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import model.Item;
 import util.ValidationUtil;
 
+import java.io.IOException;
+import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,6 +36,8 @@ public class DeleteItemController {
     public JFXTextField txtUnitPrice;
     public JFXTextField txtQty;
     public JFXButton btnDelete;
+    public AnchorPane rootContext;
+    public ImageView imgBack;
     CrudDao<Item,String> itemDao = new ItemDaoImpl();
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
@@ -97,5 +109,16 @@ public class DeleteItemController {
                // new Alert(Alert.AlertType.INFORMATION, "Added").showAndWait();
             }
         }
+    }
+
+    public void navigateToBack(MouseEvent mouseEvent) throws IOException {
+        URL resource = this.getClass().getResource("/views/ManageItemForm.fxml");
+        Parent root = FXMLLoader.load(resource);
+        Scene scene = new Scene(root);
+        Stage primaryStage = (Stage) (this.rootContext.getScene().getWindow());
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Item View | Supermarket System v0.1.0");
+        primaryStage.centerOnScreen();
+        Platform.runLater(() -> primaryStage.sizeToScene());
     }
 }

@@ -1,5 +1,6 @@
-package dao;
+package dao.Custom.Impl;
 
+import dao.Custom.CustomerDao;
 import model.Customer;
 import util.CrudUtil;
 
@@ -7,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class CustomerDaoImpl implements CrudDao <Customer,String>{
+public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public boolean add(Customer o) throws SQLException, ClassNotFoundException {

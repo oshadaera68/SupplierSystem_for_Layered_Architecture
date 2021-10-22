@@ -4,7 +4,6 @@ import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -31,7 +30,7 @@ public class CustomerViewFormController {
     public Label lblMenu;
     public Label lblDescription;
 
-    public void initialize(){
+    public void initialize() {
         FadeTransition fadeIn = new FadeTransition(Duration.millis(2000), rootContext);
         fadeIn.setFromValue(0.0);
         fadeIn.setToValue(1.0);
@@ -39,6 +38,7 @@ public class CustomerViewFormController {
     }
 
     public void playMouseExitAnimation(MouseEvent mouseEvent) throws IOException {
+
         if (mouseEvent.getSource() instanceof ImageView) {
             ImageView icon = (ImageView) mouseEvent.getSource();
             ScaleTransition scaleT = new ScaleTransition(Duration.millis(200), icon);
@@ -47,7 +47,7 @@ public class CustomerViewFormController {
             scaleT.play();
 
             icon.setEffect(null);
-            lblMenu.setText("Welcome To Manage Customer Form");
+            lblMenu.setText("Welcome To Customer Section");
             lblDescription.setText("Please select one of above main operations to proceed");
 
         }
@@ -124,13 +124,12 @@ public class CustomerViewFormController {
                 case "imgCustomerSearch":
                     root = FXMLLoader.load(getClass().getResource("/views/SearchCustomerForm.fxml"));
                     break;
-
             }
 
             if (root != null) {
                 Scene subScene = new Scene(root);
                 Stage primaryStage = (Stage) this.rootContext.getScene().getWindow();
-                primaryStage.setTitle("Manage Item Form | Supermarket System v0.1.0");
+                primaryStage.setTitle("Manage Customer Form | Supermarket System v0.1.0");
                 primaryStage.setScene(subScene);
                 primaryStage.centerOnScreen();
 
@@ -144,12 +143,12 @@ public class CustomerViewFormController {
     }
 
     public void navigateToBack(MouseEvent mouseEvent) throws IOException {
-        URL resource = this.getClass().getResource("/views/DashBoardForm.fxml");
+        URL resource = this.getClass().getResource("/views/CashierForm.fxml");
         Parent root = FXMLLoader.load(resource);
         Scene scene = new Scene(root);
         Stage primaryStage = (Stage) (this.rootContext.getScene().getWindow());
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Supermarket System v0.1.0 | MINDARTLK Creations");
+        primaryStage.setTitle("Cashier Form | MINDARTLK Creations");
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
