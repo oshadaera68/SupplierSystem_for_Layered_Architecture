@@ -10,6 +10,10 @@ Database - Mysql Community server 8.0.25 /
 IDE - Intelij Idea 2021.2.2 / 
 Reports - TIBCO jasperSoft Studio 6.17.0
 
+# logo Designed By
+Adobe Photoshop CC 2020
+
+
 # using libs
 jfonix 8.0.7.jar / 
 mysql-connector-java-8.0.25.jar / 
