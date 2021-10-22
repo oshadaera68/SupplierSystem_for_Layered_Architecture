@@ -1,24 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="340.0" prefWidth="627.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageItemFormController">
+<AnchorPane fx:id="rootContext" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageItemFormController">
    <children>
-      <Label layoutX="212.0" layoutY="14.0" text="Manage Item View" textFill="#2e87b8">
+      <Label layoutX="180.0" layoutY="23.0" text="Manage Item Form - Admin Form" textFill="#0011ff">
          <font>
-            <Font name="Consolas Bold" size="23.0" />
+            <Font name="Behind The Scenery" size="31.0" />
          </font>
       </Label>
-      <Separator layoutX="180.0" layoutY="40.0" prefHeight="3.0" prefWidth="268.0" />
-      <JFXButton layoutX="238.0" layoutY="70.0" onAction="#addItemOnAction" prefHeight="31.0" prefWidth="153.0" style="-fx-background-color: #3498db;" text="Add Item Form" textFill="WHITE" />
-      <JFXButton layoutX="238.0" layoutY="111.0" onAction="#updateItemFormOnAction" prefHeight="31.0" prefWidth="153.0" style="-fx-background-color: #9b59b6;" text="Update Item Form" textFill="WHITE" />
-      <JFXButton layoutX="238.0" layoutY="155.0" onAction="#deleteItemFormOnAction" prefHeight="31.0" prefWidth="153.0" style="-fx-background-color: #1abc9c;" text="Delete Item Form" textFill="WHITE" />
-      <JFXButton layoutX="238.0" layoutY="199.0" onAction="#searchItemFormOnAction" prefHeight="31.0" prefWidth="153.0" style="-fx-background-color: #e67e22;" text="Search Item Form" textFill="WHITE" />
-      <JFXButton layoutX="238.0" layoutY="245.0" onAction="#selectAllFormOnAction" style="-fx-background-color: #00a8ff;" text="Select All Item Form" textFill="WHITE" />
+      <ImageView fx:id="imgDelete" fitHeight="75.0" fitWidth="94.0" layoutX="497.0" layoutY="128.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-delete-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgAdd" fitHeight="91.0" fitWidth="104.0" layoutX="109.0" layoutY="120.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-plus-+-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgUpdate" fitHeight="91.0" fitWidth="108.0" layoutX="306.0" layoutY="120.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-update-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgSearch" fitHeight="91.0" fitWidth="91.0" layoutX="423.0" layoutY="261.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-search-96.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblMenu" alignment="CENTER" layoutX="28.0" layoutY="411.0" prefHeight="31.0" prefWidth="683.0" text="Welcome To Manage Item Form" textFill="#3522b5">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDescription" alignment="CENTER" layoutX="74.0" layoutY="457.0" prefHeight="16.0" prefWidth="577.0" text="Please select one of above main operations to proceed" />
+      <ImageView fx:id="imgBack" fitHeight="61.0" fitWidth="55.0" layoutX="28.0" layoutY="19.0" onMouseClicked="#navigateOnBack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/back_96px.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgSelectAll" fitHeight="91.0" fitWidth="114.0" layoutX="207.0" layoutY="261.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-view-all-48.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

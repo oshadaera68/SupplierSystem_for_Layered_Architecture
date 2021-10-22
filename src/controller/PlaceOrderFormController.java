@@ -221,7 +221,7 @@ public class PlaceOrderFormController {
         lblTotal.setText(ttl + "/=");
     }
 
-    public void placeOrderOnAction(ActionEvent actionEvent) {
+    public void placeOrderOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
         ArrayList<ItemDetails> details = new ArrayList<>();
         double total = 0;
@@ -234,7 +234,6 @@ public class PlaceOrderFormController {
         }
 
         Order order = new Order(lblOrderId.getText(), lblDate.getText(), lblTime.getText(), total, cmbCustomerIds.getValue(), details);
-
         boolean placeOrder = orderDao.placeOrder(order);
 
         if (placeOrder) {

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="384.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AboutUsFormController">
+   <children>
+      <Label layoutX="217.0" layoutY="201.0" text="Supermarket Supplier System ">
+         <font>
+            <Font name="Arial Bold Italic" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="195.0" text="Product Name:">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="289.0" layoutY="55.0" text="Powered By MINDARTLK Creations.">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="289.0" layoutY="119.0" text="All Rights Reserved." textFill="RED">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="289.0" layoutY="88.0" text="(c) @ 2021.">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="217.0" layoutY="243.0" text="v0.1.0">
+         <font>
+            <Font name="Arial Bold Italic" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="237.0" text="Version:">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="258.0" layoutY="289.0">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="280.0" text="Operating System:">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="245.0" layoutY="285.0" text="Windows 10, x64bit system, 10.0">
+         <font>
+            <Font name="Arial Bold Italic" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="16.0" text="About Us">
+         <font>
+            <Font name="Behind The Scenery" size="24.0" />
+         </font>
+      </Label>
+      <Separator layoutX="133.0" layoutY="35.0" prefHeight="0.0" prefWidth="489.0" />
+      <Label layoutX="58.0" layoutY="324.0" text="Product Released:">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="242.0" layoutY="329.0" text="2021/10/18">
+         <font>
+            <Font name="Arial Bold Italic" size="19.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="278.0" fitWidth="383.0" layoutX="-12.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/LOGOIMAGE1.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

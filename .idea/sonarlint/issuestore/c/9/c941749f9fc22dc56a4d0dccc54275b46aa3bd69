@@ -1,7 +1,7 @@
 
 M
 java:S11721"2Remove this unused method parameter "actionEvent".(»ô¸üøÿÿÿÿ
->	java:S108P")Either remove or fill this block of code.(Û˜›¾
+>	java:S108O")Either remove or fill this block of code.(Û˜›¾
 r
 java:S1104"WMake txtItemCode a static final constant or non-public and provide accessors if needed.(øÜÜ¡üÿÿÿÿ
 n

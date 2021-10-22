@@ -1,0 +1,20 @@
+
+H
+java:S1172)"2Remove this unused method parameter "actionEvent".(ıŸãÚ
+Q	java:S125H"<This block of commented-out lines of code should be removed.(Œ¹ßÍ
+g
+java:S1104"QMake txtId a static final constant or non-public and provide accessors if needed.(Ú…á¬
+i
+java:S1104"TMake txtTitle a static final constant or non-public and provide accessors if needed.(çØÇ#
+n
+java:S1104"SMake txtName a static final constant or non-public and provide accessors if needed.(¨äİìÿÿÿÿÿ
+q
+java:S1104"VMake txtAddress a static final constant or non-public and provide accessors if needed.(©ûîùıÿÿÿÿ
+i
+java:S1104"SMake txtCity a static final constant or non-public and provide accessors if needed.(Õ•÷
+m
+java:S1104"WMake txtProvince a static final constant or non-public and provide accessors if needed.(€×¡î
+t
+java:S1104"YMake txtPostalCode a static final constant or non-public and provide accessors if needed.(ø®ô”ùÿÿÿÿ
+s
+java:S1104"]Make btnSearchCustomer a static final constant or non-public and provide accessors if needed.(Ç©ì

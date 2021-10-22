@@ -3,7 +3,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import dao.ItemDao;
+import dao.CrudDao;
 import dao.ItemDaoImpl;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -25,13 +25,13 @@ public class AddItemController {
     public JFXTextField txtUnitPrice;
     public JFXTextField txtQty;
     public JFXButton btnAdd;
-
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
     Pattern descriptionRegEx = Pattern.compile("^[A-z ]{3,40}$");
     Pattern packSizeRegEx = Pattern.compile("^[A-z]{1,20}$");
     Pattern unitPriceRegEx = Pattern.compile("^[1-9][0-9]([.][0-9]{2})?$");
     Pattern qtyRegEx = Pattern.compile("^[0-9]{1,}$");
+    private final CrudDao<Item,String> itemDao = new ItemDaoImpl();
 
     public void initialize() {
         btnAdd.setDisable(true);
@@ -52,9 +52,8 @@ public class AddItemController {
                 txtPackSize.getText(), Double.parseDouble(txtUnitPrice.getText()), Integer.parseInt(txtQty.getText())
         );
 
-        ItemDao itemDao = new ItemDaoImpl();
         Item item = new Item(i1.getItemCode(), i1.getDescription(), i1.getPackSize(), i1.getUnitPrice(), i1.getQtyOnHand());
-        boolean addItem = itemDao.addItem(item);
+        boolean addItem = itemDao.add(item);
 
         if (addItem) {
             new Alert(Alert.AlertType.CONFIRMATION, "Saved Data..", ButtonType.OK).showAndWait();

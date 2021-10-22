@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="723.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UpdateCustomerFormController">
+   <children>
+      <JFXTextField fx:id="txtId" labelFloat="true" layoutX="116.0" layoutY="86.0" onAction="#searchCustomer" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Customer Id" />
+      <JFXTextField fx:id="txtTitle" labelFloat="true" layoutX="116.0" layoutY="160.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Customer Titile" />
+      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="116.0" layoutY="239.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Customer Name" />
+      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="116.0" layoutY="318.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Customer Address" />
+      <JFXTextField fx:id="txtCity" labelFloat="true" layoutX="116.0" layoutY="401.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="City" />
+      <JFXTextField fx:id="txtProvince" labelFloat="true" layoutX="116.0" layoutY="483.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Province" />
+      <JFXTextField fx:id="txtPostalCode" labelFloat="true" layoutX="118.0" layoutY="566.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Postal Code" />
+      <Label layoutX="119.0" layoutY="23.0" text="Customer Update Form">
+         <font>
+            <Font name="Segoe UI Bold" size="27.0" />
+         </font>
+      </Label>
+      <Separator layoutX="85.0" layoutY="56.0" prefHeight="4.0" prefWidth="364.0" />
+      <JFXButton fx:id="btnUpdate" layoutX="196.0" layoutY="639.0" onAction="#updateCustomerOnAction" style="-fx-background-color: #9b59b6;" text="Update Customer" textFill="WHITE" />
+   </children>
+</AnchorPane>

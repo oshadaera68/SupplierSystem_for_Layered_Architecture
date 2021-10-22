@@ -1,24 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="380.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerViewFormController">
-    <children>
-        <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="574.0" text="Customer View">
-            <font>
-                <Font name="System Bold" size="23.0" />
-            </font>
-        </Label>
-        <Separator layoutX="201.0" layoutY="47.0" prefWidth="200.0" />
-      <JFXButton layoutX="207.0" layoutY="69.0" onAction="#customerSaveOnAction" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #3498db;" text="Customer Save Form" textFill="WHITE" />
-      <JFXButton layoutX="207.0" layoutY="115.0" onAction="#updateCustomerOnAction" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #9b59b6;" text="Customer Update Form" textFill="WHITE" />
-      <JFXButton layoutX="207.0" layoutY="159.0" onAction="#deleteCustomerOnAction" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #1abc9c;" text="Customer Delete Form" textFill="WHITE" />
-      <JFXButton layoutX="208.0" layoutY="205.0" onAction="#customerSearchOnAction" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #e67e22;" text="Customer Search Form" textFill="WHITE" />
-      <JFXButton layoutX="208.0" layoutY="251.0" onAction="#customerSelectAllOnAction" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #8c7ae6;" text="Customer Select All Form" textFill="WHITE" />
-      <JFXButton layoutX="208.0" layoutY="299.0" onAction="#placeOrderOnAction" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #8c7ae6;" text="Place Order Form" textFill="WHITE" />
-    </children>
+<AnchorPane fx:id="rootContext" prefHeight="501.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerViewFormController">
+   <children>
+      <Label layoutX="185.0" layoutY="40.0" text="Point Of Sale System - Customer Section" textFill="#215be4">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgAdd" fitHeight="104.0" fitWidth="91.0" layoutX="120.0" layoutY="110.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-add-user-male-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgBack" fitHeight="62.0" fitWidth="65.0" layoutX="34.0" layoutY="20.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/back_96px.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgCustomerSearch" fitHeight="103.0" fitWidth="91.0" layoutX="281.0" layoutY="238.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-search-client-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgUpdate" fitHeight="91.0" fitWidth="107.0" layoutX="276.0" layoutY="110.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-update-user-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgSelectAll" fitHeight="83.0" fitWidth="91.0" layoutX="124.0" layoutY="242.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-view-all-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgDelete" fitHeight="98.0" fitWidth="91.0" layoutX="429.0" layoutY="110.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-denied-96.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblMenu" alignment="CENTER" layoutX="26.0" layoutY="362.0" prefHeight="31.0" prefWidth="683.0" text="Welcome To Point Of Sale System-Cashier Section" textFill="#3522b5">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDescription" alignment="CENTER" layoutX="72.0" layoutY="408.0" prefHeight="16.0" prefWidth="577.0" text="Please select one of above main operations to proceed" />
+   </children>
 </AnchorPane>

@@ -2,7 +2,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import dao.ItemDao;
+import dao.CrudDao;
 import dao.ItemDaoImpl;
 import db.DbConnection;
 import javafx.event.ActionEvent;
@@ -20,6 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
 public class UpdateItemFormController {
+    private final CrudDao<Item,String> itemDao = new ItemDaoImpl();
     public JFXTextField txtItemCode;
     public JFXTextField txtDesc;
     public JFXTextField txtPackSize;
@@ -29,7 +30,6 @@ public class UpdateItemFormController {
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
-    private final ItemDao itemDao = new ItemDaoImpl();
 
     public void initialize() {
         btnUpdate.setDisable(true);
@@ -69,7 +69,7 @@ public class UpdateItemFormController {
         );
 
         Item item = new Item(i1.getItemCode(), i1.getDescription(), i1.getPackSize(), i1.getUnitPrice(), i1.getQtyOnHand());
-        boolean updateItem = itemDao.updateItem(item);
+        boolean updateItem = itemDao.update(item);
 
         if (updateItem) {
             new Alert(Alert.AlertType.CONFIRMATION, "Updated..").show();

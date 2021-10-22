@@ -1,7 +1,7 @@
 package controller;
 
 
-import dao.ItemDao;
+import dao.CrudDao;
 import dao.ItemDaoImpl;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -19,7 +19,7 @@ public class ItemSelectAllFormController {
     public TableColumn colPackSize;
     public TableColumn colUnitPrice;
     public TableColumn colQty;
-    private final ItemDao itemDao = new ItemDaoImpl();
+    private final CrudDao<Item,String> itemDao = new ItemDaoImpl();
 
     public void initialize() {
 
@@ -31,7 +31,7 @@ public class ItemSelectAllFormController {
 
         try {
 
-            ArrayList<Item> allItems = itemDao.getAllItems();
+            ArrayList<Item> allItems = itemDao.getAll();
             for (Item allItem : allItems) {
                 tblItem.getItems().add(new ItemTm(allItem.getItemCode(), allItem.getDescription(), allItem.getPackSize(), allItem.getUnitPrice(), allItem.getQtyOnHand()));
             }

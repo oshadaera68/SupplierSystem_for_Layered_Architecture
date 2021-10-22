@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="728.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchCustomerFormController">
+   <children>
+      <JFXTextField fx:id="txtId" labelFloat="true" layoutX="146.0" layoutY="106.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Customer Id" />
+      <JFXTextField fx:id="txtTitle" labelFloat="true" layoutX="146.0" layoutY="180.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Customer Titile" />
+      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="146.0" layoutY="259.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Customer Name" />
+      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="146.0" layoutY="338.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Customer Address" />
+      <JFXTextField fx:id="txtCity" labelFloat="true" layoutX="146.0" layoutY="421.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="City" />
+      <JFXTextField fx:id="txtProvince" labelFloat="true" layoutX="146.0" layoutY="503.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Province" />
+      <JFXTextField fx:id="txtPostalCode" labelFloat="true" layoutX="148.0" layoutY="586.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Postal Code" />
+      <Label layoutX="172.0" layoutY="25.0" text="Customer Search Form" textFill="#eb1e1e">
+         <font>
+            <Font name="Gabriola" size="34.0" />
+         </font>
+      </Label>
+      <Separator layoutX="148.0" layoutY="64.0" prefHeight="4.0" prefWidth="297.0" />
+      <JFXButton fx:id="btnSearchCustomer" layoutX="234.0" layoutY="655.0" onAction="#searchCustomerOnAction" style="-fx-background-color: #1289A7;" text="Search Customer" textFill="WHITE" />
+   </children>
+</AnchorPane>

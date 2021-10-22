@@ -1,48 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="237.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFormController">
+<AnchorPane fx:id="rootContext" prefHeight="415.0" prefWidth="670.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFormController">
    <children>
-      <AnchorPane layoutX="-1.0" prefHeight="237.0" prefWidth="207.0" style="-fx-background-color: #3498db;">
-         <children>
-            <Label layoutX="31.0" layoutY="25.0" text="Supplier System" textFill="WHITE">
-               <font>
-                  <Font name="Candara Bold" size="21.0" />
-               </font>
-            </Label>
-            <Label layoutX="31.0" layoutY="129.0" text="Ver 1.0" textFill="WHITE">
-               <font>
-                  <Font name="Comic Sans MS Bold" size="21.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <Label layoutX="216.0" layoutY="23.0" text="Date:">
+      <Label layoutX="216.0" layoutY="22.0" text="Date:">
          <font>
-            <Font name="Arial Black" size="20.0" />
+            <Font name="Arial Black" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="lblDate" layoutX="281.0" layoutY="25.0" text="2021/08/20">
+      <Label fx:id="lblDate" layoutX="263.0" layoutY="23.0" text="2021/08/20">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="18.0" />
+            <Font name="Comic Sans MS Bold Italic" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="413.0" layoutY="23.0" text="Time:">
+      <Label layoutX="392.0" layoutY="22.0" text="Time:">
          <font>
-            <Font name="Arial Black" size="20.0" />
+            <Font name="Arial Black" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="lblTime" layoutX="481.0" layoutY="25.0" text="09:34:00">
+      <Label fx:id="lblTime" layoutX="441.0" layoutY="23.0" text="09:34:00">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="18.0" />
+            <Font name="Comic Sans MS Bold Italic" size="16.0" />
          </font>
       </Label>
-      <JFXButton layoutX="364.0" layoutY="77.0" onAction="#logInOnAction" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #1abc9c;" text="Log In" textFill="WHITE" />
-      <JFXButton layoutX="364.0" layoutY="130.0" onAction="#exitOnAction" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #e74c3c;" text="Exit" textFill="WHITE" />
+      <Label fx:id="lblMenu" alignment="CENTER" contentDisplay="CENTER" layoutY="284.0" prefHeight="30.0" prefWidth="671.0" text="Welcome To SuperMarket System" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDescription" alignment="CENTER" layoutX="45.0" layoutY="314.0" prefHeight="16.0" prefWidth="577.0" text="Please select one of above main operations to proceed">
+         <font>
+            <Font name="Ubuntu" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="92.0" layoutY="382.0" text="CopyRight 2021 MIND ART LK Creations. All Rights reserved. UI designed by Oshada Eranga">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgAdmin" fitHeight="112.0" fitWidth="123.0" layoutX="160.0" layoutY="108.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/download.jpg" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="imgCashier" fitHeight="112.0" fitWidth="115.0" layoutX="411.0" layoutY="108.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/cashier-machine.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="imgIcon" fitHeight="69.0" fitWidth="66.0" layoutX="22.0" layoutY="22.0" onMouseClicked="#aboutUsOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/about-us.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="57.0" layoutX="594.0" layoutY="16.0" onMouseClicked="#exitOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-shutdown-48.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
