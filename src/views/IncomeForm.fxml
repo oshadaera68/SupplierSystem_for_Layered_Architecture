@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="rootContext" prefHeight="450.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IncomeFormController">
+   <children>
+      <Label alignment="CENTER" layoutX="278.0" layoutY="18.0" text="Income Section" textFill="#326cff">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgBack" fitHeight="54.0" fitWidth="62.0" layoutX="46.0" layoutY="18.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/back_96px.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblMenu" alignment="CENTER" layoutX="34.0" layoutY="336.0" prefHeight="31.0" prefWidth="683.0" text="Welcome Income Section" textFill="#3522b5">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDescription" alignment="CENTER" layoutX="87.0" layoutY="387.0" prefHeight="16.0" prefWidth="577.0" text="Please select one of above main operations to proceed" />
+      <ImageView fx:id="imgDay" fitHeight="93.0" fitWidth="94.0" layoutX="213.0" layoutY="79.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-monday-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgMonth" fitHeight="93.0" fitWidth="93.0" layoutX="411.0" layoutY="79.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-april-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgYear" fitHeight="93.0" fitWidth="93.0" layoutX="213.0" layoutY="209.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-plus-1-year-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgCustomer" fitHeight="93.0" fitWidth="84.0" layoutX="416.0" layoutY="214.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-add-user-male-96.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

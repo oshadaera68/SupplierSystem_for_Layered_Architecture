@@ -1,6 +1,7 @@
 package controller;
 
 
+import bo.ItemBoImpl;
 import dao.Custom.Impl.ItemDaoImpl;
 import dao.Custom.ItemDao;
 import javafx.application.Platform;
@@ -23,7 +24,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ItemSelectAllFormController {
-    private final ItemDao itemDao = new ItemDaoImpl();
+    private final ItemBoImpl itemBo = new ItemBoImpl();
     public TableView<ItemTm> tblItem;
     public TableColumn colItemCode;
     public TableColumn colDesc;
@@ -42,7 +43,7 @@ public class ItemSelectAllFormController {
         colQty.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
 
         try {
-            ArrayList<Item> allItems = itemDao.getAll();
+            ArrayList<Item> allItems = itemBo.getAllItem();
             for (Item allItem : allItems) {
                 tblItem.getItems().add(new ItemTm(allItem.getItemCode(), allItem.getDescription(), allItem.getPackSize(), allItem.getUnitPrice(), allItem.getQtyOnHand()));
             }

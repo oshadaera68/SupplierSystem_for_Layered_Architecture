@@ -1,9 +1,9 @@
 package controller;
 
+import bo.CustomerBo;
+import bo.CustomerBoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import dao.Custom.CustomerDao;
-import dao.Custom.Impl.CustomerDaoImpl;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -47,7 +47,7 @@ public class SaveCustomerFormController {
     Pattern cityRegEx = Pattern.compile("^[A-z]{4,20}$");
     Pattern provinceRegEx = Pattern.compile("^[A-z ]{4,20}$");
     Pattern postalCodeRegEx = Pattern.compile("^[0-9]{4,9}$");
-    private final CustomerDao customerDao = new CustomerDaoImpl();
+    private final CustomerBo customerBo = new CustomerBoImpl();
 
     public void initialize() {
         btnSaveCus.setDisable(true);
@@ -71,9 +71,8 @@ public class SaveCustomerFormController {
                 txtCity.getText(), txtProvince.getText(), txtPostalCode.getText()
         );
 
-
         Customer customer = new Customer(c1.getId(), c1.getTitle(), c1.getName(), c1.getAddress(), c1.getCity(), c1.getProvince(), c1.getPostalCode());
-        boolean addCustomer = customerDao.add(customer);
+        boolean addCustomer = customerBo.addCustomer(customer);
 
         if (addCustomer) {
             new Alert(Alert.AlertType.CONFIRMATION, "Saved Data..", ButtonType.OK).showAndWait();

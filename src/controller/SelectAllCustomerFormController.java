@@ -1,5 +1,7 @@
 package controller;
 
+import bo.CustomerBo;
+import bo.CustomerBoImpl;
 import dao.CrudDao;
 import dao.Custom.CustomerDao;
 import dao.Custom.Impl.CustomerDaoImpl;
@@ -31,7 +33,8 @@ public class SelectAllCustomerFormController {
     public TableColumn colCity;
     public TableColumn colProvince;
     public TableColumn colPostalCode;
-    private final CustomerDao customerDao = new CustomerDaoImpl();
+    private CustomerBo customerBo = new CustomerBoImpl();
+
     public AnchorPane rootContext;
     public ImageView imgBack;
 
@@ -47,8 +50,7 @@ public class SelectAllCustomerFormController {
 
         try {
 
-
-            ArrayList<Customer> allCustomers = customerDao.getAll();
+            ArrayList<Customer> allCustomers = customerBo.getAllCustomer();
             for (Customer allCustomer : allCustomers) {
                 tblCustomer.getItems().add(new CustomerTm(allCustomer.getId(), allCustomer.getTitle(), allCustomer.getName(), allCustomer.getAddress(), allCustomer.getCity(), allCustomer.getProvince(), allCustomer.getPostalCode()));
             }

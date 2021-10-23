@@ -1,7 +1,9 @@
 package controller;
 
+import bo.CustomerBoImpl;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import dao.Custom.CustomerDao;
 import dao.Custom.Impl.CustomerDaoImpl;
 import dao.Custom.Impl.ItemDaoImpl;
 import dao.Custom.Impl.OrderDaoImpl;
@@ -41,7 +43,7 @@ import java.util.List;
 
 public class PlaceOrderFormController {
     private final OrderDao orderDao = new OrderDaoImpl();
-    private final CustomerDaoImpl customerDao = new CustomerDaoImpl();
+    private final CustomerDao customerDao = new CustomerDaoImpl();
     private final ItemDao itemDao = new ItemDaoImpl();
     public Label lblDate;
     public Label lblTime;
@@ -82,11 +84,8 @@ public class PlaceOrderFormController {
         colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
 
-
-//        initUi();
         loadDateAndTime();
         setOrderId();
-
 
         try {
             loadCustomerIds();
@@ -136,6 +135,7 @@ public class PlaceOrderFormController {
     }
 
     private void setCustomerData(String cusId) throws SQLException, ClassNotFoundException {
+
         Customer c1 = customerDao.searchById(cusId);
         if (c1 == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set").show();
@@ -159,6 +159,7 @@ public class PlaceOrderFormController {
     }
 
     private void loadCustomerIds() throws SQLException, ClassNotFoundException {
+        CustomerBoImpl customerBo = new CustomerBoImpl();
         ArrayList<Customer> all = customerDao.getAll();
         List<String> customerIds = new ArrayList<>();
         for (Customer c : all) {

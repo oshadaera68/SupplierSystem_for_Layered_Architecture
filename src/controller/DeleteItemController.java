@@ -1,5 +1,6 @@
 package controller;
 
+import bo.ItemBoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.Custom.Impl.ItemDaoImpl;
@@ -35,10 +36,10 @@ public class DeleteItemController {
     public JFXButton btnDelete;
     public AnchorPane rootContext;
     public ImageView imgBack;
-    ItemDao itemDao = new ItemDaoImpl();
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
+    private final ItemBoImpl itemBo = new ItemBoImpl();
 
     public void initialize() {
         btnDelete.setDisable(true);
@@ -51,7 +52,7 @@ public class DeleteItemController {
 
     public void searchItem(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String itemId = txtItemCode.getText();
-        Item item = itemDao.searchById(itemId);
+        Item item = itemBo.searchById(itemId);
         if (item == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set").show();
         } else {
@@ -70,7 +71,7 @@ public class DeleteItemController {
     public void deleteItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
         Item item = new Item();
-        boolean delete = itemDao.delete(item.getItemCode());
+        boolean delete = itemBo.deleteItem(item.getItemCode());
 
         if (delete) {
             new Alert(Alert.AlertType.CONFIRMATION, "Deleted").show();

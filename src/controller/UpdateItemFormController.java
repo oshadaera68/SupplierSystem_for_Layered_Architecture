@@ -1,11 +1,8 @@
 package controller;
 
+import bo.ItemBoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import dao.CrudDao;
-import dao.Custom.Impl.ItemDaoImpl;
-import dao.Custom.ItemDao;
-import db.DbConnection;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -24,14 +21,12 @@ import util.ValidationUtil;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
 public class UpdateItemFormController {
-    private final ItemDao itemDao = new ItemDaoImpl();
+    private final ItemBoImpl itemBo = new ItemBoImpl();
     public JFXTextField txtItemCode;
     public JFXTextField txtDesc;
     public JFXTextField txtPackSize;
@@ -40,7 +35,6 @@ public class UpdateItemFormController {
     public JFXButton btnUpdate;
     public AnchorPane rootContext;
     public ImageView imgBack;
-
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
 
@@ -55,10 +49,14 @@ public class UpdateItemFormController {
 
     public void searchItem(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
-        Item item = new Item();
-        itemDao.searchById(item.getItemCode());
+        String itemCode = txtItemCode.getText();
+        Item item = itemBo.searchById(itemCode);
 
-
+        if (item == null) {
+            new Alert(Alert.AlertType.WARNING, "Empty Result Set").show();
+        } else {
+            setData(item);
+        }
 
     }
 
@@ -71,7 +69,7 @@ public class UpdateItemFormController {
         );
 
         Item item = new Item(i1.getItemCode(), i1.getDescription(), i1.getPackSize(), i1.getUnitPrice(), i1.getQtyOnHand());
-        boolean updateItem = itemDao.update(item);
+        boolean updateItem = itemBo.updateItem(item);
 
         if (updateItem) {
             new Alert(Alert.AlertType.CONFIRMATION, "Updated..").show();

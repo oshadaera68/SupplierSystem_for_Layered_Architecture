@@ -1,5 +1,7 @@
 package controller;
 
+import bo.CustomerBo;
+import bo.CustomerBoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.CrudDao;
@@ -39,7 +41,7 @@ public class CustomerDeleteFormController {
     public JFXButton btnCusDelete;
     public ImageView imgBack;
     public AnchorPane rootContext;
-    private CustomerDao customerDao = new CustomerDaoImpl();
+    private CustomerBo customerBo = new CustomerBoImpl();
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern idRegEx = Pattern.compile("^(C00-)[0-9]{3,20}$");
@@ -55,7 +57,7 @@ public class CustomerDeleteFormController {
 
     public void searchCustomer(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String cusId = txtId.getText();
-        Customer customer = customerDao.searchById(cusId);
+        Customer customer = customerBo.searchById(cusId);
 
         if (customer == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();
@@ -70,16 +72,16 @@ public class CustomerDeleteFormController {
         txtTitle.setText(c.getTitle());
         txtName.setText(c.getName());
         txtAddress.setText(c.getAddress());
-        txtAddress.setText(c.getCity());
-        txtAddress.setText(c.getProvince());
-        txtAddress.setText(c.getPostalCode());
+        txtCity.setText(c.getCity());
+        txtProvince.setText(c.getProvince());
+        txtPostalCode.setText(c.getPostalCode());
 
     }
 
     public void deleteCustomerOnAction(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
 
         Customer customer = new Customer();
-        boolean deleteCustomer = customerDao.delete(customer.getId());
+        boolean deleteCustomer = customerBo.deleteCustomer(customer.getId());
 
         if (deleteCustomer) {
             new Alert(Alert.AlertType.CONFIRMATION, "Deleted", ButtonType.OK).show();

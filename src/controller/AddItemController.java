@@ -1,6 +1,7 @@
 package controller;
 
 
+import bo.ItemBoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.CrudDao;
@@ -29,7 +30,7 @@ import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
 public class AddItemController {
-    private final CrudDao<Item, String> itemDao = new ItemDaoImpl();
+
     public JFXTextField txtItemCode;
     public JFXTextField txtDesc;
     public JFXTextField txtPackSize;
@@ -38,6 +39,7 @@ public class AddItemController {
     public JFXButton btnAdd;
     public ImageView imgBack;
     public AnchorPane rootContext;
+    private ItemBoImpl itemBo = new ItemBoImpl();
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
@@ -66,7 +68,7 @@ public class AddItemController {
         );
 
         Item item = new Item(i1.getItemCode(), i1.getDescription(), i1.getPackSize(), i1.getUnitPrice(), i1.getQtyOnHand());
-        boolean addItem = itemDao.add(item);
+        boolean addItem = itemBo.addItem(item);
 
         if (addItem) {
             new Alert(Alert.AlertType.CONFIRMATION, "Saved Data..", ButtonType.OK).showAndWait();

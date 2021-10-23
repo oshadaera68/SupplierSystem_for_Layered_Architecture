@@ -16,8 +16,6 @@ J
 src/model/ItemDetails.java,3\f\3f058523f8dcc4f0a7843ead8afb6442d0dca451
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-Y
-)src/controller/AboutUsFormController.java,1\d\1d4998ed7df91d22662db8bb790178c3281a65dd
 J
 src/views/AboutUsForm.fxml,6\6\66ee45d12c7c9b4b22cefc053583bb62a715970c
 G
@@ -34,8 +32,6 @@ J
 src/views/CashierForm.fxml,5\c\5c8097247d13fc763f56151270b076fdc59c1b2a
 L
 src/views/DashBoardForm.fxml,8\9\895e197135149593f0d52bd8e885fd12ad8f1247
-\
-,src/controller/ManageItemFormController.java,0\5\056fe492d0ec0f8fbcc847ed056b96c63739544d
 T
 $src/views/SelectAllCustomerForm.fxml,8\0\80d22d49901cc1940d3bbe3960e373cb755f8863
 M
@@ -56,16 +52,10 @@ Q
 !src/views/SearchCustomerForm.fxml,3\5\35db776b326667c1e58021d3173357b87baec555
 Y
 )src/controller/PaymentFormController.java,e\1\e1a05a04b69445deceed0e263f602851165b8799
-M
-src/bo/PurchaseOrderImpl.java,6\6\6618601a14cb0c14ac2f3c7d320b84ff7dde7821
 Q
 !src/views/CustomerDeleteForm.fxml,f\2\f2232433315915918a1da6578e6820c1bdb8fe52
 O
 src/views/CustomerViewForm.fxml,7\5\75d47f747b28fb497db6dc2c8f4075931ea0117f
-_
-/src/controller/SystemReportsFormController.java,1\e\1e190a483e54cfdd4cb3e9a21aea26348cb6fafa
-D
-src/dao/CrudDao.java,9\0\90c3d9debc4ad21552bcf6d13fad0ebbf0f3ca03
 D
 src/model/Order.java,d\5\d5c9715ba2aaeb7cf89d6b5292bfb85c292d1d12
 G

@@ -19,19 +19,32 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.net.URL;
 
-public class SystemReportsFormController {
+public class IncomeFormController {
+    public ImageView imgBack;
     public Label lblMenu;
     public Label lblDescription;
-    public ImageView imgProfit;
-    public ImageView imgItem;
-    public ImageView imgBack;
+    public ImageView imgDay;
+    public ImageView imgMonth;
+    public ImageView imgYear;
+    public ImageView imgCustomer;
     public AnchorPane rootContext;
 
-    public void initialize() {
+    public void initialize(){
         FadeTransition fadeIn = new FadeTransition(Duration.millis(2000), rootContext);
         fadeIn.setFromValue(0.0);
         fadeIn.setToValue(1.0);
         fadeIn.play();
+    }
+
+    public void navigateToBack(MouseEvent mouseEvent) throws IOException {
+        URL resource = this.getClass().getResource("/views/ManageItemForm.fxml");
+        Parent root = FXMLLoader.load(resource);
+        Scene scene = new Scene(root);
+        Stage primaryStage = (Stage) (this.rootContext.getScene().getWindow());
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Manage Item Form | Supermarket System v0.1.0");
+        primaryStage.centerOnScreen();
+        Platform.runLater(() -> primaryStage.sizeToScene());
     }
 
     public void navigate(MouseEvent mouseEvent) throws IOException {
@@ -41,19 +54,27 @@ public class SystemReportsFormController {
             Parent root = null;
 
             switch (icon.getId()) {
-                case "imgProfit":
-                    root = FXMLLoader.load(getClass().getResource("/views/IncomeForm.fxml"));
+                case "imgDay":
+                    root = FXMLLoader.load(getClass().getResource("/views/DaliyIncomeForm.fxml"));
                     break;
 
-                case "imgItem":
-                    root = FXMLLoader.load(getClass().getResource("/views/MovableItemForm.fxml"));
+                case "imgMonth":
+                    root = FXMLLoader.load(getClass().getResource("/views/MonthlyIncomeForm.fxml"));
+                    break;
+
+                case "imgYear":
+                    root = FXMLLoader.load(getClass().getResource("/views/YearlyIncomeForm.fxml"));
+                    break;
+
+                case "imgCustomer":
+                    root = FXMLLoader.load(getClass().getResource("/views/CustomerWiseIncome.fxml"));
                     break;
             }
 
             if (root != null) {
                 Scene subScene = new Scene(root);
                 Stage primaryStage = (Stage) this.rootContext.getScene().getWindow();
-                primaryStage.setTitle("System Reports Form | Supermarket System v0.1.0");
+                primaryStage.setTitle("System Reports | Supermarket System v0.1.0");
                 primaryStage.setScene(subScene);
                 primaryStage.centerOnScreen();
 
@@ -71,14 +92,24 @@ public class SystemReportsFormController {
             ImageView icon = (ImageView) mouseEvent.getSource();
 
             switch (icon.getId()) {
-                case "imgProfit":
-                    lblMenu.setText("System Reports");
-                    lblDescription.setText("Managing Reports in the system.");
+                case "imgDay":
+                    lblMenu.setText("Daily Income");
+                    lblDescription.setText("Daily income the system.");
                     break;
 
-                case "imgItem":
-                    lblMenu.setText("Movable items");
-                    lblDescription.setText("Movable Items in this system.");
+                case "imgMonth":
+                    lblMenu.setText("Monthly Income");
+                    lblDescription.setText("Monthly income in the system.");
+                    break;
+
+                case "imgYear":
+                    lblMenu.setText("Yearly Income");
+                    lblDescription.setText("Yearly income in the system.");
+                    break;
+
+                case "imgCustomer":
+                    lblMenu.setText("Customers Income");
+                    lblDescription.setText("Customers income in the system.");
                     break;
             }
 
@@ -105,20 +136,8 @@ public class SystemReportsFormController {
             scaleT.play();
 
             icon.setEffect(null);
-            lblMenu.setText("Welcome System Reports");
+            lblMenu.setText("Welcome Income Section");
             lblDescription.setText("Please select one of above main operations to proceed");
-
         }
-    }
-
-    public void navigateToBack(MouseEvent mouseEvent) throws IOException {
-        URL resource = this.getClass().getResource("/views/ManageItemForm.fxml");
-        Parent root = FXMLLoader.load(resource);
-        Scene scene = new Scene(root);
-        Stage primaryStage = (Stage) (this.rootContext.getScene().getWindow());
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Manage Item Form | MINDARTLK Creations");
-        primaryStage.centerOnScreen();
-        Platform.runLater(() -> primaryStage.sizeToScene());
     }
 }

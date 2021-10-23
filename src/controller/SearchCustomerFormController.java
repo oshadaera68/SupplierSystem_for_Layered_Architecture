@@ -1,5 +1,7 @@
 package controller;
 
+import bo.CustomerBo;
+import bo.CustomerBoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.Custom.Impl.CustomerDaoImpl;
@@ -38,7 +40,7 @@ public class SearchCustomerFormController {
     public JFXButton btnSearchCustomer;
     public AnchorPane rootContext;
     public ImageView imgBack;
-    private final CustomerDaoImpl customerDao = new CustomerDaoImpl();
+    private CustomerBo customerBo = new CustomerBoImpl();
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern idRegEx = Pattern.compile("^(C0-)[0-9]{3,4}$");
@@ -55,7 +57,7 @@ public class SearchCustomerFormController {
     public void searchCustomerOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
         String cusId = txtId.getText();
-        Customer customer = customerDao.searchById(cusId);
+        Customer customer = customerBo.searchById(cusId);
 
         if (customer == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();

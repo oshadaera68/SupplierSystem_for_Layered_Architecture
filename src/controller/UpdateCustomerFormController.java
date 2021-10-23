@@ -1,11 +1,10 @@
 package controller;
 
 
+import bo.CustomerBo;
+import bo.CustomerBoImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import dao.CrudDao;
-import dao.Custom.CustomerDao;
-import dao.Custom.Impl.CustomerDaoImpl;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +29,6 @@ import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
 public class UpdateCustomerFormController {
-    private final CustomerDao customerDao = new CustomerDaoImpl();
     public JFXTextField txtId;
     public JFXTextField txtTitle;
     public JFXTextField txtName;
@@ -41,6 +39,7 @@ public class UpdateCustomerFormController {
     public JFXButton btnUpdate;
     public ImageView imgBack;
     public AnchorPane rootContext;
+    CustomerBo customerBo = new CustomerBoImpl();
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern idRegEx = Pattern.compile("^(C00-)[0-9]{3,20}$");
 
@@ -56,7 +55,7 @@ public class UpdateCustomerFormController {
     public void searchCustomer(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
         String cusId = txtId.getText();
-        Customer customer = customerDao.searchById(cusId);
+        Customer customer = customerBo.searchById(cusId);
 
         if (customer == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();
@@ -74,7 +73,7 @@ public class UpdateCustomerFormController {
         );
 
         Customer customer = new Customer(c1.getTitle(), c1.getName(), c1.getAddress(), c1.getCity(), c1.getProvince(), c1.getPostalCode(), c1.getId());
-        boolean updateCustomer = customerDao.update(customer);
+        boolean updateCustomer = customerBo.updateCustomer(customer);
 
         if (updateCustomer) {
             new Alert(Alert.AlertType.CONFIRMATION, "Updated..").show();
