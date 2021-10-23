@@ -2,8 +2,11 @@ package controller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import dao.Custom.OrderDao;
+import dao.Custom.Impl.CustomerDaoImpl;
+import dao.Custom.Impl.ItemDaoImpl;
 import dao.Custom.Impl.OrderDaoImpl;
+import dao.Custom.ItemDao;
+import dao.Custom.OrderDao;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -38,6 +41,8 @@ import java.util.List;
 
 public class PlaceOrderFormController {
     private final OrderDao orderDao = new OrderDaoImpl();
+    private final CustomerDaoImpl customerDao = new CustomerDaoImpl();
+    private final ItemDao itemDao = new ItemDaoImpl();
     public Label lblDate;
     public Label lblTime;
     public JFXComboBox<String> cmbCustomerIds;
@@ -77,6 +82,7 @@ public class PlaceOrderFormController {
         colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
 
+
 //        initUi();
         loadDateAndTime();
         setOrderId();
@@ -109,7 +115,7 @@ public class PlaceOrderFormController {
 
     private void setOrderId() {
         try {
-            lblOrderId.setText(new OrderController().getOrderId());
+            lblOrderId.setText(orderDao.OrderId());
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -117,7 +123,8 @@ public class PlaceOrderFormController {
     }
 
     private void setItemData(String itemId) throws SQLException, ClassNotFoundException {
-        Item i1 = new ItemController().getItem(itemId);
+        Item i1 = itemDao.searchById(itemId);
+
         if (i1 == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.CLOSE).show();
         } else {
@@ -129,7 +136,7 @@ public class PlaceOrderFormController {
     }
 
     private void setCustomerData(String cusId) throws SQLException, ClassNotFoundException {
-        Customer c1 = new CustomerController().getCustomer(cusId);
+        Customer c1 = customerDao.searchById(cusId);
         if (c1 == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set").show();
         } else {
@@ -143,12 +150,20 @@ public class PlaceOrderFormController {
     }
 
     private void loadItemIds() throws SQLException, ClassNotFoundException {
-        List<String> itemId = new ItemController().getAllItemIds();
-        cmbItemIds.getItems().addAll(itemId);
+        ArrayList<Item> all = itemDao.getAll();
+        List<String> itemIds = new ArrayList<>();
+        for (Item i : all) {
+            itemIds.add(i.getItemCode());
+        }
+        cmbCustomerIds.getItems().addAll(itemIds);
     }
 
     private void loadCustomerIds() throws SQLException, ClassNotFoundException {
-        List<String> customerIds = new CustomerController().getCustomerIds();
+        ArrayList<Customer> all = customerDao.getAll();
+        List<String> customerIds = new ArrayList<>();
+        for (Customer c : all) {
+            customerIds.add(c.getId());
+        }
         cmbCustomerIds.getItems().addAll(customerIds);
     }
 
@@ -246,13 +261,20 @@ public class PlaceOrderFormController {
         Order order = new Order(lblOrderId.getText(), lblDate.getText(), lblTime.getText(), total, cmbCustomerIds.getValue(), details);
         boolean placeOrder = orderDao.placeOrder(order);
 
+        boolean orderDetails = orderDao.saveOrderDetails(orderDao.OrderId(), details);
+
+        if (orderDetails) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Saved").show();
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Try Again").show();
+        }
+
         if (placeOrder) {
             new Alert(Alert.AlertType.CONFIRMATION, "Success Order").show();
             tblCart.getItems().clear();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try again").show();
         }
-
     }
 
     public void navigateToBack(MouseEvent mouseEvent) throws IOException {

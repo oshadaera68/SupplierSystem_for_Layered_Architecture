@@ -1,6 +1,5 @@
 package dao.Custom.Impl;
 
-import controller.OrderController;
 import dao.Custom.OrderDao;
 import model.ItemDetails;
 import model.Order;
@@ -32,11 +31,11 @@ public class OrderDaoImpl implements OrderDao {
     public boolean placeOrder(Order o) {
         Connection con = null;
         try {
-            boolean executeUpdate = CrudUtil.executeUpdate("INSERT INTO Orders VALUES(?,?,?,?,?)", o.getOrderId(), o.getOrderDate(), o.getCusId(), o.getOrderTime(), o.getCost());
+            boolean exu = CrudUtil.executeUpdate("INSERT INTO Orders VALUES(?,?,?,?,?)", o.getOrderId(), o.getOrderDate(), o.getCusId(), o.getOrderTime(), o.getCost());
             con.setAutoCommit(false);
 
-            if (executeUpdate) {
-                if (new OrderController().saveOrderDetails(o.getOrderId(), o.getDetails())) {
+            if (exu) {
+                if (saveOrderDetails(o.getOrderId(), o.getDetails())) {
                     con.commit();
                     return true;
                 } else {

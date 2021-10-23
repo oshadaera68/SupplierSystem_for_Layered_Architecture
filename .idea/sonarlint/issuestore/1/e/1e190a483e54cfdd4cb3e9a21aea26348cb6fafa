@@ -1,3 +1,22 @@
 
-X
-java:S2094"BRemove this empty class, write its code or make it an "interface".(²ïáÍ
+£
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(·òşÿÿÿÿ8á½·ÇÊ/
+£
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(åö¨şÿÿÿÿ8—Á°ÇÊ/
+£
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(œëğ¦øÿÿÿÿ8÷à°ÇÊ/
+
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ô‡Ÿ8«ù°ÇÊ/
+£
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜»‹¼üÿÿÿÿ8®â¹ÇÊ/
+p
+java:S1104"SMake lblMenu a static final constant or non-public and provide accessors if needed.(Õ¦à8ÅÆ¯ÇÊ/
+|
+java:S1104	"ZMake lblDescription a static final constant or non-public and provide accessors if needed.(ñÍã×ÿÿÿÿÿ8ºõ¯ÇÊ/
+q
+java:S1104
+"UMake imgProfit a static final constant or non-public and provide accessors if needed.(ùèüQ8Å‹°ÇÊ/
+o
+java:S1104"SMake imgItem a static final constant or non-public and provide accessors if needed.(áÎ-8÷¦°ÇÊ/
+u
+java:S1104"SMake imgBack a static final constant or non-public and provide accessors if needed.(Ùç¢Üÿÿÿÿÿ8ÚóµÇÊ/

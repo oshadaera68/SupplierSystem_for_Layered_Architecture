@@ -8,4 +8,5 @@ public interface CrudDao<T, ID> {
     boolean delete(ID id) throws SQLException, ClassNotFoundException;
     boolean update(T o) throws SQLException, ClassNotFoundException;
     ArrayList<T> getAll() throws SQLException, ClassNotFoundException;
+    T searchById(ID id) throws SQLException, ClassNotFoundException;
 }

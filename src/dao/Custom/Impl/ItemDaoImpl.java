@@ -21,8 +21,8 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public boolean update(Item o) throws SQLException, ClassNotFoundException {
-        return false;
+    public boolean update(Item i) throws SQLException, ClassNotFoundException {
+        return CrudUtil.executeUpdate("UPDATE Customer SET Description=?, PackSize=?, UnitPrice=?, QtyOnHand=? WHERE ItemCode=?", i.getDescription(), i.getPackSize(), i.getUnitPrice(), i.getQtyOnHand(), i.getItemCode());
     }
 
     @Override
@@ -33,5 +33,21 @@ public class ItemDaoImpl implements ItemDao {
             allItems.add(new Item(rst.getString(1), rst.getString(2), rst.getString(3), rst.getDouble(4), rst.getInt(5)));
         }
         return allItems;
+    }
+
+    @Override
+    public Item searchById(String id) throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.executeQuery("SELECT * FROM Item WHERE ItemCode=?", id);
+        if (rst.next()) {
+            return new Item(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3),
+                    rst.getDouble(4),
+                    rst.getInt(5)
+            );
+
+        }
+        return null;
     }
 }

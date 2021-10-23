@@ -1,6 +1,7 @@
 package controller;
 
 import dao.CrudDao;
+import dao.Custom.CustomerDao;
 import dao.Custom.Impl.CustomerDaoImpl;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +31,7 @@ public class SelectAllCustomerFormController {
     public TableColumn colCity;
     public TableColumn colProvince;
     public TableColumn colPostalCode;
-    private final CrudDao<Customer,String> customerDao = new CustomerDaoImpl();
+    private final CustomerDao customerDao = new CustomerDaoImpl();
     public AnchorPane rootContext;
     public ImageView imgBack;
 

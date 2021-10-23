@@ -1,18 +1,0 @@
-
-n
-java:S1128"LRemove this unused import 'com.sun.org.apache.xpath.internal.operations.Or'.(µõ³‚øÿÿÿÿ8«ÚâæÉ/
-N
-java:S1128",Remove this unused import 'db.DbConnection'.(¤¦ç“ûÿÿÿÿ8«ÚâæÉ/
-J
-java:S1128"(Remove this unused import 'model.Order'.(¦È¸ôûÿÿÿÿ8«ÚâæÉ/
-M
-java:S1128	"0Remove this unused import 'java.sql.Connection'.(¥ËôÖ8«ÚâæÉ/
-Y
-java:S1128
-"7Remove this unused import 'java.sql.PreparedStatement'.(òÄ™ƒÿÿÿÿÿ8«ÚâæÉ/
-K
-java:S1128"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw8«ÚâæÉ/
-‚
-java:S1319"gThe type of "details" should be an interface such as "List" rather than the implementation "ArrayList".(æ©°øÿÿÿÿ
-P
-java:S1191"5Use classes from the Java API instead of Sun classes.(µõ³‚øÿÿÿÿ

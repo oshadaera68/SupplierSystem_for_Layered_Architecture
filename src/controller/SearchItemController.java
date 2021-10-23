@@ -2,6 +2,8 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dao.Custom.Impl.ItemDaoImpl;
+import dao.Custom.ItemDao;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -36,22 +38,21 @@ public class SearchItemController {
     public ImageView imgBack;
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
-    Pattern itemIdRegEx = Pattern.compile("^(I0-)[0-9]{3,4}$");
+    Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
+    private final ItemDao itemDao = new ItemDaoImpl();
 
-    public void initialize(){
+    public void initialize() {
         btnSearch.setDisable(true);
         storeValidate();
     }
 
     private void storeValidate() {
-        map.put(txtItemCode,itemIdRegEx);
+        map.put(txtItemCode, itemIdRegEx);
     }
 
     public void searchItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String itemId = txtItemCode.getText();
-
-        Item item = new ItemController().getItem(itemId);
-
+        Item item = itemDao.searchById(itemId);
         if (item == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();
         } else {
@@ -75,7 +76,7 @@ public class SearchItemController {
                 TextField errorText = (TextField) response;
                 errorText.requestFocus();
             } else if (response instanceof Boolean) {
-               // new Alert(Alert.AlertType.INFORMATION, "Added").showAndWait();
+                // new Alert(Alert.AlertType.INFORMATION, "Added").showAndWait();
             }
         }
     }

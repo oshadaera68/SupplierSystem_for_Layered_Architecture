@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.SystemReportsFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="484.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SystemReportsFormController">
+   <children>
+      <Label layoutX="283.0" layoutY="14.0" text="System Reports" textFill="#1a5bff">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblMenu" alignment="CENTER" layoutX="31.0" layoutY="367.0" prefHeight="31.0" prefWidth="683.0" text="Welcome System Reports" textFill="#3522b5">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDescription" alignment="CENTER" layoutX="77.0" layoutY="418.0" prefHeight="16.0" prefWidth="577.0" text="Please select one of above main operations to proceed" />
+      <ImageView fx:id="imgProfit" fitHeight="101.0" fitWidth="108.0" layoutX="182.0" layoutY="153.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-profit-100.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgItem" fitHeight="112.0" fitWidth="91.0" layoutX="474.0" layoutY="158.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/icons8-ingredients-100.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgBack" fitHeight="54.0" fitWidth="62.0" layoutX="44.0" layoutY="38.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/back_96px.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>

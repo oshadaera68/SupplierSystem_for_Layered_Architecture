@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.CrudDao;
 import dao.Custom.Impl.ItemDaoImpl;
+import dao.Custom.ItemDao;
 import db.DbConnection;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -30,7 +31,7 @@ import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
 public class UpdateItemFormController {
-    private final CrudDao<Item,String> itemDao = new ItemDaoImpl();
+    private final ItemDao itemDao = new ItemDaoImpl();
     public JFXTextField txtItemCode;
     public JFXTextField txtDesc;
     public JFXTextField txtPackSize;
@@ -54,21 +55,10 @@ public class UpdateItemFormController {
 
     public void searchItem(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
-        PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement("SELECT * FROM Customer WHERE id=?");
-        stm.setObject(1, txtItemCode.getText());
-        ResultSet rst = stm.executeQuery();
-        if (rst.next()) {
-            Item c1 = new Item(
-                    rst.getString(1),
-                    rst.getString(2),
-                    rst.getString(3),
-                    rst.getDouble(4),
-                    rst.getInt(5)
-            );
-            setData(c1);
-        } else {
-            new Alert(Alert.AlertType.WARNING, "Empty Set").show();
-        }
+        Item item = new Item();
+        itemDao.searchById(item.getItemCode());
+
+
 
     }
 

@@ -4,6 +4,7 @@ package controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.CrudDao;
+import dao.Custom.CustomerDao;
 import dao.Custom.Impl.CustomerDaoImpl;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -29,7 +30,7 @@ import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
 public class UpdateCustomerFormController {
-    private final CrudDao<Customer, String> customerDao = new CustomerDaoImpl();
+    private final CustomerDao customerDao = new CustomerDaoImpl();
     public JFXTextField txtId;
     public JFXTextField txtTitle;
     public JFXTextField txtName;
@@ -41,7 +42,7 @@ public class UpdateCustomerFormController {
     public ImageView imgBack;
     public AnchorPane rootContext;
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
-    Pattern idRegEx = Pattern.compile("^(C0-)[0-9]{3,4}$");
+    Pattern idRegEx = Pattern.compile("^(C00-)[0-9]{3,20}$");
 
     public void initialize() {
         btnUpdate.setDisable(true);
@@ -55,7 +56,7 @@ public class UpdateCustomerFormController {
     public void searchCustomer(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
         String cusId = txtId.getText();
-        Customer customer = new CustomerController().getCustomer(cusId);
+        Customer customer = customerDao.searchById(cusId);
 
         if (customer == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();

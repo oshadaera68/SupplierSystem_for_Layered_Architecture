@@ -2,6 +2,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dao.Custom.CustomerDao;
 import dao.Custom.Impl.CustomerDaoImpl;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -46,7 +47,7 @@ public class SaveCustomerFormController {
     Pattern cityRegEx = Pattern.compile("^[A-z]{4,20}$");
     Pattern provinceRegEx = Pattern.compile("^[A-z ]{4,20}$");
     Pattern postalCodeRegEx = Pattern.compile("^[0-9]{4,9}$");
-    private final CustomerDaoImpl customerDao = new CustomerDaoImpl();
+    private final CustomerDao customerDao = new CustomerDaoImpl();
 
     public void initialize() {
         btnSaveCus.setDisable(true);

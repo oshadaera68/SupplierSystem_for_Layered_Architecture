@@ -3,6 +3,7 @@ package controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.CrudDao;
+import dao.Custom.CustomerDao;
 import dao.Custom.Impl.CustomerDaoImpl;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -38,10 +39,10 @@ public class CustomerDeleteFormController {
     public JFXButton btnCusDelete;
     public ImageView imgBack;
     public AnchorPane rootContext;
-    private CrudDao<Customer,String> customerDao = new CustomerDaoImpl();
+    private CustomerDao customerDao = new CustomerDaoImpl();
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
-    Pattern idRegEx = Pattern.compile("^(C0-)[0-9]{3,4}$");
+    Pattern idRegEx = Pattern.compile("^(C00-)[0-9]{3,20}$");
 
     public void initialize() {
         btnCusDelete.setDisable(true);
@@ -54,7 +55,7 @@ public class CustomerDeleteFormController {
 
     public void searchCustomer(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String cusId = txtId.getText();
-        Customer customer = new CustomerController().getCustomer(cusId);
+        Customer customer = customerDao.searchById(cusId);
 
         if (customer == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();

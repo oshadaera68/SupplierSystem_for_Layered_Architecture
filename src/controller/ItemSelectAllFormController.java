@@ -1,8 +1,8 @@
 package controller;
 
 
-import dao.CrudDao;
 import dao.Custom.Impl.ItemDaoImpl;
+import dao.Custom.ItemDao;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,13 +23,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ItemSelectAllFormController {
+    private final ItemDao itemDao = new ItemDaoImpl();
     public TableView<ItemTm> tblItem;
     public TableColumn colItemCode;
     public TableColumn colDesc;
     public TableColumn colPackSize;
     public TableColumn colUnitPrice;
     public TableColumn colQty;
-    private final CrudDao<Item,String> itemDao = new ItemDaoImpl();
     public ImageView imgBack;
     public AnchorPane rootContext;
 
@@ -42,7 +42,6 @@ public class ItemSelectAllFormController {
         colQty.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
 
         try {
-
             ArrayList<Item> allItems = itemDao.getAll();
             for (Item allItem : allItems) {
                 tblItem.getItems().add(new ItemTm(allItem.getItemCode(), allItem.getDescription(), allItem.getPackSize(), allItem.getUnitPrice(), allItem.getQtyOnHand()));

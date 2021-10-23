@@ -2,9 +2,8 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import dao.CrudDao;
 import dao.Custom.Impl.ItemDaoImpl;
-import db.DbConnection;
+import dao.Custom.ItemDao;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -23,8 +22,6 @@ import util.ValidationUtil;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
@@ -38,10 +35,10 @@ public class DeleteItemController {
     public JFXButton btnDelete;
     public AnchorPane rootContext;
     public ImageView imgBack;
-    CrudDao<Item,String> itemDao = new ItemDaoImpl();
+    ItemDao itemDao = new ItemDaoImpl();
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
-    Pattern itemIdRegEx = Pattern.compile("^(I0-)[0-9]{3,4}$");
+    Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
 
     public void initialize() {
         btnDelete.setDisable(true);
@@ -53,22 +50,13 @@ public class DeleteItemController {
     }
 
     public void searchItem(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement("SELECT * FROM Item WHERE ItemCode=?");
-        stm.setObject(1, txtItemCode.getText());
-        ResultSet rst = stm.executeQuery();
-        if (rst.next()) {
-            Item i1 = new Item(
-                    rst.getString(1),
-                    rst.getString(2),
-                    rst.getString(3),
-                    rst.getDouble(4),
-                    rst.getInt(5)
-            );
-            setData(i1);
+        String itemId = txtItemCode.getText();
+        Item item = itemDao.searchById(itemId);
+        if (item == null) {
+            new Alert(Alert.AlertType.WARNING, "Empty Result Set").show();
         } else {
-            new Alert(Alert.AlertType.WARNING, "Empty Set").show();
+            setData(item);
         }
-
     }
 
     void setData(Item i) {
@@ -106,7 +94,7 @@ public class DeleteItemController {
                 TextField errorText = (TextField) response;
                 errorText.requestFocus();
             } else if (response instanceof Boolean) {
-               // new Alert(Alert.AlertType.INFORMATION, "Added").showAndWait();
+                // new Alert(Alert.AlertType.INFORMATION, "Added").showAndWait();
             }
         }
     }

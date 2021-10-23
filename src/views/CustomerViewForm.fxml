@@ -18,7 +18,7 @@
             <Image url="@../asserts/icons8-add-user-male-96.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgBack" fitHeight="62.0" fitWidth="65.0" layoutX="34.0" layoutY="20.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgBack" fitHeight="54.0" fitWidth="62.0" layoutX="34.0" layoutY="28.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/back_96px.png" />
          </image>
