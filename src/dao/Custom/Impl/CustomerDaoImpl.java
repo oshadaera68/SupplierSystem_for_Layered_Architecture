@@ -1,7 +1,8 @@
 package dao.Custom.Impl;
 
 import dao.Custom.CustomerDao;
-import model.Customer;
+import entity.Customer;
+import model.CustomerDto;
 import util.CrudUtil;
 
 import java.sql.ResultSet;
@@ -12,7 +13,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public boolean add(Customer o) throws SQLException, ClassNotFoundException {
-        return CrudUtil.executeUpdate("INSERT INTO Customer VALUES(?,?,?,?,?,?,?)", o.getId(), o.getTitle(), o.getName(), o.getAddress(), o.getCity(), o.getProvince(), o.getPostalCode());
+        return CrudUtil.executeUpdate("INSERT INTO Customer VALUES(?,?,?,?,?,?,?)", o.getCustID(), o.getCusTitle(), o.getCustName(), o.getCustAddress(), o.getCity(), o.getProvince(), o.getPostalcode());
     }
 
     @Override
@@ -22,17 +23,17 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public boolean update(Customer o) throws SQLException, ClassNotFoundException {
-        return CrudUtil.executeUpdate("UPDATE Customer SET CustTitle=?, CustName=?, CustAddress=?, City=?, Province=?, PostalCode=?  WHERE CustID=?", o.getTitle(), o.getName(), o.getAddress(), o.getCity(), o.getProvince(), o.getPostalCode(), o.getId());
+        return CrudUtil.executeUpdate("UPDATE Customer SET CustTitle=?, CustName=?, CustAddress=?, City=?, Province=?, PostalCode=?  WHERE CustID=?", o.getCusTitle(), o.getCustName(), o.getCustAddress(), o.getCity(), o.getProvince(), o.getPostalcode(), o.getCustID());
     }
 
     @Override
     public ArrayList<Customer> getAll() throws SQLException, ClassNotFoundException {
-        ArrayList<Customer> customers = new ArrayList();
+        ArrayList<Customer> customer = new ArrayList();
         ResultSet rst = CrudUtil.executeQuery("SELECT * FROM Customer");
         while (rst.next()) {
-            customers.add(new Customer(rst.getString(1), rst.getString(2), rst.getString(3), rst.getString(4), rst.getString(5), rst.getString(6), rst.getString(7)));
+            customer.add(new Customer(rst.getString(1), rst.getString(2), rst.getString(3), rst.getString(4), rst.getString(5), rst.getString(6), rst.getString(7)));
         }
-        return customers;
+        return customer;
     }
 
     @Override

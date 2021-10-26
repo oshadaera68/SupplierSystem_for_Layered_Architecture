@@ -1,8 +1,10 @@
 package controller;
 
-import bo.ItemBoImpl;
+import bo.custom.BoFactory;
+import bo.custom.ItemBo;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import entity.Item;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +18,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.Item;
+import model.ItemDto;
 import util.ValidationUtil;
 
 import java.io.IOException;
@@ -26,7 +28,7 @@ import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
 public class UpdateItemFormController {
-    private final ItemBoImpl itemBo = new ItemBoImpl();
+    private final ItemBo itemBo = (ItemBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.ITEM);
     public JFXTextField txtItemCode;
     public JFXTextField txtDesc;
     public JFXTextField txtPackSize;
@@ -61,7 +63,7 @@ public class UpdateItemFormController {
     }
 
     public void updateItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        Item i1 = new Item(
+        ItemDto i1 = new ItemDto(
                 txtItemCode.getText(), txtDesc.getText(),
                 txtPackSize.getText(),
                 Double.parseDouble(txtUnitPrice.getText()),

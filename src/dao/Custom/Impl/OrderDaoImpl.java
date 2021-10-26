@@ -1,25 +1,29 @@
 package dao.Custom.Impl;
 
-import bo.PurchaseOrderBoImpl;
+import bo.custom.impl.PurchaseOrderBoImpl;
 import dao.Custom.OrderDao;
+import dao.DAOFactory;
+import entity.OrderDetail;
+import entity.Orders;
 import javafx.scene.control.Alert;
-import model.ItemDetails;
-import model.Order;
+import model.OrderDto;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-public class OrderDaoImpl implements OrderDao {
+public class OrderDaoImpl implements OrderDao{
 
-    private final PurchaseOrderBoImpl order = new PurchaseOrderBoImpl();
+    OrderDto orderDto = new OrderDto();
 
-    public String OrderId() throws SQLException, ClassNotFoundException {
+    private final PurchaseOrderBoImpl order = (PurchaseOrderBoImpl) DAOFactory.getDaoFactory().getDao(DAOFactory.DaoTypes.ORDER);
+
+    public String orderId() throws SQLException, ClassNotFoundException {
         return order.orderId();
     }
 
-    public boolean placeOrder(Order o) {
-        Boolean purchaseOrder = order.purchaseOrder(o);
+    public boolean PlaceOrder(Orders orders, ArrayList<OrderDetail> orderDetails) throws SQLException, ClassNotFoundException {
+        Boolean purchaseOrder = order.purchaseOrder(orders,orderDetails);
 
         if (purchaseOrder) {
             new Alert(Alert.AlertType.CONFIRMATION, "Order Purchased").show();
@@ -30,8 +34,8 @@ public class OrderDaoImpl implements OrderDao {
         return false;
     }
 
-    public boolean saveOrderDetails(String id, ArrayList<ItemDetails> details) throws SQLException, ClassNotFoundException {
-        return order.saveOrderDetails(id, details);
+    public ArrayList<OrderDetail> saveOrderDetails(String id, ArrayList<OrderDetail> details) throws SQLException, ClassNotFoundException {
+        return order.saveOrderDetails(id,details);
     }
 
 }

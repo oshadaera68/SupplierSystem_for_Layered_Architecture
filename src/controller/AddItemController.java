@@ -1,11 +1,11 @@
 package controller;
 
 
-import bo.ItemBoImpl;
+import bo.custom.BoFactory;
+import bo.custom.ItemBo;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import dao.CrudDao;
-import dao.Custom.Impl.ItemDaoImpl;
+import entity.Item;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +20,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.Item;
+import model.ItemDto;
 import util.ValidationUtil;
 
 import java.io.IOException;
@@ -39,7 +39,6 @@ public class AddItemController {
     public JFXButton btnAdd;
     public ImageView imgBack;
     public AnchorPane rootContext;
-    private ItemBoImpl itemBo = new ItemBoImpl();
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
@@ -47,6 +46,7 @@ public class AddItemController {
     Pattern packSizeRegEx = Pattern.compile("^[A-z]{1,20}$");
     Pattern unitPriceRegEx = Pattern.compile("^[1-9][0-9]([.][0-9]{2})?$");
     Pattern qtyRegEx = Pattern.compile("^[0-9]{1,}$");
+    private final ItemBo itemBo = (ItemBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.ITEM);
 
     public void initialize() {
         btnAdd.setDisable(true);
@@ -62,7 +62,7 @@ public class AddItemController {
     }
 
     public void addItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        Item i1 = new Item(
+        ItemDto i1 = new ItemDto(
                 txtItemCode.getText(), txtDesc.getText(),
                 txtPackSize.getText(), Double.parseDouble(txtUnitPrice.getText()), Integer.parseInt(txtQty.getText())
         );

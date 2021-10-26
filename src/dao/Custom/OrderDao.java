@@ -1,15 +1,16 @@
 package dao.Custom;
 
-import model.ItemDetails;
-import model.Order;
+import dao.SuperDao;
+import entity.OrderDetail;
+import entity.Orders;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface OrderDao {
-    String OrderId() throws SQLException, ClassNotFoundException;
+public interface OrderDao extends SuperDao {
+    String orderId() throws SQLException, ClassNotFoundException;
 
-    boolean placeOrder(Order o)throws SQLException, ClassNotFoundException;
+    boolean PlaceOrder(Orders o, ArrayList<OrderDetail> orderDetails)throws SQLException, ClassNotFoundException;
 
-    boolean saveOrderDetails(String id, ArrayList<ItemDetails> details) throws SQLException, ClassNotFoundException;
+    ArrayList<OrderDetail> saveOrderDetails(String id, ArrayList<OrderDetail> details) throws SQLException, ClassNotFoundException;
 }

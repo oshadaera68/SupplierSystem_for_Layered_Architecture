@@ -1,10 +1,11 @@
 package controller;
 
 
-import bo.CustomerBo;
-import bo.CustomerBoImpl;
+import bo.custom.BoFactory;
+import bo.custom.CustomerBo;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import entity.Customer;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +20,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.Customer;
+import model.CustomerDto;
 import util.ValidationUtil;
 
 import java.io.IOException;
@@ -29,6 +30,7 @@ import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
 public class UpdateCustomerFormController {
+    private final CustomerBo customerBo = (CustomerBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.CUSTOMER);
     public JFXTextField txtId;
     public JFXTextField txtTitle;
     public JFXTextField txtName;
@@ -39,11 +41,11 @@ public class UpdateCustomerFormController {
     public JFXButton btnUpdate;
     public ImageView imgBack;
     public AnchorPane rootContext;
-    CustomerBo customerBo = new CustomerBoImpl();
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern idRegEx = Pattern.compile("^(C00-)[0-9]{3,20}$");
 
     public void initialize() {
+
         btnUpdate.setDisable(true);
         storeValidate();
     }
@@ -66,7 +68,7 @@ public class UpdateCustomerFormController {
     }
 
     public void updateCustomerOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        Customer c1 = new Customer(
+        CustomerDto c1 = new CustomerDto(
                 txtId.getText(), txtTitle.getText(), txtName.getText(),
                 txtAddress.getText(), txtCity.getText(), txtProvince.getText(),
                 txtPostalCode.getText()
@@ -92,13 +94,13 @@ public class UpdateCustomerFormController {
     }
 
     void setData(Customer c) {
-        txtId.setText(c.getId());
-        txtTitle.setText(c.getTitle());
-        txtName.setText(c.getName());
-        txtAddress.setText(c.getAddress());
+        txtId.setText(c.getCustID());
+        txtTitle.setText(c.getCusTitle());
+        txtName.setText(c.getCustName());
+        txtAddress.setText(c.getCustAddress());
         txtCity.setText(c.getCity());
         txtProvince.setText(c.getProvince());
-        txtPostalCode.setText(c.getPostalCode());
+        txtPostalCode.setText(c.getPostalcode());
     }
 
     public void txtFieldKeyRelease(KeyEvent keyEvent) {

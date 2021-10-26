@@ -1,0 +1,25 @@
+
+<	java:S131,""Add a default case to this switch.(ƒåÑ¸ùÿÿÿÿ
+<	java:S131J""Add a default case to this switch.(ƒåÑ¸ùÿÿÿÿ
+‡
+java:S1130d"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ç›üÿÿÿÿ
+F
+java:S1172t"1Remove this unused method parameter "mouseEvent".(”Æ?
+[
+java:S1612|"FReplace this lambda with method reference 'primaryStage::sizeToScene'.(ÚÖ¥T
+f
+java:S1301,"KReplace this "switch" statement by "if" statements to increase readability.(ƒåÑ¸ùÿÿÿÿ
+f
+java:S1301J"KReplace this "switch" statement by "if" statements to increase readability.(ƒåÑ¸ùÿÿÿÿ
+g
+java:S1104"RMake imgRes a static final constant or non-public and provide accessors if needed.(”Õ¡
+i
+java:S1104"SMake lblMenu a static final constant or non-public and provide accessors if needed.(Õ¦à
+u
+java:S1104"ZMake lblDescription a static final constant or non-public and provide accessors if needed.(ñÍã×ÿÿÿÿÿ
+h
+java:S1104"SMake imgItem a static final constant or non-public and provide accessors if needed.(áÎ-
+m
+java:S1104"WMake rootContext a static final constant or non-public and provide accessors if needed.(Òäîÿ
+u
+java:S1104"SMake imgBack a static final constant or non-public and provide accessors if needed.(Ùç¢Üÿÿÿÿÿ8›¼¡²Ê/

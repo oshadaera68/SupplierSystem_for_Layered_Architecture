@@ -1,7 +1,8 @@
 package dao.Custom.Impl;
 
 import dao.Custom.ItemDao;
-import model.Item;
+import entity.Item;
+import model.ItemDto;
 import util.CrudUtil;
 
 import java.sql.ResultSet;
@@ -11,8 +12,8 @@ import java.util.ArrayList;
 public class ItemDaoImpl implements ItemDao {
 
     @Override
-    public boolean add(Item o) throws SQLException, ClassNotFoundException {
-        return CrudUtil.executeUpdate("INSERT INTO Item VALUES(?,?,?,?,?)", o.getItemCode(), o.getDescription(), o.getPackSize(), o.getUnitPrice(), o.getQtyOnHand());
+    public boolean add(Item i) throws SQLException, ClassNotFoundException {
+        return CrudUtil.executeUpdate("INSERT INTO Item VALUES(?,?,?,?,?)", i.getItemCode(), i.getDescription(), i.getPackSize(), i.getUnitPrice(), i.getQtyOnHand());
     }
 
     @Override
@@ -26,7 +27,7 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public ArrayList<Item> getAll() throws SQLException, ClassNotFoundException {
+    public ArrayList<Item>getAll() throws SQLException, ClassNotFoundException {
         ArrayList<Item> allItems = new ArrayList();
         ResultSet rst = CrudUtil.executeQuery("SELECT * FROM Item");
         while (rst.next()) {

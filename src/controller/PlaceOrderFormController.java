@@ -1,14 +1,9 @@
 package controller;
 
-import bo.CustomerBoImpl;
+import bo.custom.*;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import dao.Custom.CustomerDao;
-import dao.Custom.Impl.CustomerDaoImpl;
-import dao.Custom.Impl.ItemDaoImpl;
-import dao.Custom.Impl.OrderDaoImpl;
-import dao.Custom.ItemDao;
-import dao.Custom.OrderDao;
+import entity.*;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -26,10 +21,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import model.Customer;
-import model.Item;
-import model.ItemDetails;
-import model.Order;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import views.Tm.CartTm;
 
 import java.io.IOException;
@@ -39,12 +34,13 @@ import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class PlaceOrderFormController {
-    private final OrderDao orderDao = new OrderDaoImpl();
-    private final CustomerDao customerDao = new CustomerDaoImpl();
-    private final ItemDao itemDao = new ItemDaoImpl();
+    private final CustomerBo customerBo = (CustomerBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.CUSTOMER);
+    private final  PurchaseOrderBo purchaseOrderBo = (PurchaseOrderBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.PURCHASEORDER);
+    private final ItemBo itemBo = (ItemBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.ITEM);
     public Label lblDate;
     public Label lblTime;
     public JFXComboBox<String> cmbCustomerIds;
@@ -75,6 +71,7 @@ public class PlaceOrderFormController {
     ObservableList<CartTm> obList = FXCollections.observableArrayList();
 
     public void initialize() {
+
 
         colItemCode.setCellValueFactory(new PropertyValueFactory<>("code"));
         colDesc.setCellValueFactory(new PropertyValueFactory<>("description"));
@@ -113,8 +110,9 @@ public class PlaceOrderFormController {
     }
 
     private void setOrderId() {
+
         try {
-            lblOrderId.setText(orderDao.OrderId());
+            lblOrderId.setText(purchaseOrderBo.orderId());
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -122,7 +120,7 @@ public class PlaceOrderFormController {
     }
 
     private void setItemData(String itemId) throws SQLException, ClassNotFoundException {
-        Item i1 = itemDao.searchById(itemId);
+        Item i1 = itemBo.searchById(itemId);
 
         if (i1 == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.CLOSE).show();
@@ -136,21 +134,21 @@ public class PlaceOrderFormController {
 
     private void setCustomerData(String cusId) throws SQLException, ClassNotFoundException {
 
-        Customer c1 = customerDao.searchById(cusId);
+        Customer c1 = customerBo.searchById(cusId);
         if (c1 == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set").show();
         } else {
-            txtCusTitle.setText(c1.getTitle());
-            txtCusName.setText(c1.getName());
-            txtCusAddress.setText(c1.getAddress());
+            txtCusTitle.setText(c1.getCusTitle());
+            txtCusName.setText(c1.getCustName());
+            txtCusAddress.setText(c1.getCustAddress());
             txtCity.setText(c1.getCity());
             txtProvince.setText(c1.getProvince());
-            txtPostalCode.setText(c1.getPostalCode());
+            txtPostalCode.setText(c1.getCity());
         }
     }
 
     private void loadItemIds() throws SQLException, ClassNotFoundException {
-        ArrayList<Item> all = itemDao.getAll();
+        ArrayList<Item> all = itemBo.getAllItem();
         List<String> itemIds = new ArrayList<>();
         for (Item i : all) {
             itemIds.add(i.getItemCode());
@@ -159,11 +157,11 @@ public class PlaceOrderFormController {
     }
 
     private void loadCustomerIds() throws SQLException, ClassNotFoundException {
-        CustomerBoImpl customerBo = new CustomerBoImpl();
-        ArrayList<Customer> all = customerDao.getAll();
+
+        ArrayList<Customer> all = customerBo.getAllCustomer();
         List<String> customerIds = new ArrayList<>();
         for (Customer c : all) {
-            customerIds.add(c.getId());
+            customerIds.add(c.getCustID());
         }
         cmbCustomerIds.getItems().addAll(customerIds);
     }
@@ -188,7 +186,30 @@ public class PlaceOrderFormController {
     }
 
     public void billOnAction(ActionEvent actionEvent) {
-        //
+        try {
+            JasperDesign load = JRXmlLoader.load(getClass().getResourceAsStream("../view/report/Bill.jrxml"));
+            JasperReport jasperReport = JasperCompileManager.compileReport(load);
+
+            String description = txtDescription.getText();
+            String OrderId = lblOrderId.getText();
+            String qty = txtQty.getText();
+            String qtyOnHand = txtQtyOnHand.getText();
+            String unitPrice = txtUnitPrice.getText();
+            String total = lblTotal.getText();
+
+            HashMap map = new HashMap();
+            map.put("description",description);
+            map.put("OrderId",OrderId);
+            map.put("Qty",qty);
+            map.put("QtyOnHand",qtyOnHand);
+            map.put("UnitPrice",unitPrice);
+            map.put("Total",total);
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, new JREmptyDataSource());
+            JasperViewer.viewReport(jasperPrint,false);
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
     }
 
     public void addToCartOnAction(ActionEvent actionEvent) {
@@ -249,26 +270,27 @@ public class PlaceOrderFormController {
 
     public void placeOrderOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
-        ArrayList<ItemDetails> details = new ArrayList<>();
+        ArrayList<Item> details = new ArrayList<>();
         double total = 0;
         for (CartTm temp : obList) {
             total += temp.getTotal();
-            details.add(new ItemDetails(temp.getCode(),
-                    temp.getUnitPrice(),
-                    temp.getQty()
+            details.add(new Item(
+                    temp.getCode(), temp.getDescription(), temp.getPackSize(),temp.getUnitPrice(),temp.getQty()
             ));
         }
 
-        Order order = new Order(lblOrderId.getText(), lblDate.getText(), lblTime.getText(), total, cmbCustomerIds.getValue(), details);
-        boolean placeOrder = orderDao.placeOrder(order);
+        ArrayList<OrderDetail> orderDetails = new ArrayList<>();
+        Orders orders = new Orders(lblOrderId.getText(), lblDate.getText(),cmbCustomerIds.getValue(), lblTime.getText(),total,orderDetails);
 
-        boolean orderDetails = orderDao.saveOrderDetails(orderDao.OrderId(), details);
+        boolean placeOrder = purchaseOrderBo.purchaseOrder(orders,orderDetails);
 
-        if (orderDetails) {
+        //boolean orderDetails = purchaseOrderBo.saveOrderDetails(purchaseOrderBo.orderId(),orders.getDetails());
+
+        /*if (orderDetails) {
             new Alert(Alert.AlertType.CONFIRMATION, "Saved").show();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again").show();
-        }
+        }*/
 
         if (placeOrder) {
             new Alert(Alert.AlertType.CONFIRMATION, "Success Order").show();

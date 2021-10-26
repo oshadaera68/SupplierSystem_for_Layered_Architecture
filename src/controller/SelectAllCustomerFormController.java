@@ -1,10 +1,8 @@
 package controller;
 
-import bo.CustomerBo;
-import bo.CustomerBoImpl;
-import dao.CrudDao;
-import dao.Custom.CustomerDao;
-import dao.Custom.Impl.CustomerDaoImpl;
+import bo.custom.BoFactory;
+import bo.custom.CustomerBo;
+import entity.Customer;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.Customer;
+import model.CustomerDto;
 import views.Tm.CustomerTm;
 
 import java.io.IOException;
@@ -33,12 +31,12 @@ public class SelectAllCustomerFormController {
     public TableColumn colCity;
     public TableColumn colProvince;
     public TableColumn colPostalCode;
-    private CustomerBo customerBo = new CustomerBoImpl();
-
     public AnchorPane rootContext;
     public ImageView imgBack;
+    private final CustomerBo customerBo = (CustomerBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.CUSTOMER);
 
     public void initialize() {
+
 
         colCustomerId.setCellValueFactory(new PropertyValueFactory<>("Id"));
         colCustomerTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
@@ -52,7 +50,7 @@ public class SelectAllCustomerFormController {
 
             ArrayList<Customer> allCustomers = customerBo.getAllCustomer();
             for (Customer allCustomer : allCustomers) {
-                tblCustomer.getItems().add(new CustomerTm(allCustomer.getId(), allCustomer.getTitle(), allCustomer.getName(), allCustomer.getAddress(), allCustomer.getCity(), allCustomer.getProvince(), allCustomer.getPostalCode()));
+                tblCustomer.getItems().add(new CustomerTm(allCustomer.getCustID(), allCustomer.getCusTitle(), allCustomer.getCustName(), allCustomer.getCustAddress(), allCustomer.getCity(), allCustomer.getProvince(), allCustomer.getPostalcode()));
             }
 
         } catch (SQLException | ClassNotFoundException e) {

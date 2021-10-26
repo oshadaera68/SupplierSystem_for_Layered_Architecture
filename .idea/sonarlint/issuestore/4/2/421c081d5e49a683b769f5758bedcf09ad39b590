@@ -1,0 +1,21 @@
+
+C	java:S131,""Add a default case to this switch.(ƒåÑ¸ùÿÿÿÿ8³Ó§²Ê/
+C	java:S131O""Add a default case to this switch.(ƒåÑ¸ùÿÿÿÿ8Åş‰³Ê/
+M
+java:S1172~"1Remove this unused method parameter "mouseEvent".(”Æ?8¸ÅŸ¹Ê/
+c
+java:S1612†"FReplace this lambda with method reference 'primaryStage::sizeToScene'.(ÚÖ¥T8ºÅŸ¹Ê/
+m
+java:S1104"WMake rootContext a static final constant or non-public and provide accessors if needed.(Òäîÿ
+i
+java:S1104"SMake lblMenu a static final constant or non-public and provide accessors if needed.(Õ¦à
+u
+java:S1104"ZMake lblDescription a static final constant or non-public and provide accessors if needed.(ñÍã×ÿÿÿÿÿ
+m
+java:S1104"WMake imgCustomer a static final constant or non-public and provide accessors if needed.(¿²ù´
+o
+java:S1104"YMake imgPlaceOrder a static final constant or non-public and provide accessors if needed.(Íş£ı
+q
+java:S1104"VMake imgPayment a static final constant or non-public and provide accessors if needed.(¨í±§ùÿÿÿÿ
+n
+java:S1104"SMake imgBack a static final constant or non-public and provide accessors if needed.(Ùç¢Üÿÿÿÿÿ

@@ -1,12 +1,10 @@
 package controller;
 
-import bo.CustomerBo;
-import bo.CustomerBoImpl;
+import bo.custom.BoFactory;
+import bo.custom.CustomerBo;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import dao.CrudDao;
-import dao.Custom.CustomerDao;
-import dao.Custom.Impl.CustomerDaoImpl;
+import entity.Customer;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +19,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.Customer;
 import util.ValidationUtil;
 
 import java.io.IOException;
@@ -41,10 +38,9 @@ public class CustomerDeleteFormController {
     public JFXButton btnCusDelete;
     public ImageView imgBack;
     public AnchorPane rootContext;
-    private CustomerBo customerBo = new CustomerBoImpl();
-
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern idRegEx = Pattern.compile("^(C00-)[0-9]{3,20}$");
+    private final CustomerBo customerBo = (CustomerBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.CUSTOMER);
 
     public void initialize() {
         btnCusDelete.setDisable(true);
@@ -68,20 +64,20 @@ public class CustomerDeleteFormController {
     }
 
     void setData(Customer c) {
-        txtId.setText(c.getId());
-        txtTitle.setText(c.getTitle());
-        txtName.setText(c.getName());
-        txtAddress.setText(c.getAddress());
+        txtId.setText(c.getCustID());
+        txtTitle.setText(c.getCusTitle());
+        txtName.setText(c.getCustName());
+        txtAddress.setText(c.getCustAddress());
         txtCity.setText(c.getCity());
         txtProvince.setText(c.getProvince());
-        txtPostalCode.setText(c.getPostalCode());
+        txtPostalCode.setText(c.getPostalcode());
 
     }
 
     public void deleteCustomerOnAction(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
 
         Customer customer = new Customer();
-        boolean deleteCustomer = customerBo.deleteCustomer(customer.getId());
+        boolean deleteCustomer = customerBo.deleteCustomer(customer.getCustID());
 
         if (deleteCustomer) {
             new Alert(Alert.AlertType.CONFIRMATION, "Deleted", ButtonType.OK).show();

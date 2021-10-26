@@ -1,9 +1,10 @@
 package controller;
 
+import bo.custom.BoFactory;
+import bo.custom.ItemBo;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import dao.Custom.Impl.ItemDaoImpl;
-import dao.Custom.ItemDao;
+import entity.Item;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +19,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.Item;
 import util.ValidationUtil;
 
 import java.io.IOException;
@@ -28,6 +28,7 @@ import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
 public class SearchItemController {
+    private final ItemBo itemBo = (ItemBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.ITEM);
     public JFXTextField txtItemCode;
     public JFXTextField txtDesc;
     public JFXTextField txtPackSize;
@@ -36,12 +37,11 @@ public class SearchItemController {
     public JFXButton btnSearch;
     public AnchorPane rootContext;
     public ImageView imgBack;
-
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
-    private final ItemDao itemDao = new ItemDaoImpl();
 
     public void initialize() {
+
         btnSearch.setDisable(true);
         storeValidate();
     }
@@ -52,7 +52,7 @@ public class SearchItemController {
 
     public void searchItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String itemId = txtItemCode.getText();
-        Item item = itemDao.searchById(itemId);
+        Item item = itemBo.searchById(itemId);
         if (item == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();
         } else {

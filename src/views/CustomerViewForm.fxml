@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -23,7 +24,7 @@
             <Image url="@../asserts/back_96px.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgCustomerSearch" fitHeight="103.0" fitWidth="91.0" layoutX="393.0" layoutY="237.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgCustomerSearch" fitHeight="103.0" fitWidth="91.0" layoutX="322.0" layoutY="237.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/icons8-search-client-48.png" />
          </image>
@@ -33,7 +34,7 @@
             <Image url="@../asserts/icons8-update-user-48.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgSelectAll" fitHeight="83.0" fitWidth="91.0" layoutX="231.0" layoutY="242.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgSelectAll" fitHeight="83.0" fitWidth="91.0" layoutX="166.0" layoutY="241.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/icons8-view-all-48.png" />
          </image>
@@ -49,5 +50,6 @@
          </font>
       </Label>
       <Label fx:id="lblDescription" alignment="CENTER" layoutX="72.0" layoutY="408.0" prefHeight="16.0" prefWidth="577.0" text="Please select one of above main operations to proceed" />
+      <JFXButton buttonType="RAISED" layoutX="488.0" layoutY="267.0" onAction="#reportsOnAction" style="-fx-background-color: #9c88ff;" stylesheets="@Styles/Style.css" text="Reports" textFill="WHITE" />
    </children>
 </AnchorPane>

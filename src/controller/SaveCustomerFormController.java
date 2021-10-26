@@ -1,9 +1,10 @@
 package controller;
 
-import bo.CustomerBo;
-import bo.CustomerBoImpl;
+import bo.custom.BoFactory;
+import bo.custom.CustomerBo;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import entity.Customer;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +19,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.Customer;
+import model.CustomerDto;
 import util.ValidationUtil;
 
 import java.io.IOException;
@@ -47,9 +48,9 @@ public class SaveCustomerFormController {
     Pattern cityRegEx = Pattern.compile("^[A-z]{4,20}$");
     Pattern provinceRegEx = Pattern.compile("^[A-z ]{4,20}$");
     Pattern postalCodeRegEx = Pattern.compile("^[0-9]{4,9}$");
-    private final CustomerBo customerBo = new CustomerBoImpl();
-
+    private final CustomerBo customerBo = (CustomerBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.CUSTOMER);
     public void initialize() {
+
         btnSaveCus.setDisable(true);
         storeValidate();
     }
@@ -66,7 +67,7 @@ public class SaveCustomerFormController {
 
     public void saveOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
-        Customer c1 = new Customer(
+        CustomerDto c1 = new CustomerDto(
                 txtId.getText(), txtTitle.getText(), txtName.getText(), txtAddress.getText(),
                 txtCity.getText(), txtProvince.getText(), txtPostalCode.getText()
         );

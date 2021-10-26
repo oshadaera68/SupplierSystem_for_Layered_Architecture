@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -28,7 +29,7 @@
             <Image url="@../asserts/icons8-update-96.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgSearch" fitHeight="91.0" fitWidth="91.0" layoutX="423.0" layoutY="261.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgSearch" fitHeight="91.0" fitWidth="91.0" layoutX="317.0" layoutY="261.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/icons8-search-96.png" />
          </image>
@@ -44,10 +45,11 @@
             <Image url="@../asserts/back_96px.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgSelectAll" fitHeight="91.0" fitWidth="114.0" layoutX="207.0" layoutY="261.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgSelectAll" fitHeight="91.0" fitWidth="114.0" layoutX="109.0" layoutY="261.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/icons8-view-all-48.png" />
          </image>
       </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="502.0" layoutY="291.0" onAction="#reportsOnAction" style="-fx-background-color: #44bd32;" text="Reports" textFill="WHITE" />
    </children>
 </AnchorPane>

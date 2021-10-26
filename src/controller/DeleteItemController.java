@@ -1,10 +1,10 @@
 package controller;
 
-import bo.ItemBoImpl;
+import bo.custom.BoFactory;
+import bo.custom.ItemBo;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import dao.Custom.Impl.ItemDaoImpl;
-import dao.Custom.ItemDao;
+import entity.Item;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +18,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.Item;
+import model.ItemDto;
 import util.ValidationUtil;
 
 import java.io.IOException;
@@ -28,6 +28,7 @@ import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
 public class DeleteItemController {
+    private final ItemBo itemBo = (ItemBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.ITEM);
     public JFXTextField txtItemCode;
     public JFXTextField txtDesc;
     public JFXTextField txtPackSize;
@@ -36,10 +37,8 @@ public class DeleteItemController {
     public JFXButton btnDelete;
     public AnchorPane rootContext;
     public ImageView imgBack;
-
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
-    private final ItemBoImpl itemBo = new ItemBoImpl();
 
     public void initialize() {
         btnDelete.setDisable(true);

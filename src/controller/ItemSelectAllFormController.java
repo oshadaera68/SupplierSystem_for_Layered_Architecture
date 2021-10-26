@@ -1,9 +1,9 @@
 package controller;
 
 
-import bo.ItemBoImpl;
-import dao.Custom.Impl.ItemDaoImpl;
-import dao.Custom.ItemDao;
+import bo.custom.BoFactory;
+import bo.custom.ItemBo;
+import entity.Item;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +15,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.Item;
 import views.Tm.ItemTm;
 
 import java.io.IOException;
@@ -24,7 +23,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ItemSelectAllFormController {
-    private final ItemBoImpl itemBo = new ItemBoImpl();
+    private final ItemBo itemBo = (ItemBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.ITEM);
     public TableView<ItemTm> tblItem;
     public TableColumn colItemCode;
     public TableColumn colDesc;
@@ -35,6 +34,7 @@ public class ItemSelectAllFormController {
     public AnchorPane rootContext;
 
     public void initialize() {
+
 
         colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
         colDesc.setCellValueFactory(new PropertyValueFactory<>("Description"));

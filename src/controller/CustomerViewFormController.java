@@ -1,9 +1,11 @@
 package controller;
 
+import db.DbConnection;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,9 +17,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 
 public class CustomerViewFormController {
     public AnchorPane rootContext;
@@ -151,5 +158,17 @@ public class CustomerViewFormController {
         primaryStage.setTitle("Cashier Form | MINDARTLK Creations");
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
+    }
+
+    public void reportsOnAction(ActionEvent actionEvent) {
+        try {
+            JasperDesign load = JRXmlLoader.load(getClass().getResourceAsStream("../views/report/Customer_Details.jrxml"));
+            JasperReport report = JasperCompileManager.compileReport(load);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(report, null, DbConnection.getInstance().getConnection());
+            JasperViewer.viewReport(jasperPrint,false);
+        } catch (JRException | SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 }
