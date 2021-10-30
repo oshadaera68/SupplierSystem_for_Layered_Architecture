@@ -9,8 +9,6 @@ P
  src/views/SystemReportsForm.fxml,2\6\26bcd098be2f1e1967c242fe2f4b4bb6f64bf64b
 N
 src/views/MovableItemForm.fxml,1\a\1a4427e3626b7be2876d9370ca46a303b732cb8d
-X
-(src/controller/IncomeFormController.java,a\a\aa05d12d39cc936895758f18b2a1e95cc7677e25
 U
 %src/dao/Custom/Impl/OrderDaoImpl.java,e\1\e165b9bf9b541827f038a10d42cd05771d199915
 F
@@ -32,9 +30,5 @@ X
 (src/views/report/Most_Movable_Form.jrxml,2\f\2f3cff1359c5af8f317d2dbd0aed144662b2b4a8
 Y
 )src/views/report/Least_Movable_Item.jrxml,7\f\7f48d70e93c3fd3a7d333b1b3bea111c26b4f873
-_
-/src/controller/SystemReportsFormController.java,1\e\1e190a483e54cfdd4cb3e9a21aea26348cb6fafa
-I
-src/views/IncomeForm.fxml,4\e\4eb612727224f9a60b29ae16ffe3807e18b87a15
 W
 'src/views/report/Customer_Details.jrxml,b\a\baa324d526ea2ecd5d6145f502a9767527bcba5f

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Daliy_Report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="698142f1-a514-4844-981d-b075860e2273">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[select OrderDate,sum(Cost) as income from orders group by OrderDate]]>
+	</queryString>
+	<field name="OrderDate" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="OrderDate"/>
+		<property name="com.jaspersoft.studio.field.label" value="OrderDate"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="orders"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="income" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="income"/>
+		<property name="com.jaspersoft.studio.field.label" value="income"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="74" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="3" width="555" height="30" uuid="335b1984-b5b4-44b8-85ce-3f7e7868812e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Daliy Report - Supermarket]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="161" y="39" width="100" height="30" uuid="5d2acaff-d9de-4223-a200-0c6fc8812854"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="290" y="38" width="100" height="30" uuid="781ae861-d0a5-417c-8b05-b52faca13584"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="278" height="30" uuid="d1acaf50-4a7a-4e46-a689-884af4173b02">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="489e032c-905d-486c-a7c5-efd3705d6291"/>
+				</reportElement>
+				<box leftPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OrderDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="0" width="277" height="30" uuid="8293b42e-34a7-4560-b2d9-783f7585a9f7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e1253886-7a80-492b-8cc6-9d489960bf82"/>
+				</reportElement>
+				<box leftPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[income]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="278" height="30" uuid="fdeb43ee-0fb5-4b6e-92c7-d9ce4268cdcc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="489e032c-905d-486c-a7c5-efd3705d6291"/>
+				</reportElement>
+				<box leftPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OrderDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="0" width="277" height="30" uuid="2d4e256d-7197-4a36-bb33-bd53399be19c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e1253886-7a80-492b-8cc6-9d489960bf82"/>
+				</reportElement>
+				<box leftPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{income}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="9" width="555" height="30" uuid="d23112cb-0d4c-4ad3-b00a-81be565d9d66"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CopyRight By MINDARTLK. All Rights Reserved. 2021.]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
