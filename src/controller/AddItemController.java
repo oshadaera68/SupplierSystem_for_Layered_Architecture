@@ -20,7 +20,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.ItemDto;
+import dto.ItemDto;
 import util.ValidationUtil;
 
 import java.io.IOException;
@@ -44,7 +44,7 @@ public class AddItemController {
     Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
     Pattern descriptionRegEx = Pattern.compile("^[A-z ]{3,40}$");
     Pattern packSizeRegEx = Pattern.compile("^[A-z]{1,20}$");
-    Pattern unitPriceRegEx = Pattern.compile("^[1-9][0-9]([.][0-9]{2})?$");
+    Pattern unitPriceRegEx = Pattern.compile("^[1-9][0-9][0-9]([.][0-9]{2})?$");
     Pattern qtyRegEx = Pattern.compile("^[0-9]{1,}$");
     private final ItemBo itemBo = (ItemBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.ITEM);
 

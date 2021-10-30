@@ -76,8 +76,7 @@ public class CustomerDeleteFormController {
 
     public void deleteCustomerOnAction(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
 
-        Customer customer = new Customer();
-        boolean deleteCustomer = customerBo.deleteCustomer(customer.getCustID());
+        boolean deleteCustomer = customerBo.deleteCustomer(txtId.getText());
 
         if (deleteCustomer) {
             new Alert(Alert.AlertType.CONFIRMATION, "Deleted", ButtonType.OK).show();

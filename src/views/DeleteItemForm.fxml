@@ -8,48 +8,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootContext" prefHeight="542.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeleteItemController">
+<AnchorPane fx:id="rootContext" prefHeight="270.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeleteItemController">
    <children>
       <Label layoutX="230.0" layoutY="25.0" text="Delete Item - Item Form" textFill="#1c32d7">
          <font>
             <Font name="Behind The Scenery" size="31.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtItemCode" alignment="CENTER" labelFloat="true" layoutX="331.0" layoutY="114.0" onAction="#searchItem" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" />
-      <JFXTextField fx:id="txtDesc" alignment="CENTER" labelFloat="true" layoutX="331.0" layoutY="183.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" />
-      <JFXTextField fx:id="txtPackSize" alignment="CENTER" labelFloat="true" layoutX="331.0" layoutY="255.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" />
-      <JFXTextField fx:id="txtUnitPrice" alignment="CENTER" labelFloat="true" layoutX="331.0" layoutY="333.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" />
-      <JFXTextField fx:id="txtQty" alignment="CENTER" labelFloat="true" layoutX="331.0" layoutY="411.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" />
-      <JFXButton fx:id="btnDelete" alignment="CENTER" buttonType="RAISED" layoutX="470.0" layoutY="487.0" onAction="#deleteItemOnAction" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #3498db;" text="Delete Item" textFill="WHITE" />
-      <ImageView fx:id="imgBack" fitHeight="77.0" fitWidth="63.0" layoutX="53.0" layoutY="25.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+      <JFXTextField fx:id="txtItemCode" labelFloat="true" layoutX="65.0" layoutY="118.0" onAction="#searchItem" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Item Code" />
+      <JFXTextField fx:id="txtDesc" labelFloat="true" layoutX="282.0" layoutY="118.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Description" />
+      <JFXTextField fx:id="txtPackSize" labelFloat="true" layoutX="497.0" layoutY="118.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Pack Size" />
+      <JFXTextField fx:id="txtUnitPrice" labelFloat="true" layoutX="65.0" layoutY="197.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Unit Price" />
+      <JFXTextField fx:id="txtQty" labelFloat="true" layoutX="282.0" layoutY="197.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Qty On Hand" />
+      <JFXButton fx:id="btnDelete" alignment="CENTER" buttonType="RAISED" layoutX="542.0" layoutY="197.0" onAction="#deleteItemOnAction" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #3498db;" text="Delete Item" textFill="WHITE" />
+      <ImageView fx:id="imgBack" fitHeight="48.0" fitWidth="51.0" layoutX="53.0" layoutY="25.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/back_96px.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="205.0" layoutY="124.0" text="Item Code:-">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="205.0" layoutY="192.0" text="Description:-">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="205.0" layoutY="265.0" text="Pack Size:-">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="205.0" layoutY="344.0" text="Unit Price:-">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="205.0" layoutY="422.0" text="Qty On Hand:-">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

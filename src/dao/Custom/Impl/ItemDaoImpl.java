@@ -2,7 +2,6 @@ package dao.Custom.Impl;
 
 import dao.Custom.ItemDao;
 import entity.Item;
-import model.ItemDto;
 import util.CrudUtil;
 
 import java.sql.ResultSet;
@@ -23,7 +22,7 @@ public class ItemDaoImpl implements ItemDao {
 
     @Override
     public boolean update(Item i) throws SQLException, ClassNotFoundException {
-        return CrudUtil.executeUpdate("UPDATE Customer SET Description=?, PackSize=?, UnitPrice=?, QtyOnHand=? WHERE ItemCode=?", i.getDescription(), i.getPackSize(), i.getUnitPrice(), i.getQtyOnHand(), i.getItemCode());
+        return CrudUtil.executeUpdate("UPDATE Item SET Description=?, PackSize=?, UnitPrice=?, QtyOnHand=? WHERE ItemCode=?", i.getDescription(), i.getPackSize(), i.getUnitPrice(), i.getQtyOnHand(), i.getItemCode());
     }
 
     @Override

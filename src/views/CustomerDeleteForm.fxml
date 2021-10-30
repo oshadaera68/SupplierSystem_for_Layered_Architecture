@@ -8,57 +8,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootContext" prefHeight="850.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerDeleteFormController">
+<AnchorPane fx:id="rootContext" prefHeight="383.0" prefWidth="1015.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerDeleteFormController">
    <children>
-      <JFXTextField fx:id="txtId" alignment="CENTER" labelFloat="true" layoutX="362.0" layoutY="97.0" onAction="#searchCustomer" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" />
-      <JFXTextField fx:id="txtTitle" alignment="CENTER" labelFloat="true" layoutX="362.0" layoutY="190.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" />
-      <JFXTextField fx:id="txtName" alignment="CENTER" labelFloat="true" layoutX="362.0" layoutY="295.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" />
-      <JFXTextField fx:id="txtAddress" alignment="CENTER" labelFloat="true" layoutX="366.0" layoutY="406.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" />
-      <JFXTextField fx:id="txtCity" alignment="CENTER" labelFloat="true" layoutX="366.0" layoutY="514.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" />
-      <JFXTextField fx:id="txtProvince" alignment="CENTER" labelFloat="true" layoutX="366.0" layoutY="620.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" />
-      <JFXTextField fx:id="txtPostalCode" alignment="CENTER" labelFloat="true" layoutX="366.0" layoutY="717.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" />
-      <Label layoutX="157.0" layoutY="24.0" text="Customer Delete Form - Customer Section" textFill="#2626bf">
+      <JFXTextField fx:id="txtId" labelFloat="true" layoutX="48.0" layoutY="109.0" onAction="#searchCustomer" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="260.0" promptText="Customer ID" />
+      <JFXTextField fx:id="txtTitle" labelFloat="true" layoutX="343.0" layoutY="109.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Customer Title" />
+      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="668.0" layoutY="108.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="287.0" promptText="Customer Name" />
+      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="48.0" layoutY="191.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Customer Address" />
+      <JFXTextField fx:id="txtCity" labelFloat="true" layoutX="380.0" layoutY="191.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="245.0" promptText="Customer's City" />
+      <JFXTextField fx:id="txtProvince" labelFloat="true" layoutX="663.0" layoutY="190.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Customer's Province" />
+      <JFXTextField fx:id="txtPostalCode" labelFloat="true" layoutX="48.0" layoutY="285.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" promptText="Postal Code" />
+      <Label layoutX="274.0" layoutY="31.0" text="Customer Delete Form - Customer Section" textFill="#2626bf">
          <font>
             <Font name="Comic Sans MS Bold" size="25.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnCusDelete" buttonType="RAISED" layoutX="587.0" layoutY="784.0" onAction="#deleteCustomerOnAction" style="-fx-background-color: #ED4C67;" text="Delete Customer" textFill="WHITE" />
-      <Label alignment="CENTER" layoutX="128.0" layoutY="102.0" text="Customer ID:" textFill="#212220">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="127.0" layoutY="193.0" text="Customer Title:" textFill="#212220">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="128.0" layoutY="298.0" text="Customer Name:" textFill="#212220">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="128.0" layoutY="408.0" text="Customer Address:" textFill="#212220">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="125.0" layoutY="626.0" text="Customer's Province:" textFill="#212220">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="128.0" layoutY="517.0" text="Customer's City:" textFill="#212220">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="129.0" layoutY="719.0" text="Postal Code:" textFill="#212220">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="imgBack" fitHeight="77.0" fitWidth="63.0" layoutX="31.0" layoutY="11.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+      <JFXButton fx:id="btnCusDelete" buttonType="RAISED" layoutX="625.0" layoutY="316.0" onAction="#deleteCustomerOnAction" style="-fx-background-color: #ED4C67;" text="Delete Customer" textFill="WHITE" />
+      <ImageView fx:id="imgBack" fitHeight="56.0" fitWidth="60.0" layoutX="31.0" layoutY="11.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/back_96px.png" />
          </image>

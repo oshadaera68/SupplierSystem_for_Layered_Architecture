@@ -3,13 +3,14 @@ package bo.custom.impl;
 import bo.custom.ItemBo;
 import dao.Custom.Impl.ItemDaoImpl;
 import dao.Custom.ItemDao;
+import dao.DAOFactory;
 import entity.Item;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ItemBoImpl implements ItemBo {
-    private final ItemDao itemDao = new ItemDaoImpl();
+    private final ItemDao itemDao = (ItemDao) DAOFactory.getDaoFactory().getDao(DAOFactory.DaoTypes.ITEM);
 
     @Override
     public boolean addItem(Item item) throws SQLException, ClassNotFoundException {
@@ -32,7 +33,7 @@ public class ItemBoImpl implements ItemBo {
     }
 
     @Override
-    public boolean updateItem(Item item) throws SQLException, ClassNotFoundException {
+     public boolean updateItem(Item item) throws SQLException, ClassNotFoundException {
         return itemDao.update(item);
     }
 }

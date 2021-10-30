@@ -1,27 +1,0 @@
-
-<	java:S131D""Add a default case to this switch.(ƒåÑ¸ùÿÿÿÿ
-<	java:S131r""Add a default case to this switch.(ƒåÑ¸ùÿÿÿÿ
-G
-java:S1172‹"1Remove this unused method parameter "mouseEvent".(û³÷i
-T
-java:S1172–"1Remove this unused method parameter "mouseEvent".(ßá›Ûÿÿÿÿÿ8ˆð»¶Ê/
-m
-java:S1301D"KReplace this "switch" statement by "if" statements to increase readability.(ƒåÑ¸ùÿÿÿÿ8ô–¨¶Ê/
-m
-java:S1301r"KReplace this "switch" statement by "if" statements to increase readability.(ƒåÑ¸ùÿÿÿÿ8¿Ô¨¶Ê/
-n
-java:S1104"SMake lblDate a static final constant or non-public and provide accessors if needed.(…“À„ÿÿÿÿÿ
-i
-java:S1104"SMake lblTime a static final constant or non-public and provide accessors if needed.(¿°×•
-m
-java:S1104"WMake rootContext a static final constant or non-public and provide accessors if needed.(Òäîÿ
-i
-java:S1104"SMake lblMenu a static final constant or non-public and provide accessors if needed.(Õ¦à
-u
-java:S1104 "ZMake lblDescription a static final constant or non-public and provide accessors if needed.(ñÍã×ÿÿÿÿÿ
-j
-java:S1104!"TMake imgAdmin a static final constant or non-public and provide accessors if needed.(¼ë¥ý
-l
-java:S1104""VMake imgCashier a static final constant or non-public and provide accessors if needed.(†ßâÍ
-i
-java:S1104#"SMake imgIcon a static final constant or non-public and provide accessors if needed.(‰ƒÊÀ

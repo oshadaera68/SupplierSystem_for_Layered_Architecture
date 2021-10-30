@@ -19,7 +19,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.CustomerDto;
+import dto.CustomerDto;
 import util.ValidationUtil;
 
 import java.io.IOException;
@@ -44,7 +44,7 @@ public class SaveCustomerFormController {
     Pattern idRegEx = Pattern.compile("^(C00-)[0-9]{3,20}$");
     Pattern titleRegEx = Pattern.compile("^[A-z]{1,5}$");
     Pattern nameRegEx = Pattern.compile("^[A-z ]{4,30}$");
-    Pattern addressRegEx = Pattern.compile("^[A-z\0-9 ]{6,30}$");
+    Pattern addressRegEx = Pattern.compile("^[A-z\0-9 ]{5,30}$");
     Pattern cityRegEx = Pattern.compile("^[A-z]{4,20}$");
     Pattern provinceRegEx = Pattern.compile("^[A-z ]{4,20}$");
     Pattern postalCodeRegEx = Pattern.compile("^[0-9]{4,9}$");

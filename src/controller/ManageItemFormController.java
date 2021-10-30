@@ -162,7 +162,7 @@ public class ManageItemFormController {
 
     public void reportsOnAction(ActionEvent actionEvent) {
         try {
-            JasperDesign load = JRXmlLoader.load(getClass().getResourceAsStream("../views/Item_Details.jrxml"));
+            JasperDesign load = JRXmlLoader.load(getClass().getResourceAsStream("views/report/Item_Details.jrxml"));
             JasperReport jasperReport = JasperCompileManager.compileReport(load);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DbConnection.getInstance().getConnection());
             JasperViewer.viewReport(jasperPrint,false);

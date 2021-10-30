@@ -13,7 +13,7 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("views/DashBoardForm.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("views/SplashScreenForm.fxml"))));
         primaryStage.setTitle("Supermarket System v0.1.0 | MINDARTLK Creations ");
         primaryStage.centerOnScreen();
         primaryStage.setFullScreen(false);

@@ -2,7 +2,7 @@ package bo.custom;
 
 import bo.custom.impl.CustomerBoImpl;
 import bo.custom.impl.ItemBoImpl;
-import bo.custom.impl.PurchaseOrderBoImpl;
+import bo.custom.impl.OrderBoImpl;
 
 public class BoFactory {
     private static BoFactory boFactory;
@@ -23,7 +23,7 @@ public class BoFactory {
                 return new CustomerBoImpl();
 
             case PURCHASEORDER:
-                return new PurchaseOrderBoImpl();
+                return new OrderBoImpl();
 
             default:
                 return null;

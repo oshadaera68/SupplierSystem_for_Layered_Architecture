@@ -7,11 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface CustomerDao extends CrudDao<Customer, String> {
-    boolean add(Customer o) throws SQLException, ClassNotFoundException;
+    boolean add(Customer c) throws SQLException, ClassNotFoundException;
 
     boolean delete(String id) throws SQLException, ClassNotFoundException;
 
-    boolean update(Customer o) throws SQLException, ClassNotFoundException;
+    boolean update(Customer c) throws SQLException, ClassNotFoundException;
 
     ArrayList<Customer> getAll() throws SQLException, ClassNotFoundException;
 

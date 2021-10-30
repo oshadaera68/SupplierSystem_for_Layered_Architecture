@@ -1,10 +1,10 @@
 
-M
-java:S1172'"1Remove this unused method parameter "mouseEvent".(”Æ?8°Ú€àÊ/
-b
-java:S1612/"FReplace this lambda with method reference 'primaryStage::sizeToScene'.(ÚÖ¥T8¶Ú€àÊ/
-C	java:S1318""Add a default case to this switch.(ƒåÑ¸ùÿÿÿÿ8ûÿ†àÊ/
-C	java:S131^""Add a default case to this switch.(ƒåÑ¸ùÿÿÿÿ8ÁŸàÊ/
+F
+java:S1172'"1Remove this unused method parameter "mouseEvent".(”Æ?
+[
+java:S1612/"FReplace this lambda with method reference 'primaryStage::sizeToScene'.(ÚÖ¥T
+<	java:S1318""Add a default case to this switch.(ƒåÑ¸ùÿÿÿÿ
+<	java:S131^""Add a default case to this switch.(ƒåÑ¸ùÿÿÿÿ
 n
 java:S1104"SMake imgBack a static final constant or non-public and provide accessors if needed.(Ùç¢Üÿÿÿÿÿ
 i
@@ -19,5 +19,5 @@ i
 java:S1104"SMake imgYear a static final constant or non-public and provide accessors if needed.(³”ı‘
 m
 java:S1104"WMake imgCustomer a static final constant or non-public and provide accessors if needed.(¿²ù´
-t
-java:S1104"WMake rootContext a static final constant or non-public and provide accessors if needed.(Òäîÿ8ÉÑîßÊ/
+m
+java:S1104"WMake rootContext a static final constant or non-public and provide accessors if needed.(Òäîÿ

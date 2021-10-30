@@ -1,9 +1,15 @@
 package controller;
 
-import bo.custom.*;
+import bo.custom.BoFactory;
+import bo.custom.CustomerBo;
+import bo.custom.ItemBo;
+import bo.custom.OrderBo;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import entity.*;
+import entity.Customer;
+import entity.Item;
+import entity.OrderDetail;
+import entity.Orders;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -14,7 +20,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -39,7 +48,7 @@ import java.util.List;
 
 public class PlaceOrderFormController {
     private final CustomerBo customerBo = (CustomerBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.CUSTOMER);
-    private final  PurchaseOrderBo purchaseOrderBo = (PurchaseOrderBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.PURCHASEORDER);
+    private final OrderBo orderBo = (OrderBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.PURCHASEORDER);
     private final ItemBo itemBo = (ItemBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.ITEM);
     public Label lblDate;
     public Label lblTime;
@@ -71,7 +80,6 @@ public class PlaceOrderFormController {
     ObservableList<CartTm> obList = FXCollections.observableArrayList();
 
     public void initialize() {
-
 
         colItemCode.setCellValueFactory(new PropertyValueFactory<>("code"));
         colDesc.setCellValueFactory(new PropertyValueFactory<>("description"));
@@ -110,9 +118,8 @@ public class PlaceOrderFormController {
     }
 
     private void setOrderId() {
-
         try {
-            lblOrderId.setText(purchaseOrderBo.orderId());
+            lblOrderId.setText(orderBo.orderId());
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -123,7 +130,7 @@ public class PlaceOrderFormController {
         Item i1 = itemBo.searchById(itemId);
 
         if (i1 == null) {
-            new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.CLOSE).show();
+            /*new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.CLOSE).show();*/
         } else {
             txtDescription.setText(i1.getDescription());
             txtPackSize.setText(i1.getPackSize());
@@ -136,7 +143,7 @@ public class PlaceOrderFormController {
 
         Customer c1 = customerBo.searchById(cusId);
         if (c1 == null) {
-            new Alert(Alert.AlertType.WARNING, "Empty Result Set").show();
+            /*new Alert(Alert.AlertType.WARNING, "Empty Result Set").show();*/
         } else {
             txtCusTitle.setText(c1.getCusTitle());
             txtCusName.setText(c1.getCustName());
@@ -153,7 +160,7 @@ public class PlaceOrderFormController {
         for (Item i : all) {
             itemIds.add(i.getItemCode());
         }
-        cmbCustomerIds.getItems().addAll(itemIds);
+        cmbItemIds.getItems().addAll(itemIds);
     }
 
     private void loadCustomerIds() throws SQLException, ClassNotFoundException {
@@ -185,28 +192,28 @@ public class PlaceOrderFormController {
         time.play();
     }
 
-    public void billOnAction(ActionEvent actionEvent) {
+    public void billOnAction(MouseEvent mouseEvent) {
         try {
-            JasperDesign load = JRXmlLoader.load(getClass().getResourceAsStream("../view/report/Bill.jrxml"));
+            JasperDesign load = JRXmlLoader.load(this.getClass().getResourceAsStream("../views/report/Bill.jrxml"));
             JasperReport jasperReport = JasperCompileManager.compileReport(load);
 
             String description = txtDescription.getText();
             String OrderId = lblOrderId.getText();
-            String qty = txtQty.getText();
-            String qtyOnHand = txtQtyOnHand.getText();
-            String unitPrice = txtUnitPrice.getText();
-            String total = lblTotal.getText();
+            int qty = Integer.parseInt(txtQty.getText());
+            int qtyOnHand = Integer.parseInt(txtQtyOnHand.getText());
+            double unitPrice = Double.parseDouble(txtUnitPrice.getText());
+            String s = lblTotal.getText().split("/")[0];
 
             HashMap map = new HashMap();
-            map.put("description",description);
-            map.put("OrderId",OrderId);
-            map.put("Qty",qty);
-            map.put("QtyOnHand",qtyOnHand);
-            map.put("UnitPrice",unitPrice);
-            map.put("Total",total);
+            map.put("description", description);
+            map.put("OrderId", OrderId);
+            map.put("Qty", String.valueOf(qty));
+            map.put("QtyOnHand", String.valueOf(qtyOnHand));
+            map.put("UnitPrice", String.valueOf(unitPrice));
+            map.put("Total", Double.parseDouble(s));
 
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, new JREmptyDataSource());
-            JasperViewer.viewReport(jasperPrint,false);
+            JasperViewer.viewReport(jasperPrint, false);
         } catch (JRException e) {
             e.printStackTrace();
         }
@@ -270,34 +277,39 @@ public class PlaceOrderFormController {
 
     public void placeOrderOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
-        ArrayList<Item> details = new ArrayList<>();
+        ArrayList<OrderDetail> details = new ArrayList<>();
         double total = 0;
         for (CartTm temp : obList) {
             total += temp.getTotal();
-            details.add(new Item(
-                    temp.getCode(), temp.getDescription(), temp.getPackSize(),temp.getUnitPrice(),temp.getQty()
+            details.add(new OrderDetail(
+                    lblOrderId.getText(), temp.getCode(), temp.getQty(), temp.getUnitPrice()
             ));
         }
 
-        ArrayList<OrderDetail> orderDetails = new ArrayList<>();
-        Orders orders = new Orders(lblOrderId.getText(), lblDate.getText(),cmbCustomerIds.getValue(), lblTime.getText(),total,orderDetails);
+        Orders orders = new Orders(lblOrderId.getText(), lblDate.getText(), cmbCustomerIds.getValue(), lblTime.getText(), total, details);
 
-        boolean placeOrder = purchaseOrderBo.purchaseOrder(orders,orderDetails);
-
-        //boolean orderDetails = purchaseOrderBo.saveOrderDetails(purchaseOrderBo.orderId(),orders.getDetails());
-
-        /*if (orderDetails) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Saved").show();
-        } else {
-            new Alert(Alert.AlertType.WARNING, "Try Again").show();
-        }*/
-
+        boolean placeOrder = orderBo.placeOrder(orders, details);
         if (placeOrder) {
             new Alert(Alert.AlertType.CONFIRMATION, "Success Order").show();
-            tblCart.getItems().clear();
         } else {
-            new Alert(Alert.AlertType.WARNING, "Try again").show();
+            //new Alert(Alert.AlertType.WARNING, "Try again").show();
         }
+        cmbCustomerIds.getSelectionModel().clearSelection();
+        cmbItemIds.getSelectionModel().clearSelection();
+        txtCusTitle.clear();
+        txtCusName.clear();
+        txtCusAddress.clear();
+        txtCity.clear();
+        txtProvince.clear();
+        txtPostalCode.clear();
+        txtDescription.clear();
+        txtPackSize.clear();
+        txtUnitPrice.clear();
+        txtQtyOnHand.clear();
+        txtQty.clear();
+        tblCart.getItems().clear();
+        lblTotal.setText("0.00");
+
     }
 
     public void navigateToBack(MouseEvent mouseEvent) throws IOException {

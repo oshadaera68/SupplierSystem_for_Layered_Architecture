@@ -2,7 +2,6 @@ package dao.Custom.Impl;
 
 import dao.Custom.CustomerDao;
 import entity.Customer;
-import model.CustomerDto;
 import util.CrudUtil;
 
 import java.sql.ResultSet;
@@ -12,8 +11,8 @@ import java.util.ArrayList;
 public class CustomerDaoImpl implements CustomerDao {
 
     @Override
-    public boolean add(Customer o) throws SQLException, ClassNotFoundException {
-        return CrudUtil.executeUpdate("INSERT INTO Customer VALUES(?,?,?,?,?,?,?)", o.getCustID(), o.getCusTitle(), o.getCustName(), o.getCustAddress(), o.getCity(), o.getProvince(), o.getPostalcode());
+    public boolean add(Customer c) throws SQLException, ClassNotFoundException {
+        return CrudUtil.executeUpdate("INSERT INTO Customer VALUES(?,?,?,?,?,?,?)", c.getCustID(), c.getCusTitle(), c.getCustName(), c.getCustAddress(), c.getCity(), c.getProvince(), c.getPostalcode());
     }
 
     @Override
@@ -23,7 +22,8 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public boolean update(Customer o) throws SQLException, ClassNotFoundException {
-        return CrudUtil.executeUpdate("UPDATE Customer SET CustTitle=?, CustName=?, CustAddress=?, City=?, Province=?, PostalCode=?  WHERE CustID=?", o.getCusTitle(), o.getCustName(), o.getCustAddress(), o.getCity(), o.getProvince(), o.getPostalcode(), o.getCustID());
+        return CrudUtil.executeUpdate("UPDATE Customer SET CustTitle=?,CustName=?, CustAddress=?, City=?, Province=?, PostalCode=?  WHERE CustID=?", o.getCusTitle(), o.getCustName(), o.getCustAddress(), o.getCity(), o.getProvince(), o.getPostalcode(), o.getCustID());
+
     }
 
     @Override
@@ -53,3 +53,4 @@ public class CustomerDaoImpl implements CustomerDao {
         return null;
     }
 }
+

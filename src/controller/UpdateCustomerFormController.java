@@ -20,7 +20,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.CustomerDto;
+import dto.CustomerDto;
 import util.ValidationUtil;
 
 import java.io.IOException;
@@ -74,7 +74,7 @@ public class UpdateCustomerFormController {
                 txtPostalCode.getText()
         );
 
-        Customer customer = new Customer(c1.getTitle(), c1.getName(), c1.getAddress(), c1.getCity(), c1.getProvince(), c1.getPostalCode(), c1.getId());
+        Customer customer = new Customer(c1.getId(),c1.getTitle(), c1.getName(), c1.getAddress(), c1.getCity(), c1.getProvince(), c1.getPostalCode());
         boolean updateCustomer = customerBo.updateCustomer(customer);
 
         if (updateCustomer) {

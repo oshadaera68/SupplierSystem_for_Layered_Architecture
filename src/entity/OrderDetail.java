@@ -4,16 +4,16 @@ public class OrderDetail {
     private String orderID;
     private String itemCode;
     private int orderQty;
-    private double discount;
+    private double price;
 
     public OrderDetail() {
     }
 
-    public OrderDetail(String orderID, String itemCode, int orderQty, double discount) {
+    public OrderDetail(String orderID, String itemCode, int orderQty, double price) {
         this.orderID = orderID;
         this.itemCode = itemCode;
         this.orderQty = orderQty;
-        this.discount = discount;
+        this.price = price;
     }
 
     public String getOrderID() {
@@ -40,11 +40,11 @@ public class OrderDetail {
         this.orderQty = orderQty;
     }
 
-    public double getDiscount() {
-        return discount;
+    public double getPrice() {
+        return price;
     }
 
-    public void setDiscount(double discount) {
-        this.discount = discount;
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

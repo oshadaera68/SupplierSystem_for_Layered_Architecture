@@ -24,7 +24,7 @@ public class DAOFactory {
 
             case ORDER:
                 return new OrderDaoImpl();
-
+                
             default:
                 return null;
         }

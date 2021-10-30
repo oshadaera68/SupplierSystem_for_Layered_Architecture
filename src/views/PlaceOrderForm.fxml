@@ -88,7 +88,7 @@
          </font>
       </Label>
       <JFXButton layoutX="1167.0" layoutY="681.0" onAction="#placeOrderOnAction" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #5352ed;" text="Place Order" textFill="WHITE" />
-      <JFXButton layoutX="1012.0" layoutY="681.0" onAction="#billOnAction" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: #27ae60;" text="Bill" textFill="WHITE" />
+      <JFXButton layoutX="1012.0" layoutY="681.0" onMouseClicked="#billOnAction" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: #27ae60;" text="Bill" textFill="WHITE" />
       <ImageView fx:id="imgBack" fitHeight="53.0" fitWidth="51.0" layoutX="41.0" layoutY="14.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/back_96px.png" />

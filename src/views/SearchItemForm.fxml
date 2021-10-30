@@ -8,45 +8,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootContext" prefHeight="559.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchItemController">
+<AnchorPane fx:id="rootContext" prefHeight="273.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchItemController">
    <children>
       <Label layoutX="243.0" layoutY="32.0" text="Search Item" textFill="#1c32d7">
          <font>
             <Font name="Behind The Scenery" size="31.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtItemCode" labelFloat="true" layoutX="318.0" layoutY="117.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Item Code" />
-      <JFXTextField fx:id="txtDesc" labelFloat="true" layoutX="318.0" layoutY="186.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Description" />
-      <JFXTextField fx:id="txtPackSize" labelFloat="true" layoutX="318.0" layoutY="258.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Pack Size" />
-      <JFXTextField fx:id="txtUnitPrice" labelFloat="true" layoutX="318.0" layoutY="336.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Unit Price" />
-      <JFXTextField fx:id="txtQty" labelFloat="true" layoutX="318.0" layoutY="414.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Qty On Hand" />
-      <JFXButton fx:id="btnSearch" layoutX="434.0" layoutY="490.0" onAction="#searchItemOnAction" prefHeight="31.0" prefWidth="104.0" style="-fx-background-color: #3498db;" text="Search Item" textFill="WHITE" />
-      <Label alignment="CENTER" layoutX="178.0" layoutY="119.0" text="Item Code:-">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="178.0" layoutY="187.0" text="Description:-">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="178.0" layoutY="260.0" text="Pack Size:-">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="178.0" layoutY="339.0" text="Unit Price:-">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="178.0" layoutY="417.0" text="Qty On Hand:-">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="imgBack" fitHeight="77.0" fitWidth="63.0" layoutX="73.0" layoutY="20.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+      <JFXTextField fx:id="txtItemCode" labelFloat="true" layoutX="42.0" layoutY="116.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Item Code" />
+      <JFXTextField fx:id="txtDesc" labelFloat="true" layoutX="261.0" layoutY="116.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Description" />
+      <JFXTextField fx:id="txtPackSize" labelFloat="true" layoutX="482.0" layoutY="116.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Pack Size" />
+      <JFXTextField fx:id="txtUnitPrice" labelFloat="true" layoutX="42.0" layoutY="192.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Unit Price" />
+      <JFXTextField fx:id="txtQty" labelFloat="true" layoutX="262.0" layoutY="192.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="188.0" promptText="Qty On Hand" />
+      <JFXButton fx:id="btnSearch" buttonType="RAISED" layoutX="517.0" layoutY="192.0" onAction="#searchItemOnAction" prefHeight="31.0" prefWidth="104.0" style="-fx-background-color: #3498db;" text="Search Item" textFill="WHITE" />
+      <ImageView fx:id="imgBack" fitHeight="48.0" fitWidth="55.0" layoutX="73.0" layoutY="26.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/back_96px.png" />
          </image>

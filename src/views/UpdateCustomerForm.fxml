@@ -8,57 +8,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootContext" prefHeight="723.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UpdateCustomerFormController">
+<AnchorPane fx:id="rootContext" prefHeight="394.0" prefWidth="863.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UpdateCustomerFormController">
    <children>
-      <JFXTextField fx:id="txtId" labelFloat="true" layoutX="346.0" layoutY="86.0" onAction="#searchCustomer" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" />
-      <JFXTextField fx:id="txtTitle" labelFloat="true" layoutX="346.0" layoutY="160.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" />
-      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="346.0" layoutY="239.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" />
-      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="346.0" layoutY="318.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" />
-      <JFXTextField fx:id="txtCity" labelFloat="true" layoutX="346.0" layoutY="401.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" />
-      <JFXTextField fx:id="txtProvince" labelFloat="true" layoutX="346.0" layoutY="483.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" />
-      <JFXTextField fx:id="txtPostalCode" labelFloat="true" layoutX="348.0" layoutY="566.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="297.0" />
-      <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="601.0" layoutY="646.0" onAction="#updateCustomerOnAction" style="-fx-background-color: #9b59b6;" text="Update Customer" textFill="WHITE" />
-      <Label layoutX="210.0" layoutY="27.0" text="Customer Update Form - Customer Form" textFill="RED">
+      <JFXTextField fx:id="txtId" labelFloat="true" layoutX="62.0" layoutY="119.0" onAction="#searchCustomer" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="227.0" promptText="Customer ID" />
+      <JFXTextField fx:id="txtTitle" labelFloat="true" layoutX="314.0" layoutY="119.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="236.0" promptText="Customer Title" />
+      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="569.0" layoutY="119.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="236.0" promptText="Customer Name" />
+      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="62.0" layoutY="203.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="205.0" promptText="Customer Address" />
+      <JFXTextField fx:id="txtCity" labelFloat="true" layoutX="296.0" layoutY="203.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="267.0" promptText="Customer's City" />
+      <JFXTextField fx:id="txtProvince" labelFloat="true" layoutX="601.0" layoutY="203.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="236.0" promptText="Customer's Province" />
+      <JFXTextField fx:id="txtPostalCode" labelFloat="true" layoutX="63.0" layoutY="292.0" onKeyReleased="#txtFieldKeyRelease" prefHeight="31.0" prefWidth="285.0" promptText="Postal Code" />
+      <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="569.0" layoutY="323.0" onAction="#updateCustomerOnAction" style="-fx-background-color: #9b59b6;" text="Update Customer" textFill="WHITE" />
+      <Label layoutX="263.0" layoutY="38.0" text="Customer Update Form - Customer Form" textFill="RED">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="141.0" layoutY="89.0" text="Customer ID:" textFill="#212220">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="139.0" layoutY="163.0" text="Customer Title:" textFill="#212220">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="137.0" layoutY="242.0" text="Customer Name:" textFill="#212220">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="134.0" layoutY="323.0" text="Customer Address:" textFill="#212220">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="107.0" layoutY="486.0" text="Customer's Province:" textFill="#212220">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="132.0" layoutY="404.0" text="Customer's City:" textFill="#212220">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="143.0" layoutY="571.0" text="Postal Code:" textFill="#212220">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="imgBack" fitHeight="77.0" fitWidth="63.0" layoutX="35.0" layoutY="20.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgBack" fitHeight="56.0" fitWidth="57.0" layoutX="35.0" layoutY="20.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/back_96px.png" />
          </image>

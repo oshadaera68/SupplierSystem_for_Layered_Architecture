@@ -29,7 +29,7 @@ public class IncomeFormController {
     public ImageView imgCustomer;
     public AnchorPane rootContext;
 
-    public void initialize(){
+    public void initialize() {
         FadeTransition fadeIn = new FadeTransition(Duration.millis(2000), rootContext);
         fadeIn.setFromValue(0.0);
         fadeIn.setToValue(1.0);
@@ -37,7 +37,7 @@ public class IncomeFormController {
     }
 
     public void navigateToBack(MouseEvent mouseEvent) throws IOException {
-        URL resource = this.getClass().getResource("/views/ManageItemForm.fxml");
+        URL resource = this.getClass().getResource("/views/SystemReportsForm.fxml");
         Parent root = FXMLLoader.load(resource);
         Scene scene = new Scene(root);
         Stage primaryStage = (Stage) (this.rootContext.getScene().getWindow());

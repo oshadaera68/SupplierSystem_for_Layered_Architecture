@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.MovableItemFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="rootContext" prefHeight="432.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MovableItemFormController">
+   <children>
+      <JFXButton buttonType="RAISED" layoutX="209.0" layoutY="140.0" onMouseClicked="#mostMovableItemOnAction" prefHeight="31.0" prefWidth="150.0" style="-fx-background-color: #2ecc71;" text="Most Movable Item" textFill="WHITE" />
+      <JFXButton buttonType="RAISED" layoutX="209.0" layoutY="222.0" onMouseClicked="#leastMovableItemOnAction" style="-fx-background-color: #e74c3c;" text="Least Movable Item" textFill="WHITE" />
+      <Label layoutX="173.0" layoutY="31.0" text="Movable Item Form" textFill="#e11e1e">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Label>
+      <ImageView fx:id="imgBack" fitHeight="48.0" fitWidth="51.0" layoutX="21.0" layoutY="25.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/back_96px.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>

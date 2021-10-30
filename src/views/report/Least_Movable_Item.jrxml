@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Least_Movable_Item" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f47c0f31-eae8-479d-a9ce-09e2e30fcbd5">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[ select itemcode,sum(orderQty) as qty from orderdetail group by itemcode order by qty asc]]>
+	</queryString>
+	<field name="itemcode" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itemcode"/>
+		<property name="com.jaspersoft.studio.field.label" value="itemcode"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="orderdetail"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qty" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="qty"/>
+		<property name="com.jaspersoft.studio.field.label" value="qty"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="22" width="555" height="30" uuid="8eabc502-aee6-4e35-86e4-64b3653ac6d2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Least Movable Item - Supermarket System]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="375" splitType="Stretch">
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="0" width="555" height="299" uuid="17d965ce-2ce9-41d4-98c9-bdcd0a7185cc"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset resetType="Report"/>
+					<keyExpression><![CDATA[$F{itemcode}]]></keyExpression>
+					<valueExpression><![CDATA[$F{qty}]]></valueExpression>
+					<labelExpression><![CDATA[$F{itemcode}]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+			<staticText>
+				<reportElement x="0" y="330" width="555" height="30" uuid="53979120-d445-4cf0-bf1d-4b7d3b081529"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CopyRight By MINDARTLK. All Rights Reserved. 2021]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
