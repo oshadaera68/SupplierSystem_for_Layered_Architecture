@@ -1,7 +1,0 @@
-
-C	java:S1088")Either remove or fill this block of code.(×¼¨Êúÿÿÿÿ
-F
-java:S1128"0Remove this unused import 'bo.custom.BoFactory'.(àƒþ¦
-I
-java:S1128".Remove this unused import 'bo.custom.OrderBo'.(Ã¦èÒùÿÿÿÿ
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄÚ‰¯ùÿÿÿÿ

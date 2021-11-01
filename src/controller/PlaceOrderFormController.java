@@ -193,7 +193,7 @@ public class PlaceOrderFormController {
     }
 
     public void billOnAction(MouseEvent mouseEvent) {
-        try {
+   /*     try {
             JasperDesign load = JRXmlLoader.load(this.getClass().getResourceAsStream("../views/report/Bill.jrxml"));
             JasperReport jasperReport = JasperCompileManager.compileReport(load);
 
@@ -216,7 +216,7 @@ public class PlaceOrderFormController {
             JasperViewer.viewReport(jasperPrint, false);
         } catch (JRException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     public void addToCartOnAction(ActionEvent actionEvent) {

@@ -21,8 +21,8 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public boolean update(Customer o) throws SQLException, ClassNotFoundException {
-        return CrudUtil.executeUpdate("UPDATE Customer SET CustTitle=?,CustName=?, CustAddress=?, City=?, Province=?, PostalCode=?  WHERE CustID=?", o.getCusTitle(), o.getCustName(), o.getCustAddress(), o.getCity(), o.getProvince(), o.getPostalcode(), o.getCustID());
+    public boolean update(Customer c) throws SQLException, ClassNotFoundException {
+        return CrudUtil.executeUpdate("UPDATE Customer SET CustTitle=?,CustName=?, CustAddress=?, City=?, Province=?, PostalCode=?  WHERE CustID=?", c.getCusTitle(), c.getCustName(), c.getCustAddress(), c.getCity(), c.getProvince(), c.getPostalcode(), c.getCustID());
 
     }
 
@@ -37,8 +37,8 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public Customer searchById(String s) throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.executeQuery("SELECT * FROM Customer WHERE CustID=?", s);
+    public Customer searchById(String id) throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.executeQuery("SELECT * FROM Customer WHERE CustID=?", id);
         if (rst.next()) {
             return new Customer(
                     rst.getString(1),

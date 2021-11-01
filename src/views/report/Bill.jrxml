@@ -3,11 +3,12 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Bill" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="52ece9d8-9389-4d5a-b869-6cb2241c8285">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<parameter name="ItemName" class="java.lang.String"/>
-	<parameter name="QtyOnHand" class="java.lang.String"/>
+	<parameter name="QtyOnHand" class="java.lang.Integer"/>
 	<parameter name="OrderId" class="java.lang.String"/>
-	<parameter name="UnitPrice" class="java.lang.String"/>
-	<parameter name="Qty" class="java.lang.String"/>
+	<parameter name="UnitPrice" class="java.lang.Double"/>
+	<parameter name="Qty" class="java.lang.Integer"/>
 	<parameter name="Total" class="java.lang.Double"/>
+	<parameter name="Description" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -15,30 +16,23 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="114" splitType="Stretch">
+		<band height="70" splitType="Stretch">
 			<staticText>
 				<reportElement x="-10" y="10" width="555" height="30" forecolor="#3C31DE" uuid="16f0d0c3-057e-4797-9de1-e25f32ec2637"/>
 				<textElement textAlignment="Center">
 					<font size="19"/>
 				</textElement>
-				<text><![CDATA[Supermarket System - MINDARTLK]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="219" y="40" width="100" height="30" uuid="fd57a565-8438-46db-ae8e-1dcfa7c13c17"/>
-				<textElement textAlignment="Center">
-					<font size="22"/>
-				</textElement>
-				<text><![CDATA[Bill]]></text>
+				<text><![CDATA[Bill - Supermarket System]]></text>
 			</staticText>
 			<textField pattern="MMMMM dd, yyyy">
-				<reportElement x="128" y="70" width="180" height="30" uuid="3b1f25ed-5a2b-4f3d-b72e-60d0cffd9f94"/>
+				<reportElement x="130" y="40" width="180" height="30" uuid="3b1f25ed-5a2b-4f3d-b72e-60d0cffd9f94"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField pattern="HH:mm">
-				<reportElement x="246" y="70" width="179" height="30" uuid="7de8614b-971b-4ce6-9efd-2a06a5aeb292"/>
+				<reportElement x="250" y="40" width="179" height="30" uuid="7de8614b-971b-4ce6-9efd-2a06a5aeb292"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
@@ -47,7 +41,7 @@
 		</band>
 	</title>
 	<columnHeader>
-		<band height="302" splitType="Stretch">
+		<band height="291" splitType="Stretch">
 			<staticText>
 				<reportElement x="140" y="157" width="147" height="30" uuid="9518e0f8-9e5f-4153-8e06-09481c2ea3c0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -91,13 +85,6 @@
 				<text><![CDATA[Total]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="300" y="9" width="111" height="30" uuid="e1de7ecd-91ba-4942-8125-8d6f1b622e93"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{ItemName}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="302" y="107" width="111" height="30" uuid="3e8241fd-e314-4a2e-af2d-ff87dbefc468"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
@@ -132,16 +119,23 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{Total}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="307" y="10" width="100" height="30" uuid="021fcfc5-fc09-4384-98c5-f8008f73ddfc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Description}]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="56" splitType="Stretch">
+		<band height="51" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="10" width="555" height="30" uuid="20c28fe5-c034-41f2-be2e-0b881f8c31f3"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="19"/>
 				</textElement>
-				<text><![CDATA[Copyright by MINDARTLK. All Rights Reserved. 2021]]></text>
+				<text><![CDATA[Copyright by MIND ART LK. All Rights Reserved. 2021]]></text>
 			</staticText>
 		</band>
 	</detail>
