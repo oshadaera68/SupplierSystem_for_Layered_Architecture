@@ -5,6 +5,7 @@ import bo.custom.BoFactory;
 import bo.custom.ItemBo;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dto.ItemDto;
 import entity.Item;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -20,7 +21,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import dto.ItemDto;
 import util.ValidationUtil;
 
 import java.io.IOException;
@@ -31,6 +31,7 @@ import java.util.regex.Pattern;
 
 public class AddItemController {
 
+    private final ItemBo itemBo = (ItemBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.ITEM);
     public JFXTextField txtItemCode;
     public JFXTextField txtDesc;
     public JFXTextField txtPackSize;
@@ -39,14 +40,12 @@ public class AddItemController {
     public JFXButton btnAdd;
     public ImageView imgBack;
     public AnchorPane rootContext;
-
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
     Pattern descriptionRegEx = Pattern.compile("^[A-z ]{3,40}$");
     Pattern packSizeRegEx = Pattern.compile("^[A-z]{1,20}$");
     Pattern unitPriceRegEx = Pattern.compile("^[1-9][0-9][0-9]([.][0-9]{2})?$");
     Pattern qtyRegEx = Pattern.compile("^[0-9]{1,}$");
-    private final ItemBo itemBo = (ItemBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.ITEM);
 
     public void initialize() {
         btnAdd.setDisable(true);
@@ -66,7 +65,6 @@ public class AddItemController {
                 txtItemCode.getText(), txtDesc.getText(),
                 txtPackSize.getText(), Double.parseDouble(txtUnitPrice.getText()), Integer.parseInt(txtQty.getText())
         );
-
         Item item = new Item(i1.getItemCode(), i1.getDescription(), i1.getPackSize(), i1.getUnitPrice(), i1.getQtyOnHand());
         boolean addItem = itemBo.addItem(item);
 
