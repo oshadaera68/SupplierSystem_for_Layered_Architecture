@@ -67,9 +67,7 @@ public class DeleteItemController {
     }
 
     public void deleteItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-
-        Item item = new Item();
-        boolean delete = itemBo.deleteItem(item.getItemCode());
+        boolean delete = itemBo.deleteItem(txtItemCode.getText());
 
         if (delete) {
             new Alert(Alert.AlertType.CONFIRMATION, "Deleted").show();

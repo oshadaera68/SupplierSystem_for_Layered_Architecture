@@ -5,7 +5,6 @@ import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -160,12 +159,13 @@ public class ManageItemFormController {
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
 
-    public void reportsOnAction(ActionEvent actionEvent) {
+
+    public void reportOnAction(MouseEvent mouseEvent) {
         try {
-            JasperDesign load = JRXmlLoader.load(getClass().getResourceAsStream("views/report/Item_Details.jrxml"));
-            JasperReport jasperReport = JasperCompileManager.compileReport(load);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DbConnection.getInstance().getConnection());
-            JasperViewer.viewReport(jasperPrint,false);
+            JasperDesign load = JRXmlLoader.load(getClass().getResourceAsStream("/views/report/Item_Detail.jrxml"));
+            JasperReport report = JasperCompileManager.compileReport(load);
+            JasperPrint print = JasperFillManager.fillReport(report, null, DbConnection.getInstance().getConnection());
+            JasperViewer.viewReport(print, false);
         } catch (JRException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

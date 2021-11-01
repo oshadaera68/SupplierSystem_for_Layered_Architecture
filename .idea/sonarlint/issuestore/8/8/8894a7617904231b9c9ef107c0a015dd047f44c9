@@ -1,0 +1,17 @@
+
+f	java:S116"RRename this field "OrderId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉµéK
+m	java:S116"SRename this field "ItemCode" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒÄê¹øÿÿÿÿ
+h	java:S116"SRename this field "OrderQty" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«¶ÃÎ
+h	java:S116	"SRename this field "Discount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÀÜîÛ
+œ
+java:S1845"…Rename method "getOrderId" to prevent any misunderstanding/clash with method "getOrderID" defined in superclass "entity.OrderDetail".(¼”¨ˆ
+œ
+java:S1845"…Rename method "setOrderId" to prevent any misunderstanding/clash with method "setOrderID" defined in superclass "entity.OrderDetail".(¼‰ø¥
+P
+java:S1161":Add the "@Override" annotation above this method signature(Ç‹ÏÍ
+P
+java:S1161!":Add the "@Override" annotation above this method signature(„««›
+U
+java:S1161%":Add the "@Override" annotation above this method signature(àÿƒÇùÿÿÿÿ
+P
+java:S1161)":Add the "@Override" annotation above this method signature(ƒÏ¥Š

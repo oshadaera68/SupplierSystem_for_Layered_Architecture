@@ -24,8 +24,8 @@ public class MovableItemFormController {
 
     public void mostMovableItemOnAction(MouseEvent mouseEvent) {
         try {
-            JasperDesign design = JRXmlLoader.load(this.getClass().getResourceAsStream("/views/report/Most_Movable_Form.jrxml"));
-            JasperReport jasperReport = JasperCompileManager.compileReport(design);
+            JasperDesign load = JRXmlLoader.load(getClass().getResourceAsStream("/views/report/Most_Movable_Form.jrxml"));
+            JasperReport jasperReport = JasperCompileManager.compileReport(load);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DbConnection.getInstance().getConnection());
             JasperViewer.viewReport(jasperPrint,false);
         } catch (JRException | SQLException | ClassNotFoundException e) {

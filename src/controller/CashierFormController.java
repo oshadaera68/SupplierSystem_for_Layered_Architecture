@@ -28,6 +28,7 @@ public class CashierFormController {
     public ImageView imgPlaceOrder;
     public ImageView imgPayment;
     public ImageView imgBack;
+    public ImageView imgHome;
 
     public void initialize() {
         FadeTransition fadeIn = new FadeTransition(Duration.millis(2000), rootContext);
@@ -48,10 +49,6 @@ public class CashierFormController {
 
                 case "imgPlaceOrder":
                     root = FXMLLoader.load(getClass().getResource("/views/PlaceOrderForm.fxml"));
-                    break;
-
-                case "imgPayment":
-                    root = FXMLLoader.load(getClass().getResource("/views/PaymentForm.fxml"));
                     break;
 
             }
@@ -85,11 +82,6 @@ public class CashierFormController {
                 case "imgPlaceOrder":
                     lblMenu.setText("Place Order");
                     lblDescription.setText("Placing a Orders in this System.");
-                    break;
-
-                case "imgPayment":
-                    lblMenu.setText("Payment Sections");
-                    lblDescription.setText("Payment in this system.");
                     break;
             }
 

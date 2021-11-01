@@ -19,19 +19,14 @@
          </font>
       </Label>
       <Label fx:id="lblDescription" alignment="CENTER" layoutX="62.0" layoutY="379.0" prefHeight="16.0" prefWidth="577.0" text="Please select one of above main operations to proceed" />
-      <ImageView fx:id="imgCustomer" fitHeight="115.0" fitWidth="123.0" layoutX="82.0" layoutY="137.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgCustomer" fitHeight="115.0" fitWidth="123.0" layoutX="153.0" layoutY="136.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/icons8-customer-48.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgPlaceOrder" fitHeight="115.0" fitWidth="115.0" layoutX="293.0" layoutY="139.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgPlaceOrder" fitHeight="115.0" fitWidth="115.0" layoutX="414.0" layoutY="136.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/icons8-purchase-order-48.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="imgPayment" fitHeight="115.0" fitWidth="115.0" layoutX="493.0" layoutY="137.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../asserts/icons8-online-payment-48.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imgHome" fitHeight="71.0" fitWidth="91.0" layoutX="27.0" layoutY="25.0" onMouseClicked="#navigateToBack" pickOnBounds="true" preserveRatio="true">

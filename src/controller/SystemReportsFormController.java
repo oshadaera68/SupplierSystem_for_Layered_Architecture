@@ -112,7 +112,7 @@ public class SystemReportsFormController {
     }
 
     public void navigateToBack(MouseEvent mouseEvent) throws IOException {
-        URL resource = this.getClass().getResource("/views/ManageItemForm.fxml");
+        URL resource = this.getClass().getResource("/views/AdminViewForm.fxml");
         Parent root = FXMLLoader.load(resource);
         Scene scene = new Scene(root);
         Stage primaryStage = (Stage) (this.rootContext.getScene().getWindow());

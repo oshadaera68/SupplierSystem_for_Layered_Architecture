@@ -28,6 +28,7 @@ import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
 public class CustomerDeleteFormController {
+    private final CustomerBo customerBo = (CustomerBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.CUSTOMER);
     public JFXTextField txtId;
     public JFXTextField txtTitle;
     public JFXTextField txtName;
@@ -40,7 +41,6 @@ public class CustomerDeleteFormController {
     public AnchorPane rootContext;
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern idRegEx = Pattern.compile("^(C00-)[0-9]{3,20}$");
-    private final CustomerBo customerBo = (CustomerBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.CUSTOMER);
 
     public void initialize() {
         btnCusDelete.setDisable(true);
@@ -60,7 +60,6 @@ public class CustomerDeleteFormController {
         } else {
             setData(customer);
         }
-
     }
 
     void setData(Customer c) {
@@ -71,7 +70,6 @@ public class CustomerDeleteFormController {
         txtCity.setText(c.getCity());
         txtProvince.setText(c.getProvince());
         txtPostalCode.setText(c.getPostalcode());
-
     }
 
     public void deleteCustomerOnAction(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {

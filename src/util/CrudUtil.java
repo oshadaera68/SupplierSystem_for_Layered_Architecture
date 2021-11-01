@@ -17,7 +17,7 @@ public class CrudUtil {
     }
 
     public static boolean executeUpdate(String sql, Object... args) throws SQLException, ClassNotFoundException {
-        //System.out.println(getPreparedStatement(sql, args));
+        System.out.println(getPreparedStatement(sql, args));
         return getPreparedStatement(sql, args).executeUpdate() > 0;
     }
 

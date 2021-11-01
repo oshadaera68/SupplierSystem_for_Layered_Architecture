@@ -1,0 +1,29 @@
+
+‡
+java:S1130/"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ç›üÿÿÿÿ
+<	java:S131C""Add a default case to this switch.(ƒåÑ¸ùÿÿÿÿ
+<	java:S131r""Add a default case to this switch.(ƒåÑ¸ùÿÿÿÿ
+G
+java:S1172˜"1Remove this unused method parameter "mouseEvent".(”Æ?
+\
+java:S1612 "FReplace this lambda with method reference 'primaryStage::sizeToScene'.(ÚÖ¥T
+I
+java:S1172£"2Remove this unused method parameter "actionEvent".(Ïô„
+m
+java:S1104"WMake rootContext a static final constant or non-public and provide accessors if needed.(Òäîÿ
+g
+java:S1104"RMake imgAdd a static final constant or non-public and provide accessors if needed.(†ş=
+n
+java:S1104 "SMake imgBack a static final constant or non-public and provide accessors if needed.(Ùç¢Üÿÿÿÿÿ
+x
+java:S1104!"]Make imgCustomerSearch a static final constant or non-public and provide accessors if needed.(›ãİÛÿÿÿÿÿ
+k
+java:S1104""UMake imgUpdate a static final constant or non-public and provide accessors if needed.(­»ÔÇ
+n
+java:S1104#"XMake imgSelectAll a static final constant or non-public and provide accessors if needed.(…¬Ğâ
+k
+java:S1104$"UMake imgDelete a static final constant or non-public and provide accessors if needed.(ô‚Ó›
+i
+java:S1104%"SMake lblMenu a static final constant or non-public and provide accessors if needed.(Õ¦à
+u
+java:S1104&"ZMake lblDescription a static final constant or non-public and provide accessors if needed.(ñÍã×ÿÿÿÿÿ
