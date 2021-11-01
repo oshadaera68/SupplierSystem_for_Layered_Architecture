@@ -79,7 +79,7 @@
 	<columnHeader>
 		<band height="31" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="81" height="30" uuid="b10a5d03-c850-4da2-9ee3-51dc94851c7e">
+				<reportElement mode="Opaque" x="0" y="0" width="81" height="30" forecolor="#050505" backcolor="#FFFFFF" uuid="b10a5d03-c850-4da2-9ee3-51dc94851c7e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8e000159-d137-45f8-af57-1336e6ef731c"/>
 				</reportElement>
 				<box leftPadding="5">
@@ -88,11 +88,13 @@
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[CustID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="81" y="0" width="79" height="30" uuid="cb72b60e-4a15-4d0e-915c-cb2574040f24">
+				<reportElement mode="Opaque" x="81" y="0" width="79" height="30" forecolor="#050505" backcolor="#FFFFFF" uuid="cb72b60e-4a15-4d0e-915c-cb2574040f24">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d7f092b6-a0f1-4127-8596-98a9b232c4fd"/>
 				</reportElement>
 				<box leftPadding="5">
@@ -101,11 +103,13 @@
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[CustTitle]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="160" y="0" width="79" height="30" uuid="451d2699-c59b-48e6-9e64-5018d75de20c">
+				<reportElement mode="Opaque" x="160" y="0" width="79" height="30" forecolor="#050505" backcolor="#FFFFFF" uuid="451d2699-c59b-48e6-9e64-5018d75de20c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="33a91325-1229-41d6-9605-9ffcb5436a57"/>
 				</reportElement>
 				<box leftPadding="5">
@@ -114,11 +118,13 @@
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[CustName]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="239" y="0" width="79" height="30" uuid="e4bcc12e-43fe-4d25-a5c7-b6d63c7e48a8">
+				<reportElement mode="Opaque" x="239" y="0" width="79" height="30" forecolor="#050505" backcolor="#FFFFFF" uuid="e4bcc12e-43fe-4d25-a5c7-b6d63c7e48a8">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5287891c-6b3a-4c86-bd57-0a5265299b35"/>
 				</reportElement>
 				<box leftPadding="5">
@@ -127,11 +133,13 @@
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
 				<text><![CDATA[CustAddress]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="318" y="0" width="79" height="30" uuid="03c0555a-cde5-48b3-9c1d-d26c8aee4d6d">
+				<reportElement mode="Opaque" x="318" y="0" width="79" height="30" forecolor="#050505" backcolor="#FFFFFF" uuid="03c0555a-cde5-48b3-9c1d-d26c8aee4d6d">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5ed366fe-fca8-4587-afac-41f5cd1e54a6"/>
 				</reportElement>
 				<box leftPadding="5">
@@ -140,11 +148,13 @@
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[City]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="397" y="0" width="79" height="30" uuid="01f25815-7164-481e-9e65-152a0c76ea62">
+				<reportElement mode="Opaque" x="397" y="0" width="79" height="30" forecolor="#050505" backcolor="#FFFFFF" uuid="01f25815-7164-481e-9e65-152a0c76ea62">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="387d33e4-0436-47cb-b78d-0abaf1fdd0b3"/>
 				</reportElement>
 				<box leftPadding="5">
@@ -153,11 +163,13 @@
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[Province]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="476" y="0" width="79" height="30" uuid="3f59b09a-3b00-4aa6-97fa-35ea6cad1bf1">
+				<reportElement mode="Opaque" x="476" y="0" width="79" height="30" forecolor="#050505" backcolor="#FFFFFF" uuid="3f59b09a-3b00-4aa6-97fa-35ea6cad1bf1">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dcab71aa-b28f-44b8-a0df-906fd0b069f6"/>
 				</reportElement>
 				<box leftPadding="5">
@@ -166,7 +178,9 @@
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[PostalCode]]></text>
 			</staticText>
 		</band>
