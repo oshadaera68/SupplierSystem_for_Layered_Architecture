@@ -1,7 +1,6 @@
 package bo.custom.impl;
 
 import bo.custom.ItemBo;
-import dao.Custom.Impl.ItemDaoImpl;
 import dao.Custom.ItemDao;
 import dao.DAOFactory;
 import entity.Item;
@@ -33,7 +32,7 @@ public class ItemBoImpl implements ItemBo {
     }
 
     @Override
-     public boolean updateItem(Item item) throws SQLException, ClassNotFoundException {
+    public boolean updateItem(Item item) throws SQLException, ClassNotFoundException {
         return itemDao.update(item);
     }
 }

@@ -45,7 +45,6 @@ public class AdminViewFormController {
                 case "imgRes":
                     root = FXMLLoader.load(getClass().getResource("/views/SystemReportsForm.fxml"));
                     break;
-
                 case "imgItem":
                     root = FXMLLoader.load(getClass().getResource("/views/ManageItemForm.fxml"));
                     break;
@@ -76,7 +75,6 @@ public class AdminViewFormController {
                     lblMenu.setText("System Reports");
                     lblDescription.setText("Managing System Reports.");
                     break;
-
                 case "imgItem":
                     lblMenu.setText("Items");
                     lblDescription.setText("Managing Items.");
@@ -108,9 +106,7 @@ public class AdminViewFormController {
             icon.setEffect(null);
             lblMenu.setText("Welcome To Supermarket System-Admin Section");
             lblDescription.setText("Please select one of above main operations to proceed");
-
         }
-
     }
 
     public void navigateToBack(MouseEvent mouseEvent) throws IOException {

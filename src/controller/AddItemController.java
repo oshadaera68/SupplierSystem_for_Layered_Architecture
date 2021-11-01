@@ -81,7 +81,6 @@ public class AddItemController {
         txtPackSize.clear();
         txtUnitPrice.clear();
         txtQty.clear();
-
     }
 
     public void txtFieldKeyReleased(KeyEvent keyEvent) {

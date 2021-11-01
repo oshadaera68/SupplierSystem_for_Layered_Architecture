@@ -70,7 +70,6 @@ public class DashBoardFormController {
                     lblMenu.setText("Admin Form");
                     lblDescription.setText("Add Items and Manage Reports.");
                     break;
-
                 case "imgCashier":
                     lblMenu.setText("Cashier's Form");
                     lblDescription.setText("Add Customers and Order Placing.");
@@ -115,7 +114,6 @@ public class DashBoardFormController {
                 case "imgAdmin":
                     root = FXMLLoader.load(getClass().getResource("/views/AdminViewForm.fxml"));
                     break;
-
                 case "imgCashier":
                     root = FXMLLoader.load(getClass().getResource("/views/CashierForm.fxml"));
                     break;

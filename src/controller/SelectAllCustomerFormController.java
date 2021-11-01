@@ -36,7 +36,6 @@ public class SelectAllCustomerFormController {
 
     public void initialize() {
 
-
         colCustomerId.setCellValueFactory(new PropertyValueFactory<>("Id"));
         colCustomerTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
         colCustomerName.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -46,12 +45,10 @@ public class SelectAllCustomerFormController {
         colPostalCode.setCellValueFactory(new PropertyValueFactory<>("PostalCode"));
 
         try {
-
             ArrayList<Customer> allCustomers = customerBo.getAllCustomer();
             for (Customer allCustomer : allCustomers) {
                 tblCustomer.getItems().add(new CustomerTm(allCustomer.getCustID(), allCustomer.getCusTitle(), allCustomer.getCustName(), allCustomer.getCustAddress(), allCustomer.getCity(), allCustomer.getProvince(), allCustomer.getPostalcode()));
             }
-
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

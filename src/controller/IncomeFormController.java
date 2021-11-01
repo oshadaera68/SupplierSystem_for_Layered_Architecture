@@ -54,7 +54,6 @@ public class IncomeFormController {
         } catch (JRException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
     public void annualyIncomeOnAction(MouseEvent mouseEvent) {
@@ -66,7 +65,6 @@ public class IncomeFormController {
         } catch (JRException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
     public void customerWiseIncomeOnAction(MouseEvent mouseEvent) {
@@ -78,6 +76,5 @@ public class IncomeFormController {
         } catch (JRException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 }

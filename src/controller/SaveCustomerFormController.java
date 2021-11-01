@@ -4,6 +4,7 @@ import bo.custom.BoFactory;
 import bo.custom.CustomerBo;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dto.CustomerDto;
 import entity.Customer;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -19,7 +20,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import dto.CustomerDto;
 import util.ValidationUtil;
 
 import java.io.IOException;
@@ -29,6 +29,7 @@ import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
 public class SaveCustomerFormController {
+    private final CustomerBo customerBo = (CustomerBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.CUSTOMER);
     public JFXTextField txtId;
     public JFXTextField txtTitle;
     public JFXTextField txtName;
@@ -48,9 +49,8 @@ public class SaveCustomerFormController {
     Pattern cityRegEx = Pattern.compile("^[A-z]{4,20}$");
     Pattern provinceRegEx = Pattern.compile("^[A-z ]{4,20}$");
     Pattern postalCodeRegEx = Pattern.compile("^[0-9]{4,9}$");
-    private final CustomerBo customerBo = (CustomerBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.CUSTOMER);
-    public void initialize() {
 
+    public void initialize() {
         btnSaveCus.setDisable(true);
         storeValidate();
     }
@@ -71,7 +71,6 @@ public class SaveCustomerFormController {
                 txtId.getText(), txtTitle.getText(), txtName.getText(), txtAddress.getText(),
                 txtCity.getText(), txtProvince.getText(), txtPostalCode.getText()
         );
-
         Customer customer = new Customer(c1.getId(), c1.getTitle(), c1.getName(), c1.getAddress(), c1.getCity(), c1.getProvince(), c1.getPostalCode());
         boolean addCustomer = customerBo.addCustomer(customer);
 
@@ -99,7 +98,6 @@ public class SaveCustomerFormController {
                 TextField errorText = (TextField) response;
                 errorText.requestFocus();
             } else if (response instanceof Boolean) {
-                // new Alert(Alert.AlertType.INFORMATION, "Added").showAndWait();
             }
         }
     }

@@ -73,7 +73,6 @@ public class CustomerDeleteFormController {
     }
 
     public void deleteCustomerOnAction(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
-
         boolean deleteCustomer = customerBo.deleteCustomer(txtId.getText());
 
         if (deleteCustomer) {
@@ -89,7 +88,6 @@ public class CustomerDeleteFormController {
         txtCity.clear();
         txtProvince.clear();
         txtPostalCode.clear();
-
     }
 
     public void txtFieldKeyRelease(KeyEvent keyEvent) {
@@ -100,7 +98,6 @@ public class CustomerDeleteFormController {
                 TextField errorText = (TextField) response;
                 errorText.requestFocus();
             } else if (response instanceof Boolean) {
-                // new Alert(Alert.AlertType.INFORMATION, "Added").showAndWait();
             }
         }
     }

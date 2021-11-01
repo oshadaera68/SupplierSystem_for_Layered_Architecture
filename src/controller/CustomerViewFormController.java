@@ -69,22 +69,18 @@ public class CustomerViewFormController {
                     lblMenu.setText("Add Customers");
                     lblDescription.setText("Add Customers in the system.");
                     break;
-
                 case "imgUpdate":
                     lblMenu.setText("Update Customers");
                     lblDescription.setText("Update Customers in the system.");
                     break;
-
                 case "imgDelete":
                     lblMenu.setText("Delete Customers");
                     lblDescription.setText("Delete Customers in the system.");
                     break;
-
                 case "imgSelectAll":
                     lblMenu.setText("All Customers Table");
                     lblDescription.setText("All Customers On the table in the system.");
                     break;
-
                 case "imgCustomerSearch":
                     lblMenu.setText("Search Customers");
                     lblDescription.setText("Search Customers in the system");
@@ -115,19 +111,15 @@ public class CustomerViewFormController {
                 case "imgAdd":
                     root = FXMLLoader.load(getClass().getResource("/views/SaveCustomerForm.fxml"));
                     break;
-
                 case "imgUpdate":
                     root = FXMLLoader.load(getClass().getResource("/views/UpdateCustomerForm.fxml"));
                     break;
-
                 case "imgDelete":
                     root = FXMLLoader.load(getClass().getResource("/views/CustomerDeleteForm.fxml"));
                     break;
-
                 case "imgSelectAll":
                     root = FXMLLoader.load(getClass().getResource("/views/SelectAllCustomerForm.fxml"));
                     break;
-
                 case "imgCustomerSearch":
                     root = FXMLLoader.load(getClass().getResource("/views/SearchCustomerForm.fxml"));
                     break;
@@ -165,10 +157,9 @@ public class CustomerViewFormController {
             JasperDesign load = JRXmlLoader.load(getClass().getResourceAsStream("../views/report/Customer_Details.jrxml"));
             JasperReport report = JasperCompileManager.compileReport(load);
             JasperPrint jasperPrint = JasperFillManager.fillReport(report, null, DbConnection.getInstance().getConnection());
-            JasperViewer.viewReport(jasperPrint,false);
+            JasperViewer.viewReport(jasperPrint, false);
         } catch (JRException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 }

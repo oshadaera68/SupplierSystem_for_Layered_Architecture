@@ -26,7 +26,7 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public ArrayList<Item>getAll() throws SQLException, ClassNotFoundException {
+    public ArrayList<Item> getAll() throws SQLException, ClassNotFoundException {
         ArrayList<Item> allItems = new ArrayList();
         ResultSet rst = CrudUtil.executeQuery("SELECT * FROM Item");
         while (rst.next()) {

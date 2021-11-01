@@ -34,8 +34,6 @@ public class ItemSelectAllFormController {
     public AnchorPane rootContext;
 
     public void initialize() {
-
-
         colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
         colDesc.setCellValueFactory(new PropertyValueFactory<>("Description"));
         colPackSize.setCellValueFactory(new PropertyValueFactory<>("packSize"));

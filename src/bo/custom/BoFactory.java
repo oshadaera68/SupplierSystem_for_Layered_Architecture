@@ -18,13 +18,10 @@ public class BoFactory {
         switch (types) {
             case ITEM:
                 return new ItemBoImpl();
-
             case CUSTOMER:
                 return new CustomerBoImpl();
-
             case PURCHASEORDER:
                 return new OrderBoImpl();
-
             default:
                 return null;
         }

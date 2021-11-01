@@ -9,7 +9,6 @@ import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -36,7 +35,6 @@ public class SplashScreenFormController {
                     progressBar.setProgress(x);
                     progressRange.setProgress(x);
 
-
                     if (i * 10 == 100) {
                         progressRange.setVisible(true);
                         progressRange.setProgress(1);
@@ -60,7 +58,6 @@ public class SplashScreenFormController {
                     Scene scene = new Scene(root);
                     stage.setScene(scene);
                     stage.setTitle("Supermarket System v0.1.0 | MINDARTLK Creations");
-//                    stage.initStyle(StageStyle.UNDECORATED);
                     stage.show();
                     rootContext.getScene().getWindow().hide();
                 });

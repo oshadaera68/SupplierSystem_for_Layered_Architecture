@@ -46,11 +46,9 @@ public class CashierFormController {
                 case "imgCustomer":
                     root = FXMLLoader.load(getClass().getResource("/views/CustomerViewForm.fxml"));
                     break;
-
                 case "imgPlaceOrder":
                     root = FXMLLoader.load(getClass().getResource("/views/PlaceOrderForm.fxml"));
                     break;
-
             }
 
             if (root != null) {
@@ -78,7 +76,6 @@ public class CashierFormController {
                     lblMenu.setText("Customers");
                     lblDescription.setText("Managing Customers in this System.");
                     break;
-
                 case "imgPlaceOrder":
                     lblMenu.setText("Place Order");
                     lblDescription.setText("Placing a Orders in this System.");
@@ -125,5 +122,4 @@ public class CashierFormController {
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
-
 }

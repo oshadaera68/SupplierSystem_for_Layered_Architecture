@@ -54,19 +54,15 @@ public class ManageItemFormController {
                 case "imgAdd":
                     root = FXMLLoader.load(getClass().getResource("/views/AddItemForm.fxml"));
                     break;
-
                 case "imgUpdate":
                     root = FXMLLoader.load(getClass().getResource("/views/UpdateItemForm.fxml"));
                     break;
-
                 case "imgDelete":
                     root = FXMLLoader.load(getClass().getResource("/views/DeleteItemForm.fxml"));
                     break;
-
                 case "imgSelectAll":
                     root = FXMLLoader.load(getClass().getResource("/views/ItemSelectAllForm.fxml"));
                     break;
-
                 case "imgSearch":
                     root = FXMLLoader.load(getClass().getResource("/views/SearchItemForm.fxml"));
                     break;
@@ -97,22 +93,18 @@ public class ManageItemFormController {
                     lblMenu.setText("Add Items");
                     lblDescription.setText("Add an Item in system.");
                     break;
-
                 case "imgUpdate":
                     lblMenu.setText("Update Items");
                     lblDescription.setText("Update an Item in System.");
                     break;
-
                 case "imgDelete":
                     lblMenu.setText("Delete Items");
                     lblDescription.setText("Deleting an item in system.");
                     break;
-
                 case "imgSelectAll":
                     lblMenu.setText("All Items Table");
                     lblDescription.setText("All Items Show On the Table in system.");
                     break;
-
                 case "imgSearch":
                     lblMenu.setText("Search Items");
                     lblDescription.setText("Find an Items in system.");

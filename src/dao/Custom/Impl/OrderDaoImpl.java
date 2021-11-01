@@ -1,7 +1,5 @@
 package dao.Custom.Impl;
 
-import bo.custom.BoFactory;
-import bo.custom.OrderBo;
 import dao.Custom.OrderDao;
 import db.DbConnection;
 import entity.OrderDetail;
@@ -19,9 +17,9 @@ public class OrderDaoImpl implements OrderDao {
         Connection con = DbConnection.getInstance().getConnection();
         try {
             con.setAutoCommit(false);
-            boolean exu = CrudUtil.executeUpdate("INSERT INTO Orders VALUES(?,?,?,?,?)", o.getOrderID(), o.getOrderDate(), o.getCustID(), o.getOrderTime(), o.getCost());
+            boolean executeUpdate = CrudUtil.executeUpdate("INSERT INTO Orders VALUES(?,?,?,?,?)", o.getOrderID(), o.getOrderDate(), o.getCustID(), o.getOrderTime(), o.getCost());
 
-            if (exu) {
+            if (executeUpdate) {
                 if (saveOrderDetails(o.getOrderID(), orderDetails)) {
                     con.commit();
                     return true;
@@ -50,7 +48,7 @@ public class OrderDaoImpl implements OrderDao {
     @Override
     public boolean saveOrderDetails(String id, ArrayList<OrderDetail> details) throws SQLException, ClassNotFoundException {
         for (OrderDetail temp : details) {
-            boolean update = CrudUtil.executeUpdate("INSERT INTO OrderDetail VALUES (?,?,?,?)", temp.getOrderID(),temp.getItemCode(),temp.getOrderQty(),temp.getPrice());
+            boolean update = CrudUtil.executeUpdate("INSERT INTO OrderDetail VALUES (?,?,?,?)", temp.getOrderID(), temp.getItemCode(), temp.getOrderQty(), temp.getPrice());
 
             if (update) {
                 if (updateQty(temp.getItemCode(), temp.getOrderQty())) {
@@ -82,6 +80,6 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     private boolean updateQty(String code, int qty) throws SQLException, ClassNotFoundException {
-        return CrudUtil.executeUpdate("UPDATE Item SET qtyOnHand=(qtyOnHand - ?)WHERE ItemCode=?",qty,code);
+        return CrudUtil.executeUpdate("UPDATE Item SET qtyOnHand=(qtyOnHand - ?)WHERE ItemCode=?", qty, code);
     }
 }

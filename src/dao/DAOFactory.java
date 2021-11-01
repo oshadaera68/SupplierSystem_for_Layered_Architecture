@@ -18,13 +18,10 @@ public class DAOFactory {
         switch (daoTypes) {
             case CUSTOMER:
                 return new CustomerDaoImpl();
-
             case ITEM:
                 return new ItemDaoImpl();
-
             case ORDER:
                 return new OrderDaoImpl();
-                
             default:
                 return null;
         }

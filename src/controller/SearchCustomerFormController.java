@@ -44,8 +44,6 @@ public class SearchCustomerFormController {
     private final CustomerBo customerBo = (CustomerBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.CUSTOMER);
 
     public void initialize() {
-
-
         btnSearchCustomer.setDisable(true);
         storeValidate();
     }
@@ -58,13 +56,11 @@ public class SearchCustomerFormController {
 
         String cusId = txtId.getText();
         Customer customer = customerBo.searchById(cusId);
-
         if (customer == null) {
             new Alert(Alert.AlertType.WARNING, "Empty Result Set", ButtonType.OK).showAndWait();
         } else {
             setData(customer);
         }
-
     }
 
     void setData(Customer c) {
@@ -85,7 +81,6 @@ public class SearchCustomerFormController {
                 TextField errorText = (TextField) response;
                 errorText.requestFocus();
             } else if (response instanceof Boolean) {
-                // new Alert(Alert.AlertType.INFORMATION, "Added").showAndWait();
             }
         }
     }

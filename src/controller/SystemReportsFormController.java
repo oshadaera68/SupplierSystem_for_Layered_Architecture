@@ -44,7 +44,6 @@ public class SystemReportsFormController {
                 case "imgProfit":
                     root = FXMLLoader.load(getClass().getResource("/views/IncomeForm.fxml"));
                     break;
-
                 case "imgItem":
                     root = FXMLLoader.load(getClass().getResource("/views/MovableItemForm.fxml"));
                     break;
@@ -75,7 +74,6 @@ public class SystemReportsFormController {
                     lblMenu.setText("System Reports");
                     lblDescription.setText("Managing Reports in the system.");
                     break;
-
                 case "imgItem":
                     lblMenu.setText("Movable items");
                     lblDescription.setText("Movable Items in this system.");

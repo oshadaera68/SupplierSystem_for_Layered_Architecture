@@ -103,7 +103,6 @@ public class UpdateItemFormController {
                 TextField errorText = (TextField) response;
                 errorText.requestFocus();
             } else if (response instanceof Boolean) {
-                // new Alert(Alert.AlertType.INFORMATION, "Added").showAndWait();
             }
         }
     }

@@ -36,6 +36,7 @@ public class DeleteItemController {
     public JFXButton btnDelete;
     public AnchorPane rootContext;
     public ImageView imgBack;
+
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
     Pattern itemIdRegEx = Pattern.compile("^(I00-)[0-9]{3,20}$");
 
@@ -68,7 +69,6 @@ public class DeleteItemController {
 
     public void deleteItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         boolean delete = itemBo.deleteItem(txtItemCode.getText());
-
         if (delete) {
             new Alert(Alert.AlertType.CONFIRMATION, "Deleted").show();
         } else {
@@ -80,7 +80,6 @@ public class DeleteItemController {
         txtPackSize.clear();
         txtUnitPrice.clear();
         txtQty.clear();
-
     }
 
     public void txtFieldKeyRelease(KeyEvent keyEvent) {
@@ -91,7 +90,6 @@ public class DeleteItemController {
                 TextField errorText = (TextField) response;
                 errorText.requestFocus();
             } else if (response instanceof Boolean) {
-                // new Alert(Alert.AlertType.INFORMATION, "Added").showAndWait();
             }
         }
     }
