@@ -1,0 +1,17 @@
+
+M
+java:S1172"1Remove this unused method parameter "mouseEvent".(”Æ?8ƒŠ²ãÍ/
+b
+java:S1612""FReplace this lambda with method reference 'primaryStage::sizeToScene'.(ÚÖ¥T8‰Š²ãÍ/
+S
+java:S1172%"1Remove this unused method parameter "mouseEvent".(ã·†ûÿÿÿÿ8ŠŠ²ãÍ/
+N
+java:S11720"1Remove this unused method parameter "mouseEvent".(ÊØÅ‡8Š²ãÍ/
+N
+java:S1172;"1Remove this unused method parameter "mouseEvent".(…²”¼8Š²ãÍ/
+N
+java:S1172F"1Remove this unused method parameter "mouseEvent".(€›™À8‘Š²ãÍ/
+t
+java:S1104"WMake rootContext a static final constant or non-public and provide accessors if needed.(Òäîÿ8“Š²ãÍ/
+u
+java:S1104"SMake imgBack a static final constant or non-public and provide accessors if needed.(Ùç¢Üÿÿÿÿÿ8“Š²ãÍ/

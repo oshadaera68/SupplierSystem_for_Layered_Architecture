@@ -1,6 +1,6 @@
 package controller;
 
-import bo.custom.BoFactory;
+import bo.BoFactory;
 import bo.custom.CustomerBo;
 import entity.Customer;
 import javafx.application.Platform;

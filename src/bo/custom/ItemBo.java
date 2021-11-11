@@ -1,11 +1,12 @@
 package bo.custom;
 
+import bo.SuperBo;
 import entity.Item;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface ItemBo extends SuperBo{
+public interface ItemBo extends SuperBo {
     boolean addItem(Item item) throws SQLException, ClassNotFoundException;
 
     Item searchById(String itemId) throws SQLException, ClassNotFoundException;

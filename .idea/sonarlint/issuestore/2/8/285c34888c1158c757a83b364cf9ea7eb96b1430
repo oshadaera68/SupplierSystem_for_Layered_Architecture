@@ -1,0 +1,24 @@
+
+M
+java:S11725"2Remove this unused method parameter "actionEvent".(€Œïùúÿÿÿÿ
+E	java:S108N")Either remove or fill this block of code.(Û˜›¾8ÅÇ¸ãÍ/
+F
+java:S1172S"1Remove this unused method parameter "mouseEvent".(”Æ?
+[
+java:S1612["FReplace this lambda with method reference 'primaryStage::sizeToScene'.(ÚÖ¥T
+r
+java:S1104 "WMake txtItemCode a static final constant or non-public and provide accessors if needed.(øÜÜ¡üÿÿÿÿ
+n
+java:S1104!"SMake txtDesc a static final constant or non-public and provide accessors if needed.(ÀĞÓ¿ûÿÿÿÿ
+r
+java:S1104""WMake txtPackSize a static final constant or non-public and provide accessors if needed.(ÃŞˆüÿÿÿÿ
+s
+java:S1104#"XMake txtUnitPrice a static final constant or non-public and provide accessors if needed.(©›×Ğùÿÿÿÿ
+m
+java:S1104$"RMake txtQty a static final constant or non-public and provide accessors if needed.(„¬‘³øÿÿÿÿ
+k
+java:S1104%"UMake btnSearch a static final constant or non-public and provide accessors if needed.(ã‹—×
+m
+java:S1104&"WMake rootContext a static final constant or non-public and provide accessors if needed.(Òäîÿ
+n
+java:S1104'"SMake imgBack a static final constant or non-public and provide accessors if needed.(Ùç¢Üÿÿÿÿÿ

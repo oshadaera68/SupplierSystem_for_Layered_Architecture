@@ -1,10 +1,9 @@
-package bo.custom.impl;
+package bo.custom.Impl;
 
 import bo.custom.CustomerBo;
 import dao.Custom.CustomerDao;
 import dao.DAOFactory;
 import entity.Customer;
-import util.CrudUtil;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

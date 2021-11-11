@@ -1,7 +1,7 @@
 package controller;
 
 
-import bo.custom.BoFactory;
+import bo.BoFactory;
 import bo.custom.ItemBo;
 import entity.Item;
 import javafx.application.Platform;

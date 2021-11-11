@@ -1,0 +1,28 @@
+
+O
+java:S11727"2Remove this unused method parameter "actionEvent".(ıŸãÚ8™©‘ÕÍ/
+E	java:S108S")Either remove or fill this block of code.(Û˜›¾8¯“ºãÍ/
+M
+java:S1172X"1Remove this unused method parameter "mouseEvent".(”Æ?8¦©‘ÕÍ/
+b
+java:S1612`"FReplace this lambda with method reference 'primaryStage::sizeToScene'.(ÚÖ¥T8Ù©‘ÕÍ/
+n
+java:S1104 "QMake txtId a static final constant or non-public and provide accessors if needed.(Ú…á¬8İ©‘ÕÍ/
+p
+java:S1104!"TMake txtTitle a static final constant or non-public and provide accessors if needed.(çØÇ#8Ş©‘ÕÍ/
+u
+java:S1104""SMake txtName a static final constant or non-public and provide accessors if needed.(¨äİìÿÿÿÿÿ8Ş©‘ÕÍ/
+x
+java:S1104#"VMake txtAddress a static final constant or non-public and provide accessors if needed.(©ûîùıÿÿÿÿ8Ş©‘ÕÍ/
+p
+java:S1104$"SMake txtCity a static final constant or non-public and provide accessors if needed.(Õ•÷8ß©‘ÕÍ/
+t
+java:S1104%"WMake txtProvince a static final constant or non-public and provide accessors if needed.(€×¡î8ß©‘ÕÍ/
+{
+java:S1104&"YMake txtPostalCode a static final constant or non-public and provide accessors if needed.(ø®ô”ùÿÿÿÿ8ß©‘ÕÍ/
+z
+java:S1104'"]Make btnSearchCustomer a static final constant or non-public and provide accessors if needed.(Ç©ì8à©‘ÕÍ/
+t
+java:S1104("WMake rootContext a static final constant or non-public and provide accessors if needed.(Òäîÿ8à©‘ÕÍ/
+u
+java:S1104)"SMake imgBack a static final constant or non-public and provide accessors if needed.(Ùç¢Üÿÿÿÿÿ8à©‘ÕÍ/

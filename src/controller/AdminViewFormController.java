@@ -116,6 +116,8 @@ public class AdminViewFormController {
         Stage primaryStage = (Stage) (this.rootContext.getScene().getWindow());
         primaryStage.setScene(scene);
         primaryStage.setTitle("Supermarket System v0.1.0 | MINDARTLK Creations");
+        primaryStage.setResizable(false);
+        primaryStage.setFullScreen(false);
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
     }

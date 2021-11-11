@@ -139,9 +139,9 @@ public class DashBoardFormController {
         Parent load = FXMLLoader.load(resource);
         Stage stage = new Stage();
         stage.setScene(new Scene(load));
-        stage.setFullScreen(false);
+        stage.setFullScreen(true);
         stage.setTitle("About Us | Supermarket System v0.1.0 | MINDARTLK");
-        stage.setResizable(false);
+        stage.setResizable(true);
         stage.show();
     }
 

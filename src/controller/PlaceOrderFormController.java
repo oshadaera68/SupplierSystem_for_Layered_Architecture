@@ -1,6 +1,6 @@
 package controller;
 
-import bo.custom.BoFactory;
+import bo.BoFactory;
 import bo.custom.CustomerBo;
 import bo.custom.ItemBo;
 import bo.custom.OrderBo;

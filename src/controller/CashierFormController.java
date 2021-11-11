@@ -118,6 +118,8 @@ public class CashierFormController {
         Scene scene = new Scene(root);
         Stage primaryStage = (Stage) (this.rootContext.getScene().getWindow());
         primaryStage.setScene(scene);
+        primaryStage.setFullScreen(false);
+        primaryStage.setResizable(false);
         primaryStage.setTitle("Supermarket System v0.1.0 | MINDARTLK Creations");
         primaryStage.centerOnScreen();
         Platform.runLater(() -> primaryStage.sizeToScene());
