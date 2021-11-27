@@ -8,14 +8,13 @@ import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import util.FactoryConfig;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerDaoImpl implements CustomerDao {
 
     @Override
-    public boolean add(Customer c){
+    public boolean add(Customer c) {
        /* c.setCustID(c.getCustID());
         c.setCusTitle(c.getCusTitle());
         c.setCustName(c.getCustName());
@@ -24,19 +23,19 @@ public class CustomerDaoImpl implements CustomerDao {
         c.setCity(c.getCity());
         c.setProvince(c.getProvince());
 */
-        Session session = FactoryConfig.getInstance().getSession();
-        Transaction trans1 = session.beginTransaction();
         /*String hql = "INSERT INTO Customer VALUES(custID:=custID,"+"cusTitle=:cusTitle,"+"custName=:custName,"+"custAddress=:custAddress,"+"city=:city,"+"province=:province,"+"postalCode=:postalCode)";
         Query query = session.createQuery(hql);*/
+        /* return CrudUtil.executeUpdate(, c.getCustID(), c.getCusTitle(), c.getCustName(), c.getCustAddress(), c.getCity(), c.getProvince(), c.getPostalcode());*/
+        Session session = FactoryConfig.getInstance().getSession();
+        Transaction trans1 = session.beginTransaction();
         session.save(c);
         trans1.commit();
         session.close();
-        /* return CrudUtil.executeUpdate(, c.getCustID(), c.getCusTitle(), c.getCustName(), c.getCustAddress(), c.getCity(), c.getProvince(), c.getPostalcode());*/
         return true;
     }
 
     @Override
-    public boolean delete(String id){
+    public boolean delete(String id) {
         /*Customer customer = new Customer();
         customer.setCustID(id);*/
         Session session = FactoryConfig.getInstance().getSession();
@@ -48,13 +47,16 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public boolean update(Customer c){
+    public boolean update(Customer c) {
         /* return CrudUtil.executeUpdate("UPDATE Customer SET CustTitle=?,CustName=?, CustAddress=?, City=?, Province=?, PostalCode=?  WHERE CustID=?", c.getCusTitle(), c.getCustName(), c.getCustAddress(), c.getCity(), c.getProvince(), c.getPostalcode(), c.getCustID());
          */
         Session session = FactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-/*
-        String hql = "UPDATE Customer  SET cusTitle=:cusTitle," + "custName=:custName," + "custAddress=:custAddress," + "city=:city," + "province=:province," + " postalCode=:postalCode" + " WHERE custID=:custID";
+        session.update(c);
+        transaction.commit();
+        session.close();
+        return true;
+        /*      String hql = "UPDATE Customer  SET cusTitle=:cusTitle," + "custName=:custName," + "custAddress=:custAddress," + "city=:city," + "province=:province," + " postalCode=:postalCode" + " WHERE custID=:custID";
         Query query = session.createQuery(hql);
         query.setParameter("cusTitle", c.getCusTitle());
         query.setParameter("custName", c.getCustName());
@@ -69,14 +71,10 @@ public class CustomerDaoImpl implements CustomerDao {
         } else {
             System.out.println("something happened...!");
         }*/
-        session.update(c);
-        transaction.commit();
-        session.close();
-        return true;
     }
 
     @Override
-    public ArrayList<Customer> getAll(){
+    public ArrayList<Customer> getAll() {
         /*ArrayList<Customer> customer = new ArrayList();
         ResultSet rst = CrudUtil.executeQuery("SELECT * FROM Customer");
         while (rst.next()) {
@@ -105,7 +103,7 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public Customer searchById(String id){
+    public Customer searchById(String id) {
        /* ResultSet rst = CrudUtil.executeQuery("SELECT * FROM Customer WHERE CustID=?", id);
         if (rst.next()) {
             return new Customer(
