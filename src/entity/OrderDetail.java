@@ -1,6 +1,12 @@
 package entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class OrderDetail {
+
+    @Id
     private String orderID;
     private String itemCode;
     private int orderQty;

@@ -1,13 +1,20 @@
 package entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+@Entity
 public class Customer {
+
+    @Id
     private String custID;
     private String cusTitle;
     private String custName;
     private String custAddress;
     private String city;
     private String province;
-    private String postalcode;
+    private String postalCode;
 
     public Customer() {
     }
@@ -19,7 +26,7 @@ public class Customer {
         this.custAddress = custAddress;
         this.city = city;
         this.province = province;
-        this.postalcode = postalcode;
+        this.postalCode = postalCode;
     }
 
     public String getCustID() {
@@ -71,10 +78,10 @@ public class Customer {
     }
 
     public String getPostalcode() {
-        return postalcode;
+        return postalCode;
     }
 
-    public void setPostalcode(String postalcode) {
-        this.postalcode = postalcode;
+    public void setPostalcode(String postalCode) {
+        this.postalCode = postalCode;
     }
 }

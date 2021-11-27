@@ -1,8 +1,13 @@
 package entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.ArrayList;
 
+@Entity
 public class Orders {
+
+    @Id
     private String orderID;
     private String orderDate;
     private String custID;
