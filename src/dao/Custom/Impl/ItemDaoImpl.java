@@ -15,7 +15,7 @@ import java.util.List;
 public class ItemDaoImpl implements ItemDao {
 
     @Override
-    public boolean add(Item i) throws SQLException, ClassNotFoundException {
+    public boolean add(Item i){
         /* return CrudUtil.executeUpdate("INSERT INTO Item VALUES(?,?,?,?,?)", i.getItemCode(), i.getDescription(), i.getPackSize(), i.getUnitPrice(), i.getQtyOnHand());*/
         Session session = FactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -26,11 +26,12 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public boolean delete(String id) throws SQLException, ClassNotFoundException {
+    public boolean delete(String id) {
         /*return CrudUtil.executeUpdate("DELETE FROM Item WHERE ItemCode=?", id);*/
         Session session = FactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(id);
+        Item item = session.get(Item.class,id);
+        session.delete(item);
         transaction.commit();
         session.close();
         return true;
@@ -41,14 +42,14 @@ public class ItemDaoImpl implements ItemDao {
         /* return CrudUtil.executeUpdate("UPDATE Item SET Description=?, PackSize=?, UnitPrice=?, QtyOnHand=? WHERE ItemCode=?", i.getDescription(), i.getPackSize(), i.getUnitPrice(), i.getQtyOnHand(), i.getItemCode());*/
         Session session = FactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session.update(i);
+        session.update(i.getItemCode());
         transaction.commit();
         session.close();
         return true;
     }
 
     @Override
-    public ArrayList<Item> getAll() throws SQLException, ClassNotFoundException {
+    public ArrayList<Item> getAll(){
        /* ArrayList<Item> allItems = new ArrayList();
         ResultSet rst = CrudUtil.executeQuery("SELECT * FROM Item");
         while (rst.next()) {
@@ -60,12 +61,12 @@ public class ItemDaoImpl implements ItemDao {
         Transaction transaction = session.beginTransaction();
         Query query = session.createQuery("FROM Item");
         List<Item> result = query.list();
-        for (Item item : result) {
-            item.getItemCode();
-            item.getDescription();
-            item.getPackSize();
-            item.getUnitPrice();
-            item.getQtyOnHand();
+        for (Item i : result) {
+            i.getItemCode();
+            i.getDescription();
+            i.getPackSize();
+            i.getUnitPrice();
+            i.getQtyOnHand();
         }
         transaction.commit();
         session.close();
@@ -73,7 +74,7 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public Item searchById(String id) throws SQLException, ClassNotFoundException {
+    public Item searchById(String id){
         /*ResultSet rst = CrudUtil.executeQuery("SELECT * FROM Item WHERE ItemCode=?", id);
         if (rst.next()) {
             return new Item(
@@ -94,7 +95,7 @@ public class ItemDaoImpl implements ItemDao {
         List<Item> result = sqlQuery.list();
 
         for (Item i : result) {
-            i.getItemCode();
+            i.setItemCode(id);
         }
         transaction.commit();
         session.close();

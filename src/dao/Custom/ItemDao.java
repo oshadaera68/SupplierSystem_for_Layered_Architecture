@@ -1,12 +1,12 @@
 package dao.Custom;
 
-import dao.CrudDao;
+import dao.SuperDao;
 import entity.Item;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface ItemDao extends CrudDao<Item, String> {
+public interface ItemDao extends SuperDao {
     boolean add(Item i) throws SQLException, ClassNotFoundException;
 
     boolean delete(String id) throws SQLException, ClassNotFoundException;

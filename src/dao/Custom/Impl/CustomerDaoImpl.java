@@ -40,7 +40,8 @@ public class CustomerDaoImpl implements CustomerDao {
         customer.setCustID(id);*/
         Session session = FactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(id);
+
+        /*session.delete(id);*/
         transaction.commit();
         session.close();
         return true;
@@ -52,11 +53,7 @@ public class CustomerDaoImpl implements CustomerDao {
          */
         Session session = FactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session.update(c);
-        transaction.commit();
-        session.close();
-        return true;
-        /*      String hql = "UPDATE Customer  SET cusTitle=:cusTitle," + "custName=:custName," + "custAddress=:custAddress," + "city=:city," + "province=:province," + " postalCode=:postalCode" + " WHERE custID=:custID";
+          String hql = "UPDATE Customer  SET cusTitle=:cusTitle," + "custName=:custName," + "custAddress=:custAddress," + "city=:city," + "province=:province," + " postalCode=:postalCode" + " WHERE custID=:custID";
         Query query = session.createQuery(hql);
         query.setParameter("cusTitle", c.getCusTitle());
         query.setParameter("custName", c.getCustName());
@@ -70,7 +67,11 @@ public class CustomerDaoImpl implements CustomerDao {
             System.out.println("Hureee!!!");
         } else {
             System.out.println("something happened...!");
-        }*/
+        }
+        transaction.commit();
+        session.close();
+        return true;
+
     }
 
     @Override
@@ -123,6 +124,7 @@ public class CustomerDaoImpl implements CustomerDao {
         String sql = "SELECT * FROM Customer WHERE custID=:custID";
         NativeQuery sqlQuery = session.createSQLQuery(sql);
         sqlQuery.addEntity(Customer.class);
+        sqlQuery.setParameter("custID",1);
         List<Customer> result = sqlQuery.list();
 
         for (Customer c : result) {
