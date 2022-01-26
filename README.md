@@ -1,10 +1,7 @@
 # SupplierSystem_for_Layered_Architecture
 This system was worked in MVC architecture in last coursework. we converting to the layered architecture in this system.
 
-# CopyRight By
-Copyright @ Oshada Eranga(MINDARTLK creations ahangama)(oshadaera68)
-
-# Using Technologies
+# Using Tools
 - UI - SceneBuilder 8.5.0
 - Database - Mysql Community server 8.0.25 
 - IDE - Intelij Idea 2021.2.2 
